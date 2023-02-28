@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelaef.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Tüm Kullanıcılar</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1>İş Sağlığı ve Güvenliği Platformu</h1>
+		</div>
+		<div>
+			<form th:action="@{/logout}" method="post">
+				<p>
+					Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+				</p>
+				<input type="submit" value="Sign Out" />
+			</form>
+		</div>
+		<div>
+			<h1>Kullanıcı Listesi</h1>
+		</div>
+	
+		<div>
+			<table class="table table-striped table-bordered">
+				<thead class="thead-dark">
+					<tr>
+						<th>Kullanıcı ID</th>
+						<th>E-mail</th>
+						<th>Adı</th>
+						<th>Soyadı</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user: ${listUsers}">
+						<td th:text="${user.id}">User ID</td>
+						<td th:text="${user.email}">E-mail</td>
+						<td th:text="${user.firstName}">First Name</td>
+						<td th:text="${user.lastName}">Last Name</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

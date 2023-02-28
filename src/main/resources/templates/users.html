@@ -13,7 +13,7 @@
 		<div>
 			<form th:action="@{/logout}" method="post">
 				<p>
-					Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+					Hoşgeldin <b>[[${#request.userPrincipal.principal.fullName}]]</b>
 				</p>
 				<input type="submit" value="Sign Out" />
 			</form>
@@ -33,7 +33,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="user: ${listUsers}">
+					<tr th:each="user: ${userList}">
 						<td th:text="${user.id}">User ID</td>
 						<td th:text="${user.email}">E-mail</td>
 						<td th:text="${user.firstName}">First Name</td>

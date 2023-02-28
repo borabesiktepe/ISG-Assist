@@ -38,8 +38,8 @@ public class AppController {
 
     @GetMapping("/list_users")
     public String viewUsersList(Model model) {
-        List<User> listUsers = repo.findAll();
-        model.addAttribute("listUsers", listUsers);
+        List<User> userList = repo.findAll();
+        model.addAttribute("userList", userList);
         return "users";
     }
 }

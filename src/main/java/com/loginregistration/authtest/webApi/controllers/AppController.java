@@ -31,8 +31,10 @@ public class AppController {
     public String processRegister(User user) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(user.getPassword());
+
         user.setPassword(encodedPassword);
         repo.save(user);
+
         return "register_success";
     }
 
@@ -40,6 +42,7 @@ public class AppController {
     public String viewUsersList(Model model) {
         List<User> userList = repo.findAll();
         model.addAttribute("userList", userList);
+
         return "users";
     }
 }

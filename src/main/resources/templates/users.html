@@ -2,46 +2,328 @@
 <html xmlns:th="http://www.thymelaef.org">
 <head>
 	<meta charset="UTF-8">
-	<title>Tüm Kullanıcılar</title>
-	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+	<title>Panelim</title>
 </head>
 <body>
+<nav>
+	<div class="user-button">
+		<a href="http://">
+			<i class="fa-solid fa-helmet-safety"></i>
+			John Doe
+		</a>
+	</div>
+
+	<div class="training-button">
+		<a href="http://">Eğitimler</a>
+	</div>
+
+	<div class="risk-button"><a href="http://">Risk Değerlendirme</a></div>
+
+	<div class="workplace-select">
+		<label>İş yerleri</label>
+		<select>
+			<option value="sirket1">Şirket 1</option>
+			<option value="sirket2">Şirket 2</option>
+			<option value="sirket3">Şirket 3</option>
+			<option value="sirket3">Şirket 4</option>
+		</select>
+	</div>
+
+	<div class="logoff-button"><a href="http://">ÇIKIŞ YAP</a></div>
+</nav>
+<main>
 	<div class="container">
-		<div class="jumbotron text-center">
-			<h1>İş Sağlığı ve Güvenliği Platformu</h1>
+		<h1>Panelim</h1>
+		<div class="workplace-management">
+			<h2>İş Yerlerini Yönet</h2>
+			<ul>
+				<li>Şirket 1</li>
+				<li>Şirket 2</li>
+				<li>Şirket 3</li>
+				<li>Şirket 4</li>
+			</ul>
 		</div>
-		<div>
-			<form th:action="@{/logout}" method="post">
-				<p>
-					Hoşgeldin <b>[[${#request.userPrincipal.principal.fullName}]]</b>
-				</p>
-				<input type="submit" value="Sign Out" />
-			</form>
+		<div class="workplace-controls">
+			<input type="text" placeholder="İş yeri adı giriniz">
+			<a href="http://">Ekle</a>
+			<a href="http://">Çıkar</a>
 		</div>
-		<div>
-			<h1>Kullanıcı Listesi</h1>
-		</div>
-	
-		<div>
-			<table class="table table-striped table-bordered">
-				<thead class="thead-dark">
-					<tr>
-						<th>Kullanıcı ID</th>
-						<th>E-mail</th>
-						<th>Adı</th>
-						<th>Soyadı</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="user: ${userList}">
-						<td th:text="${user.id}">User ID</td>
-						<td th:text="${user.email}">E-mail</td>
-						<td th:text="${user.firstName}">First Name</td>
-						<td th:text="${user.lastName}">Last Name</td>
-					</tr>
-				</tbody>
-			</table>
+		<div class="bottom-menu">
+			<div class="training-management">
+				<h2>Dökümanlarım</h2>
+				<ul>
+					<li>Döküman 1.pdf</li>
+					<li>Döküman 2.docx</li>
+					<li>Döküman 3.pdf</li>
+					<li>Döküman 4.pdf</li>
+				</ul>
+				<div class="training-controls">
+					<input type="text" placeholder="Dökümanlarınıza gözatın...">
+					<a href="http://">Gözat</a>
+					<a href="http://">Yükle</a>
+				</div>
+			</div>
+
+			<div class="notes">
+				<h2>Notlarım</h2>
+				<textarea></textarea>
+				<a href="http://">Kaydet</a>
+			</div>
 		</div>
 	</div>
+</main>
 </body>
+<style>
+	* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', monospace;
+    font-size: 20px;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 340px;
+    background: #FFC20D;
+    border-radius: 0px 60px 60px 0px;
+}
+
+.user-button {
+    margin: 32px 96px 0 23px;
+}
+
+.user-button i {
+    margin-right: 10px;
+}
+
+.user-button a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 24px;
+    color: black;
+    margin-left: 25px;
+    font-weight: bolder;
+}
+
+.training-button {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    width: fit-content;
+    padding: 28px 100px;
+    margin: 88px 28px 0 28px;
+}
+
+.training-button a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.risk-button {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    width: fit-content;
+    padding: 28px 57px;
+    margin: 38px 28px 0 28px;
+}
+
+.risk-button a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.workplace-select {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: 28px;
+}
+
+.workplace-select label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.workplace-select select {
+    background: #FFFFFF;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+    padding: 20px 16px 20px 16px;
+    width: 275px;
+}
+
+.logoff-button {
+    position: absolute;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 28px 90px;
+    left: 28px;
+    bottom: 50px;
+}
+
+.logoff-button a {
+    text-decoration: none;
+    color: #FF0000;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.container {
+    padding-top: 36px;
+    padding-left: 400px;
+}
+
+.workplace-management {
+    margin-top: 58px;
+}
+
+.workplace-management h2 {
+    font-size: 20px;
+}
+
+.workplace-management ul {
+    margin-top: 28px;
+    list-style: none;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 900px;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.workplace-management li {
+    padding: 16px 12px;
+    font-size: 16px;
+}
+
+.workplace-controls {
+    margin-top: 30px;
+}
+
+.workplace-controls input[type=text] {
+    background: #FFFFFF;
+    border: 2px solid #FFC20D;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 20px;
+    margin-right: 15px;
+    width: 500px;
+}
+
+.workplace-controls a {
+    text-decoration: none;
+    color: black;
+    background-color: #FFC20D;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 20px 70px;
+}
+
+.bottom-menu {
+    margin-top: 40px;
+}
+
+.bottom-menu {
+    display: flex;
+}
+
+.training-management {
+    margin-right: 50px;
+}
+
+.training-management h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.training-management ul {
+    list-style: none;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 412px;
+    overflow-y: scroll;
+    max-height: 204px;
+}
+
+.training-management li {
+    padding: 16px 12px;
+    font-size: 16px;
+}
+
+.training-controls {
+    margin-top: 20px;
+}
+
+.training-controls input[type=text] {
+    font-size: 16px;
+    padding: 20px;
+    background: #FFFFFF;
+    border: 2px solid #FFC20D;
+    border-radius: 20px;
+}
+
+.training-controls a {
+    text-decoration: none;
+    color: black;
+    background-color: #FFC20D;
+    font-size: 16px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.notes {
+    display: flex;
+    flex-direction: column;
+}
+
+.notes h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.notes textarea {
+    width: 416px;
+    height: 204px;
+    resize: none;
+    background-color: #FFEDB7;
+    border-radius: 20px;
+    padding: 28px 38px;
+    font-size: 16px;
+}
+
+.notes a {
+    text-decoration: none;
+    color: black;
+    background-color: #FFC20D;
+    font-size: 16px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    width: fit-content;
+    margin-top: 20px;
+}
+</style>
 </html>

@@ -43,6 +43,14 @@ public class AppController {
         List<User> userList = repo.findAll();
         model.addAttribute("userList", userList);
 
+        return "users2";
+    }
+
+    @GetMapping("/user_panel")
+    public String viewUserPanel(Model model) {
+        List<User> userList = repo.findAll();
+        model.addAttribute("userList", userList);
+
         return "users";
     }
 }

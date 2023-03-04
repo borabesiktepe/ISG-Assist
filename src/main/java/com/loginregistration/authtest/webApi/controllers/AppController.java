@@ -43,7 +43,7 @@ public class AppController {
         List<User> userList = repo.findAll();
         model.addAttribute("userList", userList);
 
-        return "users2";
+        return "all_users";
     }
 
     @GetMapping("/user_panel")

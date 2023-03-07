@@ -1,104 +1,107 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymelaef.org">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Anasayfa - Kullanıcı Girişi & Kaydı</title>
+    <meta charset="UTF-8">
+    <title>Anasayfa - Kullanıcı Girişi & Kaydı</title>
 </head>
+
 <body>
-<main>
-	<div class="left">
-		<div class="text">
-			<h1>ISG ASSIST</h1>
-			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nunc arcu,
+    <main>
+        <div class="left">
+            <div class="text">
+                <h1>ISG ASSIST</h1>
+                <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nunc arcu,
                     porttitor in ex luctus, iaculis viverra magna. Quisque sollicitudin gravida nunc, vel lacinia tortor
                     convallis in.</span>
-		</div>
-	</div>
+            </div>
+        </div>
 
-	<div class="right">
-		<div class="navigation">
-			<h1>HOŞ GELDİNİZ</h1>
-			<div class="login"><a th:href="@{/login}">Giriş Yap</a></div>
-			<span>veya</span>
-			<div class="signup"><a th:href="@{/register}">Hesap Oluştur</a></div>
-		</div>
-	</div>
-</main>
+        <div class="right">
+            <div class="navigation">
+                <h1>HOŞ GELDİNİZ</h1>
+                <div class="login"><a th:href="@{/login}">Giriş Yap</a></div>
+                <span>veya</span>
+                <div class="signup"><a th:href="@{/register}">Hesap Oluştur</a></div>
+            </div>
+        </div>
+    </main>
 </body>
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-}
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+    }
 
-body {
-    font-family: 'Montserrat', monospace;
-    font-size: 20px;
-}
+    body {
+        font-family: 'Montserrat', monospace;
+        font-size: 20px;
+    }
 
-main {
-    display: flex;
-}
+    main {
+        display: flex;
+    }
 
-.left {
-    display: flex;
-    background-color: #FFC20D;
-    width: 50%;
-    height: 100vh;
-    border-radius: 0px 60px 60px 0px;
-}
+    .left {
+        display: flex;
+        background-color: #FFC20D;
+        width: 50%;
+        height: 100vh;
+        border-radius: 0px 60px 60px 0px;
+    }
 
-.text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-h1 {
-    font-weight: bold;
-    margin-bottom: 70px;
-}
+    h1 {
+        font-weight: bold;
+        margin-bottom: 70px;
+    }
 
-.description {
-    margin: 0 110px 0 110px;
-}
+    .description {
+        margin: 0 110px 0 110px;
+    }
 
-.right {
-    display: flex;
-    width: 50%;
-    height: 100vh;
-}
+    .right {
+        display: flex;
+        width: 50%;
+        height: 100vh;
+    }
 
-.navigation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 25%;
-}
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: 25%;
+    }
 
-a {
-    text-decoration: none;
-    color: black;
-}
+    a {
+        text-decoration: none;
+        color: black;
+    }
 
-.login {
-    background-color: #FFC20D;
-    padding: 30px 90px;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    margin-bottom: 18px;
-}
+    .login {
+        background-color: #FFC20D;
+        padding: 30px 90px;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        margin-bottom: 18px;
+    }
 
-.signup {
-    background-color: white;
-    padding: 30px 60px;
-    border: 2px solid #FFC20D;
-    border-radius: 20px;
-    margin-top: 18px;
-}
+    .signup {
+        background-color: white;
+        padding: 30px 60px;
+        border: 2px solid #FFC20D;
+        border-radius: 20px;
+        margin-top: 18px;
+    }
 </style>
+
 </html>

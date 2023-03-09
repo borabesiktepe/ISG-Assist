@@ -1,8 +1,11 @@
 package com.loginregistration.authtest.webApi.controllers;
 
+import com.loginregistration.authtest.business.CustomUserDetails;
 import com.loginregistration.authtest.dataAccess.UserRepository;
 import com.loginregistration.authtest.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,6 +53,18 @@ public class AppController {
     public String viewUserPanel(Model model) {
         List<User> userList = repo.findAll();
         model.addAttribute("userList", userList);
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = authentication.getPrincipal();
+
+        String userId = "";
+        if (principal instanceof CustomUserDetails) {
+            userId = ((CustomUserDetails) principal).getUsername();
+        } else {
+            userId = principal.toString();
+        }
+
+        model.addAttribute("userId", userId);
 
         return "users";
     }

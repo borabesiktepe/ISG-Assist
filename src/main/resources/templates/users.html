@@ -13,6 +13,7 @@
             <a th:href="@{/user_panel}">
                 <i class="fa-solid fa-helmet-safety"></i>
                 [[${#request.userPrincipal.principal.fullName}]]
+                <p class="userId" th:text="${userId}"></p>
             </a>
         </div>
 
@@ -28,7 +29,8 @@
                 <option value="sirket1">Şirket 1</option>
                 <option value="sirket2">Şirket 2</option>
                 <option value="sirket3">Şirket 3</option>
-                <option value="sirket3">Şirket 4</option>
+                <option value="sirket4">Şirket 4</option>
+                <option value="sirket5">Şirket 5</option>
             </select>
         </div>
 
@@ -116,6 +118,10 @@
         color: black;
         margin-left: 25px;
         font-weight: bolder;
+    }
+
+    .userId {
+        display: none;
     }
 
     .training-button {

@@ -2,11 +2,13 @@ package com.loginregistration.authtest.business;
 
 import com.loginregistration.authtest.entities.User;
 
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+@Getter
 public class CustomUserDetails implements UserDetails {
     private User user;
 

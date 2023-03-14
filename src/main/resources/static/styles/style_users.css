@@ -204,27 +204,28 @@
         font-size: 16px;
     }
 
-    .training-controls {
-        margin-top: 20px;
-    }
+.training-controls {
+    margin-top: 20px;
+    display: flex;
+}
 
-    .training-controls input[type=text] {
-        font-size: 16px;
-        padding: 20px;
-        background: #FFFFFF;
-        border: 2px solid #FFC20D;
-        border-radius: 20px;
-    }
+.training-controls p {
+    font-size: 16px;
+    border-radius: 20px;
+    align-self: center;
+    margin-right: 25px;
+}
 
-    .training-controls a {
-        text-decoration: none;
-        color: black;
-        background-color: #FFC20D;
-        font-size: 16px;
-        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
-        border-radius: 20px;
-        padding: 20px;
-    }
+.training-controls a {
+    text-decoration: none;
+    color: black;
+    background-color: #FFC20D;
+    font-size: 16px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: 8px;
+}
 
     .notes {
         display: flex;

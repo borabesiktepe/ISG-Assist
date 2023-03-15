@@ -27,7 +27,7 @@
         <div class="workplace-select">
             <label>Çalışma alanları</label>
             <select>
-                <option value="" disabled selected>Select your option</option>
+                <option value="" disabled selected>Seçeneğinizi seçin</option>
             </select>
         </div>
 
@@ -45,9 +45,9 @@
                 </ul>
             </div>
             <div class="workplace-controls">
-                <input type="text" placeholder="İş yeri adı giriniz">
-                <button>Ekle</button>
-                <button>Çıkar</button>
+                <input type="text" placeholder="Çalışma alanı adı giriniz">
+                <button class="add">Ekle</button>
+                <button class="remove">Çıkar</button>
             </div>
             <div class="bottom-menu">
                 <div class="training-management">
@@ -55,13 +55,12 @@
                     <ul>
                         <li>Döküman 1.pdf</li>
                         <li>Döküman 2.docx</li>
-                        <li>Döküman 3.pdf</li>
-                        <li>Döküman 4.pdf</li>
                     </ul>
                     <div class="training-controls">
-                        <p>Dökümanlarınıza gözatın...</p>
-                        <button>Gözat</button>
-                        <button>Yükle</button>
+                        <form>
+                            <input type="file" id="myfile" name="myfile">
+                            <input type="submit">
+                        </form>
                     </div>
                 </div>
 

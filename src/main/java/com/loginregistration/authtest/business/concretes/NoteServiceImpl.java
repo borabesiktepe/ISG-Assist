@@ -41,11 +41,9 @@ public class NoteServiceImpl implements NoteService {
 	}
 
 	@Override
-	public void add(CreateNoteRequest createNoteRequest) {
+	public void update(CreateNoteRequest createNoteRequest) {
 		Note note = new Note();
-
-		//note.setNote(createNoteRequest.getNote()));
-		//workplace.setUser(createWorkplaceRequest.getUserId());
+		note.setNote(createNoteRequest.getNote());
 		
 		this.noteRepository.save(note);
 	}

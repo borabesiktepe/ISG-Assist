@@ -41,14 +41,6 @@ public class AppController {
         return "register_success";
     }
 
-    @GetMapping("/list_users")
-    public String viewUsersList(Model model) {
-        List<User> userList = repo.findAll();
-        model.addAttribute("userList", userList);
-
-        return "all_users";
-    }
-
     @GetMapping("/user_panel")
     public String viewUserPanel(Model model) {
         List<User> userList = repo.findAll();

@@ -1,9 +1,8 @@
-package com.loginregistration.authtest.business.business.concretes;
+package com.loginregistration.authtest.business.concretes;
 
-import com.loginregistration.authtest.business.business.abstracts.WorkplaceService;
-import com.loginregistration.authtest.business.business.requests.CreateWorkplaceRequest;
-import com.loginregistration.authtest.business.business.responses.GetAllWorkplacesResponse;
-import com.loginregistration.authtest.business.business.responses.WorkplacesResponse;
+import com.loginregistration.authtest.business.abstracts.WorkplaceService;
+import com.loginregistration.authtest.business.requests.CreateWorkplaceRequest;
+import com.loginregistration.authtest.business.responses.WorkplacesResponse;
 import com.loginregistration.authtest.dataAccess.WorkplaceRepository;
 import com.loginregistration.authtest.entities.Workplace;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +23,12 @@ public class WorkplaceServiceImpl implements WorkplaceService {
 	}
 	
 	@Override
-	public List<GetAllWorkplacesResponse> getAll() {
+	public List<WorkplacesResponse> getAll() {
 		List<Workplace> workplaces = workplaceRepository.findAll();
-		List<GetAllWorkplacesResponse> workplacesResponses = new ArrayList<GetAllWorkplacesResponse>();
+		List<WorkplacesResponse> workplacesResponses = new ArrayList<WorkplacesResponse>();
 		
 		for (Workplace workplace : workplaces) {
-			GetAllWorkplacesResponse responseItem = new GetAllWorkplacesResponse();
+			WorkplacesResponse responseItem = new WorkplacesResponse();
 
 			responseItem.setId(workplace.getId());
 			responseItem.setName(workplace.getWorkplaceName());

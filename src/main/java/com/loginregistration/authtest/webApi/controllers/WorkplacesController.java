@@ -1,9 +1,8 @@
 package com.loginregistration.authtest.webApi.controllers;
 
-import com.loginregistration.authtest.business.business.abstracts.WorkplaceService;
-import com.loginregistration.authtest.business.business.requests.CreateWorkplaceRequest;
-import com.loginregistration.authtest.business.business.responses.GetAllWorkplacesResponse;
-import com.loginregistration.authtest.business.business.responses.WorkplacesResponse;
+import com.loginregistration.authtest.business.abstracts.WorkplaceService;
+import com.loginregistration.authtest.business.requests.CreateWorkplaceRequest;
+import com.loginregistration.authtest.business.responses.WorkplacesResponse;
 import com.loginregistration.authtest.entities.User;
 import com.loginregistration.authtest.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,7 @@ public class WorkplacesController {
 		this.workplaceService = workplaceService;
 	}
 	
-	@GetMapping("/getall")
+	@GetMapping("/getworkplaces")
 	public List<WorkplacesResponse> getAll() {
 		Optional<User> userOptional = SecurityUtils.getUser();
 

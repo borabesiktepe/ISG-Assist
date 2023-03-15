@@ -163,14 +163,18 @@
         width: 500px;
     }
 
-    .workplace-controls a {
-        text-decoration: none;
-        color: black;
-        background-color: #FFC20D;
-        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
-        border-radius: 20px;
-        padding: 20px 70px;
-    }
+        .workplace-controls button {
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+            font-family: 'Montserrat', monospace;
+            font-size: 16px;
+            background-color: #FFC20D;
+            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            border: none;
+            padding: 20px 70px;
+        }
 
     .bottom-menu {
         margin-top: 40px;
@@ -216,12 +220,14 @@
     margin-right: 25px;
 }
 
-.training-controls a {
+.training-controls button {
+    cursor: pointer;
     text-decoration: none;
     color: black;
     background-color: #FFC20D;
     font-size: 16px;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border: none;
     border-radius: 20px;
     padding: 20px;
     margin-left: 8px;
@@ -247,12 +253,14 @@
         font-size: 16px;
     }
 
-    .notes a {
+    .notes button {
+        cursor: pointer;
         text-decoration: none;
         color: black;
         background-color: #FFC20D;
         font-size: 16px;
         box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+        border: none;
         border-radius: 20px;
         padding: 20px;
         width: fit-content;

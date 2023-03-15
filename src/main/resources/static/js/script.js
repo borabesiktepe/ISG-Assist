@@ -9,13 +9,14 @@ fetch(`http://localhost:8080/api/workplaces/getworkplaces`)
 })
 .then(data => {
     data.forEach(workplace => {
-        const markup = `<li>${workplace.name}</li>`;
-        const markup2 = `<option value="${workplace.name}">${workplace.name}</option>`;
+        const markupLi = `<li>${workplace.name}</li>`;
+        const markupOption = `<option value="${workplace.name}">${workplace.name}</option>`;
 
-        workplaceList.insertAdjacentHTML('beforeend', markup);
-        workplaceSelect.insertAdjacentHTML('beforeend', markup2);
+        workplaceList.insertAdjacentHTML('beforeend', markupLi);
+        workplaceSelect.insertAdjacentHTML('beforeend', markupOption);
 
         console.log("Çalışma alanları listelendi.");
     });
 })
 .catch(error => console.log(error));
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelaef.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link th:href="@{/styles/style_workplace_panel.css}" rel="stylesheet" />
+    <title>ISG Assist - Çalışma Alanı</title>
+</head>
+
+<body>
+    <nav>
+        <div class="user-button">
+            <a th:href="@{/user_panel}">
+                <i class="fa-solid fa-helmet-safety"></i>
+                [[${#request.userPrincipal.principal.fullName}]]
+                <p class="userId" th:text="${userId}"></p>
+            </a>
+        </div>
+
+        <div class="training-button">
+            <a href="http://">Eğitimler</a>
+        </div>
+
+        <div class="risk-button"><a href="http://">Risk Değerlendirme</a></div>
+
+        <div class="workplace-select">
+            <label>Çalışma alanları</label>
+            <select>
+                <option value="" disabled selected>Seçeneğinizi seçin</option>
+            </select>
+        </div>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Çıkış Yap" class="logoff-button" />
+        </form>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h1 class="sectiontitle">ABC Şirketi Çalışma Alanı</h1>
+            <div class="trainings-management">
+                <h2>Dökümanlar</h2>
+                <ul>
+                    <li>Eğitim 1.pdf</li>
+                    <li>Eğitim 2.pdf</li>
+                </ul>
+                <div class="training-controls">
+                    <form>
+                        <input type="file" id="myfile" name="myfile" required>
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>
+            <div class="contact-section">
+                <h3>İletişim Bilgileri</h3>
+
+                <div class="input-box">
+                    <label for="address">Adres</label>
+                    <input type="text" name="address" id="address">
+                </div>
+
+                <div class="input-box">
+                    <label for="mail">Mail</label>
+                    <input type="text" name="mail" id="mail">
+                </div>
+
+                <div class="input-box">
+                    <label for="phone">Telefon</label>
+                    <input type="text" name="phone" id="phone">
+                </div>
+
+                <div class="input-box">
+                    <label for="contactperson">İletişim kurulan kişi</label>
+                    <input type="text" name="contactperson" id="contactperson">
+                </div>
+
+                <button type="submit">Kaydet</button>
+            </div>
+        </div>
+    </main>
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+</body>
+
+</html>

@@ -43,8 +43,6 @@ public class AppController {
 
     @GetMapping("/user_panel")
     public String viewUserPanel(Model model) {
-        List<User> userList = repo.findAll();
-        model.addAttribute("userList", userList);
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();
@@ -58,6 +56,12 @@ public class AppController {
 
         model.addAttribute("userId", userId);
 
-        return "users";
+        return "user_panel";
+    }
+
+    @GetMapping("/workplace_panel")
+    public String viewWorkplace(Model model) {
+
+        return "workplace_panel";
     }
 }

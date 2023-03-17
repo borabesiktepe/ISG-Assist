@@ -25,7 +25,7 @@ public class NotesController {
 		this.noteService = noteService;
 	}
 	
-	@GetMapping("/getnotes")
+	@GetMapping("/getall")
 	public List<NotesResponse> getAll() {
 		Optional<User> userOptional = SecurityUtils.getUser();
 

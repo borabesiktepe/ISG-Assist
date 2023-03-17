@@ -25,7 +25,7 @@ public class WorkplacesController {
 		this.workplaceService = workplaceService;
 	}
 	
-	@GetMapping("/getworkplaces")
+	@GetMapping("/getall")
 	public List<WorkplacesResponse> getAll() {
 		Optional<User> userOptional = SecurityUtils.getUser();
 

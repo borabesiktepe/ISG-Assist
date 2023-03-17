@@ -8,7 +8,7 @@ const workplaceDeleteButton = document.querySelector(".remove");
 const noteArea = document.querySelector("textarea");
 
 //API VERİ YÜKLEME
-fetch(`http://localhost:8080/api/workplaces/getworkplaces`)
+fetch(`http://localhost:8080/api/workplaces/getall`)
     .then(function (response) {
         return response.json();
     })
@@ -25,7 +25,7 @@ fetch(`http://localhost:8080/api/workplaces/getworkplaces`)
     })
     .catch(error => console.log(error));
 
-fetch(`http://localhost:8080/api/notes/getnotes`)
+fetch(`http://localhost:8080/api/notes/getall`)
     .then(function (response) {
         return response.json();
     })

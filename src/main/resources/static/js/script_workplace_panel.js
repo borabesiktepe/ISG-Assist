@@ -3,7 +3,7 @@ console.log("Selam");
 const workplaceSelect = document.querySelector("select");
 
 //API VERİ YÜKLEME
-fetch(`http://localhost:8080/api/workplaces/getworkplaces`)
+fetch(`http://localhost:8080/api/workplaces/getall`)
     .then(function (response) {
         return response.json();
     })

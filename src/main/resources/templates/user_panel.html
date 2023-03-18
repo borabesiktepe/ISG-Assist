@@ -12,7 +12,7 @@
     <nav>
     <div class="nav-buttons">
         <div class="user-button">
-            <a th:href="@{/user_panel}">
+            <a th:href="@{/user_panel}" alt="Ana Sayfa">
                 <i class="fa-solid fa-helmet-safety"></i>
                 [[${#request.userPrincipal.principal.fullName}]]
                 <p class="userId" th:text="${userId}"></p>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="create-workplace-button">
-            <a href="http://">Çalışma Alanı Oluştur</a>
+            <a th:href="@{/create_workplace}">Çalışma Alanı Oluştur</a>
         </div>
 
         <form th:action="@{/logout}" method="post">
@@ -45,11 +45,13 @@
 
                     </ul>
                     <div class="todolist-controls">
-                        <input type="text" name="todoitem" placeholder="Madde ekleyin">
-                        <div class="todolist-buttons">
-                            <button class="add">Ekle</button>
-                            <button class="clear">Temizle</button>
-                        </div>
+                        <form id="todo-form">
+                            <input type="text" name="todoitem" placeholder="Madde ekleyin" required>
+                            <div class="todolist-buttons">
+                                <button class="add" type="submit">Ekle</button>
+                                <button class="clear">Temizle</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 

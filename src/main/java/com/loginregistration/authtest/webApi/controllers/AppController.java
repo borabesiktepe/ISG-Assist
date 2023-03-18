@@ -64,4 +64,10 @@ public class AppController {
 
         return "workplace_panel";
     }
+
+    @GetMapping("/create_workplace")
+    public String viewCreateWorkplaceForm(Model model) {
+
+        return "createworkplace_form";
+    }
 }

@@ -10,6 +10,7 @@
 
 <body>
     <nav>
+    <div class="nav-buttons">
         <div class="user-button">
             <a th:href="@{/user_panel}">
                 <i class="fa-solid fa-helmet-safety"></i>
@@ -18,23 +19,15 @@
             </a>
         </div>
 
-        <div class="training-button">
-            <a href="http://">Eğitimler</a>
-        </div>
-
-        <div class="risk-button"><a href="http://">Risk Değerlendirme</a></div>
-
-        <div class="workplace-select">
-            <label>Çalışma alanları</label>
-            <select>
-                <option value="" disabled selected>Seçeneğinizi seçin</option>
-            </select>
+        <div class="create-workplace-button">
+            <a href="http://">Çalışma Alanı Oluştur</a>
         </div>
 
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Çıkış Yap" class="logoff-button" />
         </form>
-    </nav>
+    </div>
+</nav>
 
     <main>
         <div class="container">
@@ -45,33 +38,28 @@
 
                 </ul>
             </div>
-            <div class="workplace-controls">
-                <input type="text" placeholder="Çalışma alanı adı giriniz">
-                <button class="add">Ekle</button>
-                <button class="remove">Çıkar</button>
-            </div>
-
             <div class="bottom-menu">
-                <div class="training-management">
-                    <h2>Dökümanlarım</h2>
+                <div class="todolist-management">
+                    <h2>Yapılacaklar Listem</h2>
                     <ul>
-                        <li>Döküman 1.pdf</li>
-                        <li>Döküman 2.docx</li>
+                        <li>Yapılacak 1</li>
+                        <li>Yapılacak 2</li>
+                        <li>Yapılacak 3</li>
+                        <li>Yapılacak 4</li>
                     </ul>
-                    <div class="training-controls">
-                        <form>
-                            <input type="file" id="myfile" name="myfile" required>
-                            <input type="submit">
-                        </form>
+                    <div class="todolist-controls">
+                        <input type="text" name="todoitem" placeholder="Madde ekleyin">
+                        <div class="todolist-buttons">
+                            <button class="add">Ekle</button>
+                            <button class="clear">Temizle</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="notes">
-                    <form id="notes">
-                        <h2>Notlarım</h2>
-                        <textarea form="notes" maxlength="250"></textarea>
-                        <button type="submit">Kaydet</button>
-                    </form>
+                    <h2>Notlarım</h2>
+                    <textarea maxlength="250"></textarea>
+                    <button>Kaydet</button>
                 </div>
             </div>
         </div>

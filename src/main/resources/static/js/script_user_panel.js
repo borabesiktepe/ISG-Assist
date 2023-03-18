@@ -13,9 +13,9 @@ fetch(`http://localhost:8080/api/workplaces/getall`)
         data.forEach(workplace => {
             const markupLi = `<li>${workplace.name}</li>`;
             workplaceList.insertAdjacentHTML('beforeend', markupLi);
-
-            console.log("Çalışma alanları listelendi.");
         });
+
+        console.log("Çalışma alanları listelendi.");
     })
     .catch(error => console.log(error));
 
@@ -27,8 +27,7 @@ fetch(`http://localhost:8080/api/notes/getall`)
     .then(data => {
         data.forEach(workplace => {
             noteArea.innerHTML = workplace.note;
-
-            console.log("Not yüklendi.");
         });
+        console.log("Not yüklendi.");
     })
     .catch(error => console.log(error));

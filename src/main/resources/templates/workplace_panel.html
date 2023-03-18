@@ -10,30 +10,24 @@
 
 <body>
     <nav>
-        <div class="user-button">
+        <div class="nav-buttons">
+            <div class="user-button">
             <a th:href="@{/user_panel}">
                 <i class="fa-solid fa-helmet-safety"></i>
                 [[${#request.userPrincipal.principal.fullName}]]
-                <p class="userId" th:text="${userId}"></p>
             </a>
         </div>
 
-        <div class="training-button">
+            <div class="training-button">
             <a href="http://">Eğitimler</a>
         </div>
 
-        <div class="risk-button"><a href="http://">Risk Değerlendirme</a></div>
+            <div class="risk-button"><a href="http://">Risk Değerlendirme</a></div>
 
-        <div class="workplace-select">
-            <label>Çalışma alanları</label>
-            <select>
-                <option value="" disabled selected>Seçeneğinizi seçin</option>
-            </select>
-        </div>
-
-        <form th:action="@{/logout}" method="post">
+            <form th:action="@{/logout}" method="post">
             <input type="submit" value="Çıkış Yap" class="logoff-button" />
         </form>
+        </div>
     </nav>
 
     <main>

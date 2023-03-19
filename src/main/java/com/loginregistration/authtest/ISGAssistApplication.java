@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AuthtestApplication {
+public class ISGAssistApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(AuthtestApplication.class, args);
+		SpringApplication.run(ISGAssistApplication.class, args);
 	}
 }

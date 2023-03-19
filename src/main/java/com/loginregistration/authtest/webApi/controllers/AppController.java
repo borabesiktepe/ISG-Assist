@@ -60,13 +60,13 @@ public class AppController {
     }
 
     @GetMapping("/workplace_panel")
-    public String viewWorkplace(Model model) {
+    public String viewWorkplace() {
 
         return "workplace_panel";
     }
 
     @GetMapping("/create_workplace")
-    public String viewCreateWorkplaceForm(Model model) {
+    public String viewCreateWorkplaceForm() {
 
         return "createworkplace_form";
     }

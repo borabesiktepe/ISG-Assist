@@ -5,6 +5,7 @@ import com.loginregistration.authtest.business.requests.CreateWorkplaceRequest;
 import com.loginregistration.authtest.business.responses.WorkplacesResponse;
 import com.loginregistration.authtest.dataAccess.WorkplaceRepository;
 import com.loginregistration.authtest.entities.Workplace;
+import com.loginregistration.authtest.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,8 +46,10 @@ public class WorkplaceServiceImpl implements WorkplaceService {
 	public void add(CreateWorkplaceRequest createWorkplaceRequest) {
 		Workplace workplace = new Workplace();
 
-		workplace.setWorkplaceName(createWorkplaceRequest.getName());
-		//workplace.setUser(createWorkplaceRequest.getUserId());
+		if (SecurityUtils.getUser().isPresent()) {
+			workplace.setWorkplaceName(createWorkplaceRequest.getName());
+			workplace.setUser(SecurityUtils.getUser().get());
+		}
 		
 		this.workplaceRepository.save(workplace);
 	}

@@ -1,8 +1,11 @@
 package com.loginregistration.authtest.webApi.controllers;
 
 import com.loginregistration.authtest.business.CustomUserDetails;
+import com.loginregistration.authtest.business.abstracts.WorkplaceService;
 import com.loginregistration.authtest.dataAccess.UserRepository;
+import com.loginregistration.authtest.dataAccess.WorkplaceRepository;
 import com.loginregistration.authtest.entities.User;
+import com.loginregistration.authtest.entities.Workplace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,12 +13,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.websocket.server.PathParam;
+import java.util.Optional;
 
 @Controller
 public class AppController {
     @Autowired
     private UserRepository repo;
+
+    @Autowired
+    private WorkplaceRepository workplaceRepository;
 
     @GetMapping("")
     public String viewHomePage() {
@@ -57,8 +68,15 @@ public class AppController {
         return "user_panel";
     }
 
-    @GetMapping("/workplace_panel")
-    public String viewWorkplace() {
+    @GetMapping("/workplace_panel/{workplaceId}")
+    public String viewWorkplace(Model model, @PathVariable("workplaceId") int workplaceId) {
+
+        Optional<Workplace> workplaceOptional = workplaceRepository.findById(workplaceId);
+
+        if (workplaceOptional.isPresent()) {
+            Workplace workplace = workplaceOptional.get();
+            model.addAttribute("workplace", workplace);
+        }
 
         return "workplace_panel";
     }
@@ -67,5 +85,11 @@ public class AppController {
     public String viewCreateWorkplaceForm() {
 
         return "createworkplace_form";
+    }
+
+    @GetMapping("/trainings")
+    public String viewWorkplaceTrainings() {
+
+        return "workplace_trainings";
     }
 }

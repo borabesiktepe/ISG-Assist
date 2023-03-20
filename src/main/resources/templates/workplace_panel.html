@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymelaef.org">
+<html
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
 
 <head>
     <meta charset="UTF-8">
@@ -22,8 +24,8 @@
         </div>
 
             <div class="training-button">
-            <a href="http://">Eğitimler</a>
-        </div>
+                <a th:href="@{/trainings}">Eğitimler</a>
+            </div>
 
             <div class="risk-button"><a href="http://">Risk Değerlendirme</a></div>
 
@@ -35,7 +37,8 @@
 
     <main>
         <div class="container">
-            <h1 class="sectiontitle">ABC Şirketi Çalışma Alanı</h1>
+            <h1 class="sectiontitle" th:text ="${workplace.workplaceName}"></h1>
+            <p class="workplace-description" th:text ="${workplace.workplaceDescription}"></p>
             <div class="trainings-management">
                 <h2>Dökümanlar</h2>
                 <ul>

@@ -14,7 +14,7 @@ fetch(`http://localhost:8080/api/workplaces/getall`)
     })
     .then(data => {
         data.forEach(workplace => {
-            const markupLi = `<li><a href="">${workplace.name}</a></li>`;
+            const markupLi = `<li><a href="/workplace_panel/${workplace.id}">${workplace.name}</a></li>`;
             workplaceList.insertAdjacentHTML('beforeend', markupLi);
         });
 

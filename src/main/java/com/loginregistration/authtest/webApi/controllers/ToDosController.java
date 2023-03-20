@@ -1,10 +1,10 @@
 package com.loginregistration.authtest.webApi.controllers;
 
+import com.loginregistration.authtest.entities.User;
+import com.loginregistration.authtest.security.SecurityUtils;
 import com.loginregistration.authtest.business.abstracts.ToDoService;
 import com.loginregistration.authtest.business.requests.CreateToDoRequest;
 import com.loginregistration.authtest.business.responses.ToDosResponse;
-import com.loginregistration.authtest.entities.User;
-import com.loginregistration.authtest.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

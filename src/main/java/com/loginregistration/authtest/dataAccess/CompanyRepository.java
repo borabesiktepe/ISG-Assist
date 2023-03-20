@@ -1,7 +1,6 @@
 package com.loginregistration.authtest.dataAccess;
 
 import com.loginregistration.authtest.entities.Company;
-import com.loginregistration.authtest.entities.Workplace;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

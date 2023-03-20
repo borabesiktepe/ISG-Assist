@@ -1,7 +1,7 @@
 package com.loginregistration.authtest.security;
 
-import com.loginregistration.authtest.business.CustomUserDetails;
 import com.loginregistration.authtest.entities.User;
+import com.loginregistration.authtest.business.CustomUserDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;

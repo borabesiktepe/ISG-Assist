@@ -1,10 +1,10 @@
 package com.loginregistration.authtest.business.concretes;
 
+import com.loginregistration.authtest.dataAccess.NoteRepository;
+import com.loginregistration.authtest.entities.Note;
 import com.loginregistration.authtest.business.abstracts.NoteService;
 import com.loginregistration.authtest.business.requests.CreateNoteRequest;
 import com.loginregistration.authtest.business.responses.NotesResponse;
-import com.loginregistration.authtest.dataAccess.NoteRepository;
-import com.loginregistration.authtest.entities.Note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package com.loginregistration.authtest.business.abstracts;
 
-import com.loginregistration.authtest.business.requests.CreateWorkplaceRequest;
 import com.loginregistration.authtest.business.responses.WorkplacesResponse;
+import com.loginregistration.authtest.business.requests.CreateWorkplaceRequest;
 
 import java.util.List;
 

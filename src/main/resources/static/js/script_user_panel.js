@@ -3,6 +3,8 @@ console.log("Selam");
 const workplaceList = document.querySelector(".workplace-management ul");
 const noteArea = document.querySelector("textarea");
 const todoList = document.querySelector(".todolist-management ul");
+const todoAddButton = document.querySelector(".todolist-buttons .add");
+const todoInput = document.querySelector(".todo-input");
 
 //API VERİ YÜKLEME
 //ÇALIŞMA ALANLARI

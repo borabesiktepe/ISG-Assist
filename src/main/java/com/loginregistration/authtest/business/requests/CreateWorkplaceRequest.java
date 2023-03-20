@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateWorkplaceRequest {
 	private String name;
+	private String description;
 	private int userId;
 }

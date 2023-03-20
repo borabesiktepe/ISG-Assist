@@ -32,6 +32,7 @@ public class WorkplaceServiceImpl implements WorkplaceService {
 
 			responseItem.setId(workplace.getId());
 			responseItem.setName(workplace.getWorkplaceName());
+			responseItem.setDescription(workplace.getWorkplaceDescription());
 			responseItem.setUserId(workplace.getUser().getId());
 
 			workplacesResponses.add(responseItem);
@@ -53,7 +54,7 @@ public class WorkplaceServiceImpl implements WorkplaceService {
 	@Override
 	public List<WorkplacesResponse> getAllByUserId(int userId) {
 		return this.workplaceRepository.findAllByUserId(userId).stream()
-				.map(workplace -> new WorkplacesResponse(workplace.getId(), workplace.getWorkplaceName(), workplace.getUser().getId()))
+				.map(workplace -> new WorkplacesResponse(workplace.getId(), workplace.getWorkplaceName(), workplace.getWorkplaceDescription(), workplace.getUser().getId()))
 				.collect(Collectors.toList());
 	}
 

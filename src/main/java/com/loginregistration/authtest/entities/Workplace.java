@@ -22,6 +22,9 @@ public class Workplace {
 	@Column(name="workplace_name")
 	private String workplaceName;
 
+	@Column(name="workplace_description")
+	private String workplaceDescription;
+
 	@ManyToOne
 	private User user;
 }

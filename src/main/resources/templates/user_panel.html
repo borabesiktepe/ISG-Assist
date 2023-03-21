@@ -48,8 +48,9 @@
                     <ul>
                     </ul>
                     <div class="todolist-controls">
-                        <form id="todo-form">
-                            <input class="todo-input" type="text" name="todoitem" placeholder="Madde ekleyin" required>
+                        <form id="todo-form" method="post">
+                            <input type="hidden" id="userId" name="userId" value="1"/>
+                            <input id="todo-input" type="text" name="todoItem" placeholder="Madde ekleyin" required>
                             <div class="todolist-buttons">
                                 <button class="add" type="submit">Ekle</button>
                                 <button class="clear">Temizle</button>

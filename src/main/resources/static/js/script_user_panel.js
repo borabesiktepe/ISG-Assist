@@ -6,7 +6,7 @@ const todoList = document.querySelector(".todolist-management ul");
 const todoAddButton = document.querySelector(".todolist-buttons .add");
 const todoInput = document.querySelector(".todo-input");
 
-//API VERİ YÜKLEME
+//API GET İŞLEMLERİ
 //ÇALIŞMA ALANLARI
 fetch(`http://localhost:8080/api/workplaces/getall`)
     .then(function (response) {
@@ -49,3 +49,33 @@ fetch(`http://localhost:8080/api/notes/getall`)
         console.log("Not yüklendi.");
     })
     .catch(error => console.log(error));
+
+
+//API POST İŞLEMLERİ
+const formTodo = document.getElementById("todo-form");
+
+formTodo.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let inputTodoItem = document.getElementById('todo-input').value;
+    let inputUserId = document.getElementById('userId').value;
+
+    console.log(inputTodoItem + " " + inputUserId);
+
+    fetch('http://localhost:8080/api/todos/add', {
+        method: 'POST',
+        body: JSON.stringify({
+            todoItem: inputTodoItem,
+            userId: inputUserId
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    })
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            console.log(data)
+        }).catch(error => console.error('Error:', error));
+});

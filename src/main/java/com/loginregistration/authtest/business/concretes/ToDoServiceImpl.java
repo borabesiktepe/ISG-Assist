@@ -5,6 +5,7 @@ import com.loginregistration.authtest.business.requests.CreateToDoRequest;
 import com.loginregistration.authtest.business.responses.ToDosResponse;
 import com.loginregistration.authtest.dataAccess.ToDoRepository;
 import com.loginregistration.authtest.entities.ToDo;
+import com.loginregistration.authtest.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,9 +45,11 @@ public class ToDoServiceImpl implements ToDoService {
 	public void add(CreateToDoRequest createToDoRequest) {
 		ToDo todo = new ToDo();
 
-		todo.setTodoItem(createToDoRequest.getTodoItem());
-		//workplace.setUser(createWorkplaceRequest.getUserId());
-		
+		if (SecurityUtils.getUser().isPresent()) {
+			todo.setTodoItem(createToDoRequest.getTodoItem());
+			todo.setUser(SecurityUtils.getUser().get());
+		}
+
 		this.toDoRepository.save(todo);
 	}
 

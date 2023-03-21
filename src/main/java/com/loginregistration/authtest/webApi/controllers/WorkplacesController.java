@@ -35,7 +35,7 @@ public class WorkplacesController {
 	}
 	
 	@PostMapping("/add")
-	public void add(@RequestBody() CreateWorkplaceRequest createWorkplaceRequest) {
+	public void add(@RequestBody CreateWorkplaceRequest createWorkplaceRequest) {
 		this.workplaceService.add(createWorkplaceRequest);
 	}
 }

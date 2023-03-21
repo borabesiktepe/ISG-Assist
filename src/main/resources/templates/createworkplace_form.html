@@ -36,8 +36,9 @@
             <h1>Çalışma Alanı Oluştur</h1>
             <p>Her şirket için özel çalışma alanları oluşturun.</p>
             <form id="form" method="post">
-                <input id="name" type="text" name="workplaceName" placeholder="Adını giriniz" required>
-                <input id="description" type="text" name="workplaceDescription" placeholder="Açıklamasını giriniz" required>
+                <input type="hidden" id="userId" name="userId" value="1"/>
+                <input id="name" type="text" name="name" placeholder="Adını giriniz" required>
+                <input id="description" type="text" name="description" placeholder="Açıklamasını giriniz" required>
                 <button type="submit">Oluştur</button>
             </form>
         </div>

@@ -48,6 +48,7 @@ public class WorkplaceServiceImpl implements WorkplaceService {
 
 		if (SecurityUtils.getUser().isPresent()) {
 			workplace.setWorkplaceName(createWorkplaceRequest.getName());
+			workplace.setWorkplaceDescription(createWorkplaceRequest.getDescription());
 			workplace.setUser(SecurityUtils.getUser().get());
 		}
 		

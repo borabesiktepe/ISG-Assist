@@ -56,6 +56,10 @@ nav {
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
 }
 
+.create-workplace-button a:hover {
+    color: #FFC20D;
+}
+
 .logoff-button {
     position: absolute;
     cursor: pointer;
@@ -109,6 +113,15 @@ nav {
 .workplace-management li {
     padding: 16px 12px;
     font-size: 16px;
+}
+
+.workplace-management a {
+    text-decoration: none;
+    color: black;
+}
+
+.workplace-management a:hover {
+    color: #FFC20D;
 }
 
 .bottom-menu {

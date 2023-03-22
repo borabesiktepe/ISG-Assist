@@ -56,11 +56,9 @@ public class AppController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();
 
-        String userId = "";
+        int userId = 0;
         if (principal instanceof CustomUserDetails) {
-            userId = ((CustomUserDetails) principal).getUsername();
-        } else {
-            userId = principal.toString();
+            userId = ((CustomUserDetails) principal).getUser().getId();
         }
 
         model.addAttribute("userId", userId);

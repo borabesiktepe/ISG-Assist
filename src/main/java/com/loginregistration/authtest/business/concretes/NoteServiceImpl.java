@@ -5,6 +5,7 @@ import com.loginregistration.authtest.entities.Note;
 import com.loginregistration.authtest.business.abstracts.NoteService;
 import com.loginregistration.authtest.business.requests.CreateNoteRequest;
 import com.loginregistration.authtest.business.responses.NotesResponse;
+import com.loginregistration.authtest.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +44,11 @@ public class NoteServiceImpl implements NoteService {
 	@Override
 	public void update(CreateNoteRequest createNoteRequest) {
 		Note note = new Note();
-		note.setNote(createNoteRequest.getNote());
+
+		if (SecurityUtils.getUser().isPresent()) {
+			note.setNote(createNoteRequest.getNote());
+			note.setUser(SecurityUtils.getUser().get());
+		}
 		
 		this.noteRepository.save(note);
 	}

@@ -49,7 +49,7 @@
                     </ul>
                     <div class="todolist-controls">
                         <form id="todo-form" method="post">
-                            <input type="hidden" id="userId" name="userId" value="1"/>
+                            <input type="hidden" id="userId" name="userId" th:value="${userId}"/>
                             <input id="todo-input" type="text" name="todoItem" placeholder="Madde ekleyin" required>
                             <div class="todolist-buttons">
                                 <button class="add" type="submit">Ekle</button>
@@ -61,7 +61,7 @@
 
                 <div class="notes">
                     <h2>Notlarım</h2>
-                    <form id="notes-form">
+                    <form id="notes-form" method="post">
                         <textarea name="note" maxlength="250"></textarea>
                         <button type="submit">Kaydet</button>
                     </form>

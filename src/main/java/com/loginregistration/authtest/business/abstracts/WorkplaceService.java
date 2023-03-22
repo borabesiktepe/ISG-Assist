@@ -8,6 +8,5 @@ import java.util.List;
 public interface WorkplaceService {
 	List<WorkplacesResponse> getAll();
 	void add(CreateWorkplaceRequest createWorkplaceRequest);
-
 	List<WorkplacesResponse> getAllByUserId(int user);
 }

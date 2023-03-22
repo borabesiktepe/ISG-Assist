@@ -35,7 +35,7 @@ public class NotesController {
 	}
 	
 	@PutMapping("/update")
-	public void update(CreateNoteRequest createNoteRequest) {
+	public void update(@RequestBody CreateNoteRequest createNoteRequest) {
 		this.noteService.update(createNoteRequest);
 	}
 }

@@ -8,6 +8,5 @@ import java.util.List;
 public interface NoteService {
 	List<NotesResponse> getAll();
 	void update(CreateNoteRequest createNoteRequest);
-
 	List<NotesResponse> getAllByUserId(int user);
 }

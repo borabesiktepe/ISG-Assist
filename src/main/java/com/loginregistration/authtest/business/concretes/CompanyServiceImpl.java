@@ -63,5 +63,4 @@ public class CompanyServiceImpl implements CompanyService {
 				.map(company -> new CompaniesResponse(company.getId(), company.getAddress(), company.getMail(), company.getPhone(), company.getContactPerson(), company.getWorkplace().getId()))
 				.collect(Collectors.toList());
 	}
-
 }

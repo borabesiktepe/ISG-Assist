@@ -3,6 +3,7 @@ package com.loginregistration.authtest.business.concretes;
 import com.loginregistration.authtest.business.abstracts.CompanyService;
 import com.loginregistration.authtest.business.requests.CreateCompanyRequest;
 import com.loginregistration.authtest.business.responses.CompaniesResponse;
+import com.loginregistration.authtest.business.responses.NotesResponse;
 import com.loginregistration.authtest.dataAccess.CompanyRepository;
 import com.loginregistration.authtest.entities.Company;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {
@@ -56,8 +58,10 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	@Override
-	public List<CompaniesResponse> getAllByWorkplaceId(int workplace) {
-		return null;
+	public List<CompaniesResponse> getAllByWorkplaceId(int workplaceId) {
+		return this.companyRepository.findAllByWorkplaceId(workplaceId).stream()
+				.map(company -> new CompaniesResponse(company.getId(), company.getAddress(), company.getMail(), company.getPhone(), company.getContactPerson(), company.getWorkplace().getId()))
+				.collect(Collectors.toList());
 	}
 
 }

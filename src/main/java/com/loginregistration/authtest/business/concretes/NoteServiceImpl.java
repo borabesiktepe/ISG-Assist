@@ -59,5 +59,4 @@ public class NoteServiceImpl implements NoteService {
 				.map(note -> new NotesResponse(note.getId(), note.getNote(), note.getUser().getId()))
 				.collect(Collectors.toList());
 	}
-
 }

@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Entity
 public class Company {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private int id;
 
     @Column(nullable = false)

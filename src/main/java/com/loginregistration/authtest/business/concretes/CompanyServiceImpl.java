@@ -6,6 +6,7 @@ import com.loginregistration.authtest.business.responses.CompaniesResponse;
 import com.loginregistration.authtest.business.responses.NotesResponse;
 import com.loginregistration.authtest.dataAccess.CompanyRepository;
 import com.loginregistration.authtest.entities.Company;
+import com.loginregistration.authtest.entities.Workplace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,8 +53,7 @@ public class CompanyServiceImpl implements CompanyService {
 		company.setMail(createCompanyRequest.getMail());
 		company.setPhone(createCompanyRequest.getPhone());
 		company.setContactPerson(createCompanyRequest.getContactPerson());
-		//company.setWorkplace(createCompanyRequest.getWorkplaceId());
-		
+
 		this.companyRepository.save(company);
 	}
 

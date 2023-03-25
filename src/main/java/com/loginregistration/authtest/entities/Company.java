@@ -18,16 +18,16 @@ public class Company {
     @GeneratedValue
     private int id;
 
-    @Column(nullable = false)
+    @Column
     private String address;
 
-    @Column(nullable = false)
+    @Column
     private String mail;
 
-    @Column(nullable = false)
+    @Column
     private String phone;
 
-    @Column(nullable = false)
+    @Column
     private String contactPerson;
 
     @ManyToOne

@@ -38,4 +38,9 @@ public class ToDosController {
 	public void add(@RequestBody CreateToDoRequest createToDoRequest) {
 		this.toDoService.add(createToDoRequest);
 	}
+
+	@DeleteMapping
+	public void clear() {
+		this.toDoService.clear(SecurityUtils.getUser().get().getId());
+	}
 }

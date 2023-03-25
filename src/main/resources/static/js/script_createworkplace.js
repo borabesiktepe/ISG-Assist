@@ -22,10 +22,7 @@ form.addEventListener('submit', function (e) {
             'Content-type': 'application/json; charset=UTF-8',
         }
     })
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (data) {
-            console.log(data)
-        }).catch(error => console.error('Error:', error));
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
 });

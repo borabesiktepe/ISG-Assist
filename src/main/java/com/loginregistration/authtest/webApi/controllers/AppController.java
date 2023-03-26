@@ -90,4 +90,10 @@ public class AppController {
 
         return "workplace_trainings";
     }
+
+    @GetMapping("/riskassesment")
+    public String viewWorkplaceRiskAssesment() {
+
+        return "workplace_riskassesment";
+    }
 }

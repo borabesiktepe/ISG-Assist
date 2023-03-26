@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link th:href="@{/styles/style_workplace_risks.css}" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <title>ISG Assist - Risk Değerlendirme</title>
+</head>
+
+<body>
+<nav>
+  <div class="nav-buttons">
+    <div class="user-button">
+      <a th:href="@{/user_panel}">
+        <i class="fa-solid fa-helmet-safety"></i>
+        [[${#request.userPrincipal.principal.fullName}]]
+      </a>
+    </div>
+
+    <div class="training-button">
+      <a th:href="@{/trainings}">Eğitimler</a>
+    </div>
+
+    <div class="risk-button">
+      <a th:href="@{/riskassesment}">Risk Değerlendirme</a>
+    </div>
+
+    <form th:action="@{/logout}" method="post">
+      <input type="submit" value="Çıkış Yap" class="logoff-button" />
+    </form>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <h1>Risk Değerlendirme</h1>
+    <form id="risk-assesment">
+      <table>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Genel Tehlike Adı</th>
+          <th>Yer/Ekipman</th>
+          <th>Mevcut Tehlikeler</th>
+          <th>Oluşacak Riskler</th>
+          <th>Mevcut Önlemler</th>
+          <th>Maruz Kalanlar</th>
+          <th class="vertical">Şiddet</th>
+          <th class="vertical">Olasılık</th>
+          <th class="vertical">Risk</th>
+          <th>Alınacak Tedbirler</th>
+          <th class="vertical">S. Şiddet</th>
+          <th class="vertical">S. Olasılık</th>
+          <th class="vertical">S. Risk</th>
+        </tr>
+        </thead>
+        <tbody id="table_body">
+        <tr>
+
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="table-inputs">
+        <div class="left">
+          <input type="text" name="tehlikeAdi" id="tehlikeAdi" placeholder="Genel Tehlike Adı">
+          <input type="text" name="yerEkipman" id="yerEkipman" placeholder="Yer/Ekipman">
+          <input type="text" name="mevcutTehlikeler" id="mevcutTehlikeler" placeholder="Mevcut Tehlikeler">
+          <input type="text" name="olusacakRiskler" id="olusacakRiskler" placeholder="Oluşacak Riskler">
+          <input type="text" name="mevcutOnlemler" id="mevcutOnlemler" placeholder="Mevcut Önlemler">
+          <input type="text" name="maruzKalanlar" id="maruzKalanlar" placeholder="Maruz Kalanlar">
+          <input type="number" name="siddet" id="siddet" placeholder="Şiddet" min="1" max="25">
+          <input type="number" name="olasilik" id="olasilik" placeholder="Olasılık" min="1" max="25">
+          <input type="number" name="risk" id="risk" placeholder="Risk" min="1" max="25">
+        </div>
+        <div class="right">
+          <input type="text" name="alinacakTedbirler" id="alinacakTedbirler" placeholder="Alınacak Tedbirler">
+          <input type="number" name="sSiddet" id="sSiddet" placeholder="S. Şiddet" min="1" max="25">
+          <input type="number" name="sOlasilik" id="sOlasilik" placeholder="S. Olasılık" min="1" max="25">
+          <input type="number" name="sRisk" id="sRisk" placeholder="S. Risk" min="1" max="25">
+        </div>
+      </div>
+      <button type="submit">Ekle</button>
+    </form>
+  </div>
+</main>
+<script type="text/javascript" th:src="@{/js/script_workplace_risks.js}"></script>
+</body>
+
+</html>

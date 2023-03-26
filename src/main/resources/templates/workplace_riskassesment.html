@@ -24,7 +24,7 @@
     </div>
 
     <div class="training-button">
-      <a th:href="@{/trainings}">Eğitimler</a>
+      <a th:href="@{/trainings/} + ${workplace.id}">Eğitimler</a>
     </div>
 
     <div class="risk-button">
@@ -44,7 +44,7 @@
       <table>
         <thead>
         <tr>
-          <th>ID</th>
+          <th>Sıra No</th>
           <th>Genel Tehlike Adı</th>
           <th>Yer/Ekipman</th>
           <th>Mevcut Tehlikeler</th>
@@ -70,7 +70,7 @@
       <div class="table-inputs">
         <input type="hidden" id="workplaceId" th:value="${workplace.id}">
         <div class="left">
-          <input type="text" name="tehlikeAdi" id="tehlikeAdi" placeholder="Genel Tehlike Adı">
+          <input type="text" name="tehlikeAdi" id="tehlikeAdi" placeholder="Genel Tehlike Adı" required>
           <input type="text" name="yerEkipman" id="yerEkipman" list="yerErkipman-list"
                  placeholder="Yer/Ekipman">
           <datalist id="yerErkipman-list">
@@ -161,8 +161,10 @@
       </div>
       <button type="submit">Ekle</button>
     </form>
+    <button onclick="exportToExcel('xlsx')">Excel olarak kaydet</button>
   </div>
 </main>
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 <script type="text/javascript" th:src="@{/js/script_workplace_risks.js}"></script>
 </body>
 

@@ -23,10 +23,11 @@ fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplace
     .then((objectData) => {
         console.log(objectData[0]);
         let tableData = "";
+        let siraNo = 1;
         objectData.map((values) => {
             tableData += `
                 <tr onclick="printToInputs(this)">
-                    <td>${values.id}</td>
+                    <td>${siraNo}</td>
                     <td>${values.tehlikeAdi}</td>
                     <td>${values.yerEkipman}</td>
                     <td>${values.mevcutTehlikeler}</td>
@@ -42,6 +43,7 @@ fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplace
                     <td class="colored">${values.sonRisk}</td>
                 </tr>
             `;
+            siraNo++;
         })
         document.getElementById("table_body").innerHTML = tableData
     })
@@ -78,3 +80,12 @@ setInterval(function colorizeCells() {
         }
     });
 }, 100);
+
+//TABLOYU EXCEL KAYDETME
+function exportToExcel(type, fn, dl) {
+    let table = document.getElementById('risk-table');
+    let wb = XLSX.utils.table_to_book(table, { sheet: "sheet1" });
+    return dl ?
+        XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+        XLSX.writeFile(wb, fn || ('RiskDegerlendirmeTablosu.' + (type || 'xlsx')));
+}

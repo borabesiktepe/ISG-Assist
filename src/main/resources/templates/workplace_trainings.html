@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-  <title>ISG Assist - Eğitimler</title>
+  <title th:text="|Eğitimler - ${workplace.workplaceName}|"></title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
     </div>
 
       <div class="training-button">
-        <a th:href="@{/trainings}">Eğitimler</a>
+        <a th:href="@{/trainings/} + ${workplace.id}">Eğitimler</a>
       </div>
 
       <div class="risk-button">
@@ -38,7 +38,7 @@
 
   <main>
     <div class="container">
-      <h1>ABC Şirketi Eğitimler</h1>
+      <h1 th:text="|${workplace.workplaceName} Eğitimler|"></h1>
       <div class="training-controls">
         <h2>Dosya Seçin</h2>
         <ul>

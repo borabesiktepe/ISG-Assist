@@ -25,7 +25,7 @@ fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplace
         let tableData = "";
         objectData.map((values) => {
             tableData += `
-                <tr onclick="callme(this)">
+                <tr onclick="printToInputs(this)">
                     <td>${values.id}</td>
                     <td>${values.tehlikeAdi}</td>
                     <td>${values.yerEkipman}</td>
@@ -35,11 +35,11 @@ fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplace
                     <td>${values.maruzKalanlar}</td>
                     <td>${values.siddet}</td>
                     <td>${values.olasilik}</td>
-                    <td>${values.risk}</td>
+                    <td class="colored">${values.risk}</td>
                     <td>${values.alinacakTedbirler}</td>
                     <td>${values.sonSiddet}</td>
                     <td>${values.sonOlasilik}</td>
-                    <td>${values.sonRisk}</td>
+                    <td class="colored">${values.sonRisk}</td>
                 </tr>
             `;
         })
@@ -47,7 +47,7 @@ fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplace
     })
 
 //TIKLANAN SATIRI INPUTLARA DİZME
-function callme(e) {
+function printToInputs(e) {
     var tds = e.getElementsByTagName('td');
     tehlikeAdi.value = tds[1].innerHTML.trim();
     yerEkipman.value = tds[2].innerHTML.trim();
@@ -63,3 +63,18 @@ function callme(e) {
     sOlasilik.value = tds[12].innerHTML.trim();
     sRisk.value = tds[13].innerHTML.trim();
 }
+
+//TABLO ŞİDDET/OLASILIK/RİSK KOLON RENKLENDİRME
+setInterval(function colorizeCells() {
+    let tableColumn = document.querySelectorAll(".colored");
+
+    tableColumn.forEach((colored) => {
+        if (colored.innerHTML > 0) {
+            colored.style.backgroundColor = "#92d050";
+        } if (colored.innerHTML > 6) {
+            colored.style.backgroundColor = "#ffff00";
+        } if (colored.innerHTML > 12) {
+            colored.style.backgroundColor = "#ff0000";
+        }
+    });
+}, 100);

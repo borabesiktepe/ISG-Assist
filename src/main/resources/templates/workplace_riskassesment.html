@@ -71,11 +71,82 @@
         <input type="hidden" id="workplaceId" th:value="${workplace.id}">
         <div class="left">
           <input type="text" name="tehlikeAdi" id="tehlikeAdi" placeholder="Genel Tehlike Adı">
-          <input type="text" name="yerEkipman" id="yerEkipman" placeholder="Yer/Ekipman">
-          <input type="text" name="mevcutTehlikeler" id="mevcutTehlikeler" placeholder="Mevcut Tehlikeler">
-          <input type="text" name="olusacakRiskler" id="olusacakRiskler" placeholder="Oluşacak Riskler">
+          <input type="text" name="yerEkipman" id="yerEkipman" list="yerErkipman-list"
+                 placeholder="Yer/Ekipman">
+          <datalist id="yerErkipman-list">
+            <option value="Makina atölyesi">
+            <option value="Depo alanı">
+            <option value="İnşaat alanı">
+            <option value="Elektrik odası">
+            <option value="Laboratuvar">
+            <option value="İş Ofisi">
+            <option value="Mutfak">
+            <option value="Paketleme Bölümü">
+            <option value="Veri Merkezi">
+            <option value="Montaj Hattı">
+            <option value="Yangın Merdiveni">
+            <option value="Forklift">
+            <option value="Vinç">
+            <option value="Yüksek Gerilim anahtarı">
+            <option value="Kimyasal Fırın">
+            <option value="Kesme makinesi">
+            <option value="Kompresör">
+            <option value="Merdiven">
+            <option value="Jeneratör">
+            <option value="Klima Sistemi">
+            <option value="Asansör">
+          </datalist>
+          <input type="text" name="mevcutTehlikeler" id="mevcutTehlikeler" list="mevcutTehlikeler-list"
+                 placeholder="Mevcut Tehlikeler">
+          <datalist id="mevcutTehlikeler-list">
+            <option value="Yüksekten düşme">
+            <option value="Kesici aletler">
+            <option value="Kimyasallar">
+            <option value="Elektrik">
+            <option value="İskeleler">
+            <option value="Yanıcı maddeler">
+            <option value="Yük taşıma">
+            <option value="Gürültü">
+            <option value="Radyasyon">
+            <option value="Yetersiz aydınlatma">
+            <option value="Termal tehlikeler">
+            <option value="Hava kalitesi">
+            <option value="Zeminler">
+          </datalist>
+          <input type="text" name="olusacakRiskler" id="olusacakRiskler" list="olusacakRiskler-list" placeholder="Oluşacak Riskler">
+          <datalist id="olusacakRiskler-list">
+            <option value="Yükseklikten düşme">
+            <option value="Malzeme düşmesi">
+            <option value="Elektrik çarpması">
+            <option value="Zehirlenme">
+            <option value="İş kazaları">
+            <option value="İşitme kaybı">
+            <option value="Göz yaralanmaları">
+            <option value="Düşme">
+            <option value="Kesilmeler ve yaralanmalar">
+            <option value="Sıcaklık değişimleri">
+            <option value="Alerjik reaksiyonlar">
+            <option value="Çevresel faktörler">
+          </datalist>
           <input type="text" name="mevcutOnlemler" id="mevcutOnlemler" placeholder="Mevcut Önlemler">
-          <input type="text" name="maruzKalanlar" id="maruzKalanlar" placeholder="Maruz Kalanlar">
+          <input type="text" name="maruzKalanlar" id="maruzKalanlar" list="maruzKalanlar-list"
+                 placeholder="Maruz Kalanlar">
+          <datalist id="maruzKalanlar-list">
+            <option value="Çalışanlar">
+            <option value="İşçiler">
+            <option value="Ziyaretçiler">
+            <option value="Yükleniciler">
+            <option value="Temizlik görevlileri">
+            <option value="Bakım görevlileri">
+            <option value="Güvenlik görevlileri">
+            <option value="Mühendisler">
+            <option value="Yöneticiler">
+            <option value="Müşteriler">
+            <option value="İlk yardım görevlileri">
+            <option value="Ziyaretçiler">
+            <option value="Araştırmacılar">
+            <option value="İşyeri dışındakiler">
+          </datalist>
           <input type="number" name="siddet" id="siddet" placeholder="Şiddet (1-15)" min="1" max="25">
           <input type="number" name="olasilik" id="olasilik" placeholder="Olasılık (1-15)" min="1" max="25">
           <input type="number" name="risk" id="risk" placeholder="Risk (1-15)" min="1" max="25">
@@ -83,7 +154,8 @@
         <div class="right">
           <input type="text" name="alinacakTedbirler" id="alinacakTedbirler" placeholder="Alınacak Tedbirler">
           <input type="number" name="sSiddet" id="sSiddet" placeholder="S. Şiddet (1-15)" min="1" max="25">
-          <input type="number" name="sOlasilik" id="sOlasilik" placeholder="S. Olasılık (1-15)" min="1" max="25">
+          <input type="number" name="sOlasilik" id="sOlasilik" placeholder="S. Olasılık (1-15)" min="1"
+                 max="25">
           <input type="number" name="sRisk" id="sRisk" placeholder="S. Risk (1-15)" min="1" max="25">
         </div>
       </div>

@@ -66,6 +66,12 @@ public class AppController {
         return "user_panel";
     }
 
+    @GetMapping("/create_workplace")
+    public String viewCreateWorkplaceForm() {
+
+        return "createworkplace_form";
+    }
+
     @GetMapping("/workplace_panel/{workplaceId}")
     public String viewWorkplace(Model model, @PathVariable("workplaceId") int workplaceId) {
 
@@ -79,21 +85,22 @@ public class AppController {
         return "workplace_panel";
     }
 
-    @GetMapping("/create_workplace")
-    public String viewCreateWorkplaceForm() {
+    @GetMapping("/riskassesment/{workplaceId}")
+    public String viewWorkplaceRiskAssesment(Model model, @PathVariable("workplaceId") int workplaceId) {
 
-        return "createworkplace_form";
+        Optional<Workplace> workplaceOptional = workplaceRepository.findById(workplaceId);
+
+        if (workplaceOptional.isPresent()) {
+            Workplace workplace = workplaceOptional.get();
+            model.addAttribute("workplace", workplace);
+        }
+
+        return "workplace_riskassesment";
     }
 
     @GetMapping("/trainings")
     public String viewWorkplaceTrainings() {
 
         return "workplace_trainings";
-    }
-
-    @GetMapping("/riskassesment")
-    public String viewWorkplaceRiskAssesment() {
-
-        return "workplace_riskassesment";
     }
 }

@@ -12,9 +12,10 @@ const sSiddet = document.getElementById("sSiddet");
 const sOlasilik = document.getElementById("sOlasilik");
 const sRisk = document.getElementById("sRisk");
 
+const workplaceId = document.getElementById("workplaceId").value;
 //API İŞLEMLERİ
 //RİSK DEĞERLENDİRME GET İŞLEMİ
-fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=1")
+fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplaceId)
     .then((data) => {
         return data.json();
     })

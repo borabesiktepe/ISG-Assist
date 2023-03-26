@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-    <title>ISG Assist - Çalışma Alanı</title>
+    <title th:text="${workplace.workplaceName}"></title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
             </div>
 
             <div class="risk-button">
-                <a th:href="@{/riskassesment}">Risk Değerlendirme</a>
+                <a th:href="@{/riskassesment/(${workplace.id})}">Risk Değerlendirme</a>
             </div>
 
             <form th:action="@{/logout}" method="post">

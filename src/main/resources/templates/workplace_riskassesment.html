@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-  <title>ISG Assist - Risk Değerlendirme</title>
+  <title th:text="|Risk Değerlendirme - ${workplace.workplaceName}|"></title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
 
 <main>
   <div class="container">
-    <h1>Risk Değerlendirme</h1>
+    <h1 th:text="|${workplace.workplaceName} Risk Değerlendirme|"></h1>
     <form id="risk-assesment">
       <table>
         <thead>

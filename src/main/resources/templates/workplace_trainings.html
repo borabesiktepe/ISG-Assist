@@ -27,7 +27,7 @@
       </div>
 
       <div class="risk-button">
-        <a th:href="@{/riskassesment}">Risk Değerlendirme</a>
+        <a th:href="@{/riskassesment/} + ${workplace.id}">Risk Değerlendirme</a>
       </div>
 
     <form th:action="@{/logout}" method="post">

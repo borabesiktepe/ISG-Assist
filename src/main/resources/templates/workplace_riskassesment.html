@@ -28,7 +28,7 @@
     </div>
 
     <div class="risk-button">
-      <a th:href="@{/riskassesment}">Risk Değerlendirme</a>
+      <a th:href="@{/riskassesment/} + ${workplace.id}">Risk Değerlendirme</a>
     </div>
 
     <form th:action="@{/logout}" method="post">
@@ -76,15 +76,15 @@
           <input type="text" name="olusacakRiskler" id="olusacakRiskler" placeholder="Oluşacak Riskler">
           <input type="text" name="mevcutOnlemler" id="mevcutOnlemler" placeholder="Mevcut Önlemler">
           <input type="text" name="maruzKalanlar" id="maruzKalanlar" placeholder="Maruz Kalanlar">
-          <input type="number" name="siddet" id="siddet" placeholder="Şiddet" min="1" max="25">
-          <input type="number" name="olasilik" id="olasilik" placeholder="Olasılık" min="1" max="25">
-          <input type="number" name="risk" id="risk" placeholder="Risk" min="1" max="25">
+          <input type="number" name="siddet" id="siddet" placeholder="Şiddet (1-15)" min="1" max="25">
+          <input type="number" name="olasilik" id="olasilik" placeholder="Olasılık (1-15)" min="1" max="25">
+          <input type="number" name="risk" id="risk" placeholder="Risk (1-15)" min="1" max="25">
         </div>
         <div class="right">
           <input type="text" name="alinacakTedbirler" id="alinacakTedbirler" placeholder="Alınacak Tedbirler">
-          <input type="number" name="sSiddet" id="sSiddet" placeholder="S. Şiddet" min="1" max="25">
-          <input type="number" name="sOlasilik" id="sOlasilik" placeholder="S. Olasılık" min="1" max="25">
-          <input type="number" name="sRisk" id="sRisk" placeholder="S. Risk" min="1" max="25">
+          <input type="number" name="sSiddet" id="sSiddet" placeholder="S. Şiddet (1-15)" min="1" max="25">
+          <input type="number" name="sOlasilik" id="sOlasilik" placeholder="S. Olasılık (1-15)" min="1" max="25">
+          <input type="number" name="sRisk" id="sRisk" placeholder="S. Risk (1-15)" min="1" max="25">
         </div>
       </div>
       <button type="submit">Ekle</button>

@@ -31,6 +31,10 @@
                 <a th:href="@{/riskassesment/} + ${workplace.id}">Risk Değerlendirme</a>
             </div>
 
+            <div class="settings-button">
+                <a th:href="@{/settings/} + ${workplace.id}">Ayarlar</a>
+            </div>
+
             <form th:action="@{/logout}" method="post">
             <input type="submit" value="Çıkış Yap" class="logoff-button" />
         </form>

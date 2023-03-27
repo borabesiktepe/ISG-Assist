@@ -8,6 +8,7 @@ form.addEventListener('submit', function (e) {
     let inputName = document.getElementById('name').value;
     let inputDesc = document.getElementById('description').value;
     let inputUserId = document.getElementById('userId').value;
+    let message = document.getElementById("message");
 
     console.log(inputName + " " + inputDesc);
 
@@ -25,4 +26,6 @@ form.addEventListener('submit', function (e) {
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
+
+    message.innerHTML = "Çalışma alanı oluşturuldu. Panelinizden ulaşabilirsiniz.";
 });

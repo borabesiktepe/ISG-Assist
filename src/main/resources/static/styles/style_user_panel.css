@@ -91,7 +91,7 @@ nav {
 /* ÇALIŞMA ALANLARIM ALANI */
 
 .workplace-management {
-    margin-top: 58px;
+    margin-top: 32px;
 }
 
 .workplace-management h2 {
@@ -185,18 +185,27 @@ nav {
     color: black;
     background-color: #FFC20D;
     font-size: 16px;
+    font-family: 'Montserrat', monospace;
+    font-weight: bold;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 20px;
-    padding: 20px 35px;
-    width: 114px;
+    padding: 20px 40px;
     margin-right: 20px;
+}
+
+.todolist-controls button:hover {
+    background-color: #ecb100;
 }
 
 .todolist-controls .clear {
     color: red;
     background-color: white;
     padding: 20px 30px;
+}
+
+.todolist-controls .clear:hover {
+    background-color: rgb(240, 240, 240);
 }
 
 /* NOTLARIM ALANI */
@@ -211,7 +220,7 @@ nav {
 }
 
 #notes-form {
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 
@@ -232,10 +241,16 @@ nav {
     color: black;
     background-color: #FFC20D;
     font-size: 16px;
+    font-family: 'Montserrat', monospace;
+    font-weight: bold;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 20px;
     padding: 20px 35px;
     width: fit-content;
     margin-top: 20px;
+}
+
+.notes button:hover {
+    background-color: #ecb100;
 }

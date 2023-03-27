@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link th:href="@{/styles/style_createworkplace_form.css}" rel="stylesheet" />
+    <link th:href="@{/styles/style_createworkplace.css}" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
@@ -41,6 +41,8 @@
                 <input id="description" type="text" name="description" placeholder="Açıklamasını giriniz" required>
                 <button type="submit">Oluştur</button>
             </form>
+
+            <p id="message"></p>
         </div>
     </main>
     <script type="text/javascript" th:src="@{/js/script_createworkplace.js}"></script>

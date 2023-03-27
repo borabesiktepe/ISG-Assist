@@ -69,7 +69,7 @@ public class AppController {
     @GetMapping("/create_workplace")
     public String viewCreateWorkplaceForm() {
 
-        return "createworkplace_form";
+        return "user_createworkplace";
     }
 
     @GetMapping("/workplace_panel/{workplaceId}")

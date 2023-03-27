@@ -44,10 +44,10 @@
     <h1 th:text="|${workplace.workplaceName} Ayarlar|"></h1>
 
     <form id="form-update">
-      <p>Çalışma alanı adını veya açıklamasını değiştirin</p>
+      <p>Çalışma alanı bilgilerini değiştirin</p>
       <input type="hidden" id="workplaceId" th:value="${workplace.id}">
-      <input id="name" type="text" name="workplaceName" placeholder="Yeni adını giriniz" required>
-      <input id="description" type="text" name="workplaceDescription" placeholder="Yeni açıklamasını giriniz"
+      <input id="name" type="text" name="workplaceName" th:value="${workplace.workplaceName}" placeholder="Yeni adını giriniz" required>
+      <input id="description" type="text" name="workplaceDescription" th:value="${workplace.workplaceDescription}" placeholder="Yeni açıklamasını giriniz"
              required>
       <button type="submit">Güncelle</button>
     </form>

@@ -40,6 +40,13 @@
 <main>
   <div class="container">
     <h1 th:text="|${workplace.workplaceName} Risk Değerlendirme|"></h1>
+    <div class="risk-matris">
+      <a href="https://i.hizliresim.com/32yzm59.png" target="_blank">
+        <i class="fa-solid fa-circle-info"></i>
+        Risk Matrisi
+      </a>
+    </div>
+
     <form id="risk-assesment">
       <table>
         <thead>
@@ -67,12 +74,15 @@
         </tbody>
       </table>
 
+      <p class="input-desc">Tabloya veri ekleyin</p>
       <div class="table-inputs">
         <input type="hidden" id="workplaceId" th:value="${workplace.id}">
         <div class="left">
-          <input type="text" name="tehlikeAdi" id="tehlikeAdi" placeholder="Genel Tehlike Adı" required>
-          <input type="text" name="yerEkipman" id="yerEkipman" list="yerErkipman-list"
-                 placeholder="Yer/Ekipman">
+          <label for="tehlikeAdi">Genel Tehlike Adı</label>
+          <input type="text" name="tehlikeAdi" id="tehlikeAdi">
+
+          <label for="yerEkipman">Yer/Ekipman</label>
+          <input type="text" name="yerEkipman" id="yerEkipman" list="yerErkipman-list">
           <datalist id="yerErkipman-list">
             <option value="Makina atölyesi">
             <option value="Depo alanı">
@@ -96,8 +106,9 @@
             <option value="Klima Sistemi">
             <option value="Asansör">
           </datalist>
-          <input type="text" name="mevcutTehlikeler" id="mevcutTehlikeler" list="mevcutTehlikeler-list"
-                 placeholder="Mevcut Tehlikeler">
+
+          <label for="mevcutTehlikeler">Mevcut Tehlikeler</label>
+          <input type="text" name="mevcutTehlikeler" id="mevcutTehlikeler" list="mevcutTehlikeler-list">
           <datalist id="mevcutTehlikeler-list">
             <option value="Yüksekten düşme">
             <option value="Kesici aletler">
@@ -113,7 +124,9 @@
             <option value="Hava kalitesi">
             <option value="Zeminler">
           </datalist>
-          <input type="text" name="olusacakRiskler" id="olusacakRiskler" list="olusacakRiskler-list" placeholder="Oluşacak Riskler">
+
+          <label for="olusacakRiskler">Oluşacak Riskler</label>
+          <input type="text" name="olusacakRiskler" id="olusacakRiskler" list="olusacakRiskler-list">
           <datalist id="olusacakRiskler-list">
             <option value="Yükseklikten düşme">
             <option value="Malzeme düşmesi">
@@ -128,9 +141,12 @@
             <option value="Alerjik reaksiyonlar">
             <option value="Çevresel faktörler">
           </datalist>
-          <input type="text" name="mevcutOnlemler" id="mevcutOnlemler" placeholder="Mevcut Önlemler">
-          <input type="text" name="maruzKalanlar" id="maruzKalanlar" list="maruzKalanlar-list"
-                 placeholder="Maruz Kalanlar">
+
+          <label for="mevcutOnlemler">Mevcut Önlemler</label>
+          <input type="text" name="mevcutOnlemler" id="mevcutOnlemler">
+
+          <label for="maruzKalanlar">Maruz Kalanlar</label>
+          <input type="text" name="maruzKalanlar" id="maruzKalanlar" list="maruzKalanlar-list">
           <datalist id="maruzKalanlar-list">
             <option value="Çalışanlar">
             <option value="İşçiler">
@@ -147,20 +163,28 @@
             <option value="Araştırmacılar">
             <option value="İşyeri dışındakiler">
           </datalist>
-          <input type="number" name="siddet" id="siddet" placeholder="Şiddet (1-15)" min="1" max="25">
-          <input type="number" name="olasilik" id="olasilik" placeholder="Olasılık (1-15)" min="1" max="25">
-          <input type="number" name="risk" id="risk" placeholder="Risk (1-15)" min="1" max="25">
         </div>
         <div class="right">
-          <input type="text" name="alinacakTedbirler" id="alinacakTedbirler" placeholder="Alınacak Tedbirler">
-          <input type="number" name="sSiddet" id="sSiddet" placeholder="S. Şiddet (1-15)" min="1" max="25">
-          <input type="number" name="sOlasilik" id="sOlasilik" placeholder="S. Olasılık (1-15)" min="1"
-                 max="25">
-          <input type="number" name="sRisk" id="sRisk" placeholder="S. Risk (1-15)" min="1" max="25">
+          <label for="siddet">Şiddet</label>
+          <input type="number" name="siddet" id="siddet" placeholder="(1-15)" min="1" max="25">
+
+          <label for="olasilik">Olasılık</label>
+          <input type="number" name="olasilik" id="olasilik" placeholder="(1-15)" min="1" max="25">
+
+          <label for="alinacakTedbirler">Alınacak Tedbirler</label>
+          <input type="text" name="alinacakTedbirler" id="alinacakTedbirler">
+
+          <label for="sSiddet">Son Şiddet</label>
+          <input type="number" name="sSiddet" id="sSiddet" placeholder="(1-15)" min="1" max="25">
+
+          <label for="sOlasilik">Son Olasılık</label>
+          <input type="number" name="sOlasilik" id="sOlasilik" placeholder="(1-15)" min="1" max="25">
         </div>
       </div>
+
       <button type="submit">Ekle</button>
     </form>
+
     <button onclick="exportToExcel('xlsx')">Excel olarak kaydet</button>
   </div>
 </main>

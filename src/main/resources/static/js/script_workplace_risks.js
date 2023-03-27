@@ -6,11 +6,9 @@ const mevcutOnlemler = document.getElementById("mevcutOnlemler");
 const maruzKalanlar = document.getElementById("maruzKalanlar");
 const siddet = document.getElementById("siddet");
 const olasilik = document.getElementById("olasilik");
-const risk = document.getElementById("risk");
 const alinacakTedbirler = document.getElementById("alinacakTedbirler");
 const sSiddet = document.getElementById("sSiddet");
 const sOlasilik = document.getElementById("sOlasilik");
-const sRisk = document.getElementById("sRisk");
 
 const workplaceId = document.getElementById("workplaceId").value;
 
@@ -48,6 +46,45 @@ fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplace
         document.getElementById("table_body").innerHTML = tableData
     })
 
+//RİSK DEĞERLENDİRME POST İŞLEMİ
+const formRisk = document.getElementById("risk-assesment");
+formRisk.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let risk = siddet.value * olasilik.value;
+    let sRisk = sSiddet.value * sOlasilik.value;
+
+    console.log("Risk:", risk, "Son Risk:", sRisk);
+    console.log(tehlikeAdi.value, yerEkipman.value, mevcutTehlikeler.value, olusacakRiskler.value, mevcutOnlemler.value, maruzKalanlar.value, siddet.value, olasilik.value, risk, alinacakTedbirler.value, sSiddet.value, sOlasilik.value, sRisk, workplaceId);
+
+    fetch('http://localhost:8080/api/riskassesments/add', {
+        method: 'POST',
+        body: JSON.stringify({
+            tehlikeAdi: tehlikeAdi.value,
+            yerEkipman: yerEkipman.value,
+            mevcutTehlikeler: mevcutTehlikeler.value,
+            olusacakRiskler: olusacakRiskler.value,
+            mevcutOnlemler: mevcutOnlemler.value,
+            maruzKalanlar: maruzKalanlar.value,
+            siddet: siddet.value,
+            olasilik: olasilik.value,
+            risk: risk,
+            alinacakTedbirler: alinacakTedbirler.value,
+            sonSiddet: sSiddet.value,
+            sonOlasilik: sOlasilik.value,
+            sonRisk: sRisk,
+            workplaceId: workplaceId
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+});
+
+
 //TIKLANAN SATIRI INPUTLARA DİZME
 function printToInputs(e) {
     var tds = e.getElementsByTagName('td');
@@ -59,11 +96,9 @@ function printToInputs(e) {
     maruzKalanlar.value = tds[6].innerHTML.trim();
     siddet.value = tds[7].innerHTML.trim();
     olasilik.value = tds[8].innerHTML.trim();
-    risk.value = tds[9].innerHTML.trim();
     alinacakTedbirler.value = tds[10].innerHTML.trim();
     sSiddet.value = tds[11].innerHTML.trim();
     sOlasilik.value = tds[12].innerHTML.trim();
-    sRisk.value = tds[13].innerHTML.trim();
 }
 
 //TABLO ŞİDDET/OLASILIK/RİSK KOLON RENKLENDİRME

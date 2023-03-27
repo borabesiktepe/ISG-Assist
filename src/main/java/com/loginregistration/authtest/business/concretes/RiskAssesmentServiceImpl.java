@@ -69,7 +69,7 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
         riskAssesment.setSonSiddet(createRiskAssesmentRequest.getSonSiddet());
         riskAssesment.setSonOlasilik(createRiskAssesmentRequest.getSonOlasilik());
         riskAssesment.setSonRisk(createRiskAssesmentRequest.getSonRisk());
-
+        //WORKPLACE ID
 
         this.riskAssesmentRepository.save(riskAssesment);
     }

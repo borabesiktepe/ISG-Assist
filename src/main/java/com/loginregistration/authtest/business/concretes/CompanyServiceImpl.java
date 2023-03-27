@@ -51,6 +51,7 @@ public class CompanyServiceImpl implements CompanyService {
 		company.setMail(createCompanyRequest.getMail());
 		company.setPhone(createCompanyRequest.getPhone());
 		company.setContactPerson(createCompanyRequest.getContactPerson());
+		//WORKPLACE ID
 
 		this.companyRepository.save(company);
 	}

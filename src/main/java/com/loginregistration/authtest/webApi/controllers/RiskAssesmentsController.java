@@ -1,13 +1,11 @@
 package com.loginregistration.authtest.webApi.controllers;
 
 import com.loginregistration.authtest.business.abstracts.RiskAssesmentService;
+import com.loginregistration.authtest.business.requests.CreateRiskAssesmentRequest;
 import com.loginregistration.authtest.business.responses.RiskAssesmentsResponse;
 import com.loginregistration.authtest.dataAccess.RiskAssesmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,10 @@ public class RiskAssesmentsController {
     @GetMapping("/getall")
     public List<RiskAssesmentsResponse> getAllByWorkplaceId(@RequestParam int workplaceId) {
         return riskAssesmentService.getAllByWorkplaceId(workplaceId);
+    }
+
+    @PostMapping("/add")
+    public void add(@RequestBody CreateRiskAssesmentRequest createRiskAssesmentRequest) {
+        this.riskAssesmentService.add(createRiskAssesmentRequest);
     }
 }

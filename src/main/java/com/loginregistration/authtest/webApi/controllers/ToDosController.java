@@ -39,7 +39,7 @@ public class ToDosController {
 		this.toDoService.add(createToDoRequest);
 	}
 
-	@DeleteMapping
+	@DeleteMapping("/delete")
 	public void clear() {
 		this.toDoService.clear(SecurityUtils.getUser().get().getId());
 	}

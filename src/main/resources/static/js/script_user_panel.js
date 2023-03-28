@@ -121,3 +121,19 @@ formNotes.addEventListener('submit', function (e) {
         location.reload();
 })
 
+//DELETE
+const clearToDoBtn = document.getElementById("clear");
+
+clearToDoBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    fetch('http://localhost:8080/api/todos/delete', {
+        method: 'DELETE'
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+
+    location.reload();
+});
+
+

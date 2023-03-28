@@ -204,13 +204,13 @@ nav {
     background-color: #ecb100;
 }
 
-.todolist-controls .clear {
+.todolist-controls #clear {
     color: red;
     background-color: white;
     padding: 20px 30px;
 }
 
-.todolist-controls .clear:hover {
+.todolist-controls #clear:hover {
     background-color: rgb(240, 240, 240);
 }
 

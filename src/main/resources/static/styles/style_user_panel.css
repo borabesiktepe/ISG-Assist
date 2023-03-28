@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    transition: all .2s ease;
 }
 
 body {
@@ -126,7 +127,6 @@ nav {
 
 .workplace-management a:hover {
     color: #FFC20D;
-    font-weight: bold;
 }
 
 .bottom-menu {

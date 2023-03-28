@@ -45,7 +45,7 @@
   <div class="container">
     <h1 th:text="|${workplace.workplaceName} Risk Değerlendirme|"></h1>
     <div class="risk-matris">
-      <a href="https://i.hizliresim.com/32yzm59.png" target="_blank">
+      <a href="https://i.hizliresim.com/e6rmcry.png" target="_blank">
         <i class="fa-solid fa-circle-info"></i>
         Risk Matrisi
       </a>
@@ -83,7 +83,7 @@
         <input type="hidden" id="workplaceId" th:value="${workplace.id}">
         <div class="left">
           <label for="tehlikeAdi">Genel Tehlike Adı</label>
-          <input type="text" name="tehlikeAdi" id="tehlikeAdi">
+          <input type="text" name="tehlikeAdi" id="tehlikeAdi" required>
 
           <label for="yerEkipman">Yer/Ekipman</label>
           <input type="text" name="yerEkipman" id="yerEkipman" list="yerErkipman-list">
@@ -192,8 +192,8 @@
     <button onclick="exportToExcel('xlsx')">Excel olarak kaydet</button>
   </div>
 </main>
-<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 <script type="text/javascript" th:src="@{/js/script_workplace_risks.js}"></script>
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 </body>
 
 </html>

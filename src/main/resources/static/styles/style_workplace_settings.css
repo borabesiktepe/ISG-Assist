@@ -41,6 +41,10 @@ nav {
     font-weight: bolder;
 }
 
+.user-button a:hover {
+    text-shadow: 0px 4px 14px rgba(0, 0, 0, 0.37);
+}
+
 .training-button {
     margin-top: 84px;
 }
@@ -56,6 +60,10 @@ nav {
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
 }
 
+.training-button a:hover {
+    color: #FFC20D;
+}
+
 .risk-button {
     margin-top: 84px;
 }
@@ -69,6 +77,10 @@ nav {
     border-radius: 20px;
     background-color: white;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.risk-button a:hover {
+    color: #FFC20D;
 }
 
 .settings-button {
@@ -141,6 +153,7 @@ input[type=text] {
     border-radius: 14px;
     padding: 10px;
     font-size: 16px;
+    font-family: 'Montserrat', monospace;
     margin-bottom: 15px;
 }
 
@@ -150,9 +163,15 @@ input[type=text] {
     border: none;
     border-radius: 20px;
     font-size: 16px;
+    font-family: 'Montserrat', monospace;
+    font-weight: bold;
     padding: 20px 30px;
     width: fit-content;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+#form-update button:hover {
+    background-color: #e4ab00;
 }
 
 #form-delete button {
@@ -162,8 +181,14 @@ input[type=text] {
     border: none;
     border-radius: 20px;
     font-size: 16px;
+    font-family: 'Montserrat', monospace;
+    font-weight: bold;
     padding: 20px 48px;
     width: fit-content;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+}
+
+#form-delete button:hover {
+    background-color: #e40000;
 }

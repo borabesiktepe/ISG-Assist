@@ -37,6 +37,10 @@ nav {
     font-weight: bolder;
 }
 
+.user-button a:hover {
+    text-shadow: 0px 4px 14px rgba(0, 0, 0, 0.37);
+}
+
 .create-workplace-button {
     margin-top: 84px;
 }
@@ -99,6 +103,7 @@ input[type=text] {
     border-radius: 14px;
     padding: 10px;
     font-size: 16px;
+    font-family: 'Montserrat', monospace;
     margin-bottom: 15px;
 }
 

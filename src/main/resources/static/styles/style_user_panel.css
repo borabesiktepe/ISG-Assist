@@ -37,6 +37,10 @@ nav {
     font-weight: bolder;
 }
 
+.user-button a:hover {
+    text-shadow: 0px 4px 14px rgba(0, 0, 0, 0.37);
+}
+
 .userId {
     display: none;
 }
@@ -122,6 +126,7 @@ nav {
 
 .workplace-management a:hover {
     color: #FFC20D;
+    font-weight: bold;
 }
 
 .bottom-menu {
@@ -170,6 +175,7 @@ nav {
     border-style: solid;
     border-color: #FFC20D;
     font-size: 16px;
+    font-family: 'Montserrat', monospace;
     padding: 15px 20px;
     width: 100%;
 }
@@ -233,6 +239,7 @@ nav {
     border: none;
     padding: 28px 38px;
     font-size: 16px;
+    font-family: 'Montserrat', monospace;
 }
 
 .notes button {

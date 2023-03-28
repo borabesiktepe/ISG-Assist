@@ -82,6 +82,8 @@ formRisk.addEventListener('submit', function (e) {
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
+
+    //location.reload();
 });
 
 

@@ -51,7 +51,7 @@ trainingButton.addEventListener("click", () => {
     for (i = 0; i < element.length; i++) {
         if (element[i].checked) {
             selectedItem.innerHTML = "Seçilen dosya: " + element[i].value;
-            pdfFrame.src = `./files/${element[i].value}`;
+            pdfFrame.src = `/files/${element[i].value}`;
         }
     }
 })

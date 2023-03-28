@@ -4,7 +4,9 @@ import com.loginregistration.authtest.business.abstracts.RiskAssesmentService;
 import com.loginregistration.authtest.business.requests.CreateRiskAssesmentRequest;
 import com.loginregistration.authtest.business.responses.RiskAssesmentsResponse;
 import com.loginregistration.authtest.dataAccess.RiskAssesmentRepository;
+import com.loginregistration.authtest.dataAccess.WorkplaceRepository;
 import com.loginregistration.authtest.entities.RiskAssesment;
+import com.loginregistration.authtest.entities.Workplace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +17,12 @@ import java.util.stream.Collectors;
 @Service
 public class RiskAssesmentServiceImpl implements RiskAssesmentService {
 
+    @Autowired
     private RiskAssesmentRepository riskAssesmentRepository;
 
     @Autowired
-    public RiskAssesmentServiceImpl(RiskAssesmentRepository riskAssesmentRepository) {
-        this.riskAssesmentRepository = riskAssesmentRepository;
-    }
+    private WorkplaceRepository workplaceRepository;
+
 
     @Override
     public List<RiskAssesmentsResponse> getAll() {
@@ -54,6 +56,8 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
 
     @Override
     public void add(CreateRiskAssesmentRequest createRiskAssesmentRequest) {
+        Workplace workplace = workplaceRepository.findById(createRiskAssesmentRequest.getWorkplaceId()).orElseThrow(() -> new RuntimeException("Workplace ID bulunamadı."));
+
         RiskAssesment riskAssesment = new RiskAssesment();
 
         riskAssesment.setTehlikeAdi(createRiskAssesmentRequest.getTehlikeAdi());
@@ -69,7 +73,7 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
         riskAssesment.setSonSiddet(createRiskAssesmentRequest.getSonSiddet());
         riskAssesment.setSonOlasilik(createRiskAssesmentRequest.getSonOlasilik());
         riskAssesment.setSonRisk(createRiskAssesmentRequest.getSonRisk());
-        //WORKPLACE ID
+        riskAssesment.setWorkplace(workplace);
 
         this.riskAssesmentRepository.save(riskAssesment);
     }

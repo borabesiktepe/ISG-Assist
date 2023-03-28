@@ -38,7 +38,7 @@ formContact.addEventListener('submit', function (e) {
             mail: mail.value,
             phone: phone.value,
             contactPerson: contactPerson.value,
-            workplaceId: workplaceId.value
+            workplaceId: workplaceId
         }),
         headers: {
             'Content-type': 'application/json; charset=UTF-8',

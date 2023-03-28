@@ -83,7 +83,7 @@ formRisk.addEventListener('submit', function (e) {
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
 
-    //location.reload();
+    location.reload();
 });
 
 

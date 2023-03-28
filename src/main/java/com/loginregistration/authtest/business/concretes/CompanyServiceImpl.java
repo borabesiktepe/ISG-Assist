@@ -4,7 +4,9 @@ import com.loginregistration.authtest.business.abstracts.CompanyService;
 import com.loginregistration.authtest.business.requests.CreateCompanyRequest;
 import com.loginregistration.authtest.business.responses.CompaniesResponse;
 import com.loginregistration.authtest.dataAccess.CompanyRepository;
+import com.loginregistration.authtest.dataAccess.WorkplaceRepository;
 import com.loginregistration.authtest.entities.Company;
+import com.loginregistration.authtest.entities.Workplace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +17,11 @@ import java.util.stream.Collectors;
 @Service
 public class CompanyServiceImpl implements CompanyService {
 
+	@Autowired
 	private CompanyRepository companyRepository;
 
 	@Autowired
-	public CompanyServiceImpl(CompanyRepository companyRepository) {
-		this.companyRepository = companyRepository;
-	}
+	private WorkplaceRepository workplaceRepository;
 	
 	@Override
 	public List<CompaniesResponse> getAll() {
@@ -45,13 +46,15 @@ public class CompanyServiceImpl implements CompanyService {
 
 	@Override
 	public void add(CreateCompanyRequest createCompanyRequest) {
+		Workplace workplace = workplaceRepository.findById(createCompanyRequest.getWorkplaceId()).orElseThrow(() -> new RuntimeException("Workplace ID bulunamadı."));
+
 		Company company = new Company();
 
 		company.setAddress(createCompanyRequest.getAddress());
 		company.setMail(createCompanyRequest.getMail());
 		company.setPhone(createCompanyRequest.getPhone());
 		company.setContactPerson(createCompanyRequest.getContactPerson());
-		//WORKPLACE ID
+		company.setWorkplace(workplace);
 
 		this.companyRepository.save(company);
 	}

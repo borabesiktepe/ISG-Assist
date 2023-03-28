@@ -62,7 +62,6 @@ public class ToDoServiceImpl implements ToDoService {
 
 	@Override
 	public void clear(int userId) {
-		toDoRepository.deleteById(userId);
+		toDoRepository.findAllByUserId(userId).forEach(toDo -> toDoRepository.delete(toDo));
 	}
-
 }

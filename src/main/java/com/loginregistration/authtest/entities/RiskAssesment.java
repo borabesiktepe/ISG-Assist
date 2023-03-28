@@ -45,7 +45,7 @@ public class RiskAssesment {
     @Column
     private int risk;
 
-    @Column
+    @Column(length = 999)
     private String alinacakTedbirler;
 
     @Column

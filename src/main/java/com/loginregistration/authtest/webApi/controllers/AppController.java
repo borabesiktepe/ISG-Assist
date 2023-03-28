@@ -33,6 +33,11 @@ public class AppController {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String viewLoginForm() {
+        return "login_form";
+    }
+
     @GetMapping("/register")
     public String showSignUpForm(Model model) {
         model.addAttribute("user", new User());

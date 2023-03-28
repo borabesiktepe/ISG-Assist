@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelaef.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/style_signup_form.css}" rel="stylesheet" />
+    <title>Giriş Yapın</title>
+</head>
+
+<body>
+<div class="container">
+    <h1>Giriş Yapın</h1>
+    <form th:action="@{/login}" method="post">
+        <div class="input-group">
+            <label for="username">E-Mail adresiniz</label>
+            <input type="text" id="username" name="email" class="form-control" placeholder="Username" required="" autofocus="">
+        </div>
+        <div class="input-group">
+            <label for="password">Şifreniz</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+        </div>
+        <button type="submit">Giriş Yap</button>
+    </form>
+</div>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+</body>
+
+</html>

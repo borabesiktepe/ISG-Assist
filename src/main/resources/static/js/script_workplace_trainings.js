@@ -10,23 +10,23 @@ pdfFrame.style.display = "none";
 var json = [
     {
         "id": 1,
-        "name": "Eğitim1.pdf",
-        "userId": 1
+        "name": "Ornek.pdf",
+        "workplaceId": 1
     },
     {
         "id": 2,
         "name": "Eğitim2.pdf",
-        "userId": 1
+        "workplaceId": 1
     },
     {
         "id": 3,
         "name": "Eğitim3.pdf",
-        "userId": 2
+        "workplaceId": 2
     },
     {
         "id": 4,
         "name": "Slayt1.pptx",
-        "userId": 2
+        "workplaceId": 2
     }
 ];
 
@@ -51,7 +51,7 @@ trainingButton.addEventListener("click", () => {
     for (i = 0; i < element.length; i++) {
         if (element[i].checked) {
             selectedItem.innerHTML = "Seçilen dosya: " + element[i].value;
-            pdfFrame.src = `/files/${element[i].value}`;
+            pdfFrame.src = `./files/${element[i].value}`;
         }
     }
 })

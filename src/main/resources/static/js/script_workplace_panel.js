@@ -48,3 +48,28 @@ formContact.addEventListener('submit', function (e) {
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
 });
+
+//PUT
+const updateCompanyBtn = document.getElementById("update");
+updateCompanyBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    console.log(address.value, mail.value, phone.value, contactPerson.value, workplaceId);
+
+    fetch('http://localhost:8080/api/companies/update/' + workplaceId, {
+        method: 'PUT',
+        body: JSON.stringify({
+            address: address.value,
+            mail: mail.value,
+            phone: phone.value,
+            contactPerson: contactPerson.value,
+            workplaceId: workplaceId
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+})

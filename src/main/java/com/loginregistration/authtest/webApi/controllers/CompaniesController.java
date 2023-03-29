@@ -29,7 +29,11 @@ public class CompaniesController {
 	
 	@PostMapping("/add")
 	public void add(@RequestBody CreateCompanyRequest createCompanyRequest) {
-
 		this.companyService.add(createCompanyRequest);
+	}
+
+	@PutMapping("/update/{workplaceId}")
+	public void update(@PathVariable int workplaceId, @RequestBody CreateCompanyRequest createCompanyRequest) {
+		this.companyService.update(workplaceId, createCompanyRequest);
 	}
 }

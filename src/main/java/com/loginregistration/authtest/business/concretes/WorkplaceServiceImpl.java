@@ -1,11 +1,14 @@
 package com.loginregistration.authtest.business.concretes;
 
 import com.loginregistration.authtest.business.abstracts.WorkplaceService;
+import com.loginregistration.authtest.business.requests.CreateCompanyRequest;
 import com.loginregistration.authtest.business.requests.CreateWorkplaceRequest;
 import com.loginregistration.authtest.business.responses.WorkplacesResponse;
 import com.loginregistration.authtest.dataAccess.WorkplaceRepository;
+import com.loginregistration.authtest.entities.Company;
 import com.loginregistration.authtest.entities.Workplace;
 import com.loginregistration.authtest.security.SecurityUtils;
+import org.hibernate.jdbc.Work;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,4 +65,13 @@ public class WorkplaceServiceImpl implements WorkplaceService {
 				.collect(Collectors.toList());
 	}
 
+	public void update(Integer workplaceId, CreateWorkplaceRequest createWorkplaceRequest) {
+		Workplace updateWorkplace = workplaceRepository.findById(workplaceId)
+				.orElseThrow(() -> new RuntimeException("Workplace bulunmadı: " + workplaceId));
+
+		updateWorkplace.setWorkplaceName(createWorkplaceRequest.getName());
+		updateWorkplace.setWorkplaceDescription(createWorkplaceRequest.getDescription());
+
+		workplaceRepository.save(updateWorkplace);
+	}
 }

@@ -1,6 +1,7 @@
 package com.loginregistration.authtest.webApi.controllers;
 
 import com.loginregistration.authtest.business.abstracts.WorkplaceService;
+import com.loginregistration.authtest.business.requests.CreateCompanyRequest;
 import com.loginregistration.authtest.business.requests.CreateWorkplaceRequest;
 import com.loginregistration.authtest.business.responses.WorkplacesResponse;
 import com.loginregistration.authtest.entities.User;
@@ -37,5 +38,10 @@ public class WorkplacesController {
 	@PostMapping("/add")
 	public void add(@RequestBody CreateWorkplaceRequest createWorkplaceRequest) {
 		this.workplaceService.add(createWorkplaceRequest);
+	}
+
+	@PutMapping("/update/{workplaceId}")
+	public void update(@PathVariable int workplaceId, @RequestBody CreateWorkplaceRequest createWorkplaceRequest) {
+		this.workplaceService.update(workplaceId, createWorkplaceRequest);
 	}
 }

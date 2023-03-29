@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org/">
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org/">
 
 <head>
     <meta charset="UTF-8">
@@ -14,80 +14,89 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav-buttons">
-            <div class="user-button">
+<nav>
+    <div class="nav-buttons">
+        <div class="user-button">
             <a th:href="@{/user_panel}">
                 <i class="fa-solid fa-helmet-safety"></i>
                 [[${#request.userPrincipal.principal.fullName}]]
             </a>
         </div>
 
-            <div class="training-button">
-                <a th:href="@{/trainings/} + ${workplace.id}">Eğitimler</a>
-            </div>
+        <div class="training-button">
+            <a th:href="@{/trainings/} + ${workplace.id}">Eğitimler</a>
+        </div>
 
-            <div class="risk-button">
-                <a th:href="@{/riskassesment/} + ${workplace.id}">Risk Değerlendirme</a>
-            </div>
+        <div class="risk-button">
+            <a th:href="@{/riskassesment/} + ${workplace.id}">Risk Değerlendirme</a>
+        </div>
 
-            <div class="settings-button">
-                <a th:href="@{/settings/} + ${workplace.id}">Ayarlar</a>
-            </div>
-
-            <form th:action="@{/logout}" method="post">
+        <form th:action="@{/logout}" method="post">
             <input type="submit" value="Çıkış Yap" class="logoff-button" />
         </form>
-        </div>
-    </nav>
+    </div>
+</nav>
 
-    <main>
-        <div class="container">
-            <h1 class="sectiontitle" th:text ="${workplace.workplaceName}"></h1>
-            <p class="workplace-description" th:text ="${workplace.workplaceDescription}"></p>
-            <div class="trainings-management">
-                <h2>Dökümanlar</h2>
-                <ul>
+<main>
+    <div class="container">
+        <h1 class="sectiontitle" th:text ="${workplace.workplaceName}"></h1>
+        <p class="workplace-description" th:text ="${workplace.workplaceDescription}"></p>
 
-                </ul>
-                <div class="training-controls">
-                    <form>
-                        <input type="file" id="myfile" name="myfile" required>
-                        <input type="submit">
-                    </form>
-                </div>
-            </div>
-            <div class="contact-section">
-                <form id="form-contact" method="post">
-                    <h2>İletişim Bilgileri</h2>
-                    <input type="hidden" id="workplaceId" th:value="${workplace.id}">
-                    <div class="input-box">
-                        <label for="address">Adres</label>
-                        <input type="text" name="address" id="address">
-                    </div>
+        <div class="trainings-management">
+            <h2>Dökümanlar</h2>
+            <ul>
 
-                    <div class="input-box">
-                        <label for="mail">Mail</label>
-                        <input type="text" name="mail" id="mail">
-                    </div>
-
-                    <div class="input-box">
-                        <label for="phone">Telefon</label>
-                        <input type="text" name="phone" id="phone">
-                    </div>
-
-                    <div class="input-box">
-                        <label for="contactperson">İlgili kişi</label>
-                        <input type="text" name="contactperson" id="contactperson">
-                    </div>
-
-                    <button type="submit">Kaydet</button>
+            </ul>
+            <div class="training-controls">
+                <form>
+                    <input type="file" id="myfile" name="myfile" required>
+                    <input type="submit">
                 </form>
-                <button id="update">Güncelle</button>
             </div>
         </div>
-    </main>
-    <script type="text/javascript" th:src="@{/js/script_workplace_panel.js}"></script>
+
+        <div class="contact-section">
+            <form id="form-contact" method="post">
+                <h2>İletişim Bilgileri</h2>
+                <input type="hidden" id="workplaceId" th:value="${workplace.id}">
+                <div class="input-box">
+                    <label for="address">Adres</label>
+                    <input type="text" name="address" id="address">
+                </div>
+
+                <div class="input-box">
+                    <label for="mail">Mail</label>
+                    <input type="text" name="mail" id="mail">
+                </div>
+
+                <div class="input-box">
+                    <label for="phone">Telefon</label>
+                    <input type="text" name="phone" id="phone">
+                </div>
+
+                <div class="input-box">
+                    <label for="contactperson">İlgili kişi</label>
+                    <input type="text" name="contactperson" id="contactperson">
+                </div>
+
+                <button type="submit">Kaydet</button>
+            </form>
+            <button id="update">Güncelle</button>
+        </div>
+
+        <div class="workplace-settings-section">
+            <h3>Çalışma alanı bilgileri</h3>
+            <form id="form-update">
+                <input id="name" type="text" name="workplaceName" th:value="${workplace.workplaceName}" placeholder="Yeni adını giriniz" required>
+                <input id="description" type="text" name="workplaceDescription" th:value="${workplace.workplaceDescription}" placeholder="Yeni açıklamasını giriniz"
+                       required>
+                <button type="submit">Güncelle</button>
+            </form>
+        </div>
+
+    </div>
+</main>
+<script type="text/javascript" th:src="@{/js/script_workplace_panel.js}"></script>
 </body>
 
 </html>

@@ -115,17 +115,4 @@ public class AppController {
 
         return "workplace_trainings";
     }
-
-    @GetMapping("/settings/{workplaceId}")
-    public String viewWorkplaceSettings(Model model, @PathVariable("workplaceId") int workplaceId) {
-
-        Optional<Workplace> workplaceOptional = workplaceRepository.findById(workplaceId);
-
-        if (workplaceOptional.isPresent()) {
-            Workplace workplace = workplaceOptional.get();
-            model.addAttribute("workplace", workplace);
-        }
-
-        return "workplace_settings";
-    }
 }

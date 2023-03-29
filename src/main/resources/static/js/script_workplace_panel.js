@@ -8,8 +8,8 @@ const contactPerson = document.getElementById("contactperson");
 
 const workplaceId = document.getElementById("workplaceId").value;
 
-//API GET İŞLEMLERİ
 //İLETİŞİM BİLGİLERİ ALANI
+//GET İŞLEMLERİ
 fetch(`http://localhost:8080/api/companies/getall?workplaceId=${workplaceId}`)
     .then(response => response.json())
     .then(data => {
@@ -24,8 +24,7 @@ fetch(`http://localhost:8080/api/companies/getall?workplaceId=${workplaceId}`)
         console.log(error)
 });
 
-//API POST İŞLEMLERİ
-//İLETİŞİM BİLGİLERİ ALANI
+//POST/PUT İŞLEMLERİ
 formContact.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -49,8 +48,8 @@ formContact.addEventListener('submit', function (e) {
         .catch(error => console.error('Error:', error));
 });
 
-//PUT
 const updateCompanyBtn = document.getElementById("update");
+
 updateCompanyBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -73,3 +72,28 @@ updateCompanyBtn.addEventListener("click", (e) => {
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
 })
+
+
+//WORKPLACE BİLGİLERİ ALANI
+//API PUT İŞLEMLERİ
+const formUpdate = document.getElementById("form-update");
+const workplaceName = document.getElementById("name");
+const workplaceDesc = document.getElementById("description");
+
+formUpdate.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    fetch('http://localhost:8080/api/workplaces/update/' + workplaceId, {
+        method: 'PUT',
+        body: JSON.stringify({
+            name: workplaceName.value,
+            description: workplaceDesc.value
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+});

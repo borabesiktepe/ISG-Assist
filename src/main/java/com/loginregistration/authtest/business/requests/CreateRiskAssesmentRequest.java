@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,5 +23,6 @@ public class CreateRiskAssesmentRequest {
     private int sonSiddet;
     private int sonOlasilik;
     private int sonRisk;
+    private String degerlendirmeTarihi;
     private int workplaceId;
 }

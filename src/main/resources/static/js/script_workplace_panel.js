@@ -95,5 +95,20 @@ formUpdate.addEventListener('submit', function (e) {
     })
         .then(response => response.json())
         .then(data => console.log(data))
+        .then(window.location.reload())
         .catch(error => console.error('Error:', error));
+});
+
+
+//RİSK DEĞERLENDİRME TARİHİ
+const lastRiskDate = document.getElementById("last-risk-date");
+fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId}`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+
+        lastRiskDate.innerHTML = "Son Risk Değerlendirilme Tarihi: " + data[data.length - 1].degerlendirmeTarihi;
+    })
+    .catch((error) => {
+        console.log(error)
 });

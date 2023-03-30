@@ -53,9 +53,11 @@ formRisk.addEventListener('submit', function (e) {
 
     let risk = siddet.value * olasilik.value;
     let sRisk = sSiddet.value * sOlasilik.value;
+    let today = new Date();
+    let date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
     console.log("Risk:", risk, "Son Risk:", sRisk);
-    console.log(tehlikeAdi.value, yerEkipman.value, mevcutTehlikeler.value, olusacakRiskler.value, mevcutOnlemler.value, maruzKalanlar.value, siddet.value, olasilik.value, risk, alinacakTedbirler.value, sSiddet.value, sOlasilik.value, sRisk, workplaceId);
+    console.log(tehlikeAdi.value, yerEkipman.value, mevcutTehlikeler.value, olusacakRiskler.value, mevcutOnlemler.value, maruzKalanlar.value, siddet.value, olasilik.value, risk, alinacakTedbirler.value, sSiddet.value, sOlasilik.value, sRisk, date, workplaceId);
 
     fetch('http://localhost:8080/api/riskassesments/add', {
         method: 'POST',
@@ -73,6 +75,7 @@ formRisk.addEventListener('submit', function (e) {
             sonSiddet: sSiddet.value,
             sonOlasilik: sOlasilik.value,
             sonRisk: sRisk,
+            degerlendirmeTarihi: date,
             workplaceId: workplaceId
         }),
         headers: {
@@ -81,9 +84,8 @@ formRisk.addEventListener('submit', function (e) {
     })
         .then(response => response.json())
         .then(data => console.log(data))
+        .then(window.location.reload())
         .catch(error => console.error('Error:', error));
-
-    location.reload();
 });
 
 

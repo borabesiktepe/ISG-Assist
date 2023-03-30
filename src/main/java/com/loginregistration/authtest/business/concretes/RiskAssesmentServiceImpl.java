@@ -46,6 +46,7 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
             responseItem.setSonSiddet(riskAssesment.getSonSiddet());
             responseItem.setSonOlasilik(riskAssesment.getSonOlasilik());
             responseItem.setSonRisk(riskAssesment.getSonRisk());
+            responseItem.setDegerlendirmeTarihi(riskAssesment.getDegerlendirmeTarihi());
             responseItem.setWorkplaceId(riskAssesment.getWorkplace().getId());
 
             riskAssesmentsResponses.add(responseItem);
@@ -73,6 +74,7 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
         riskAssesment.setSonSiddet(createRiskAssesmentRequest.getSonSiddet());
         riskAssesment.setSonOlasilik(createRiskAssesmentRequest.getSonOlasilik());
         riskAssesment.setSonRisk(createRiskAssesmentRequest.getSonRisk());
+        riskAssesment.setDegerlendirmeTarihi(createRiskAssesmentRequest.getDegerlendirmeTarihi());
         riskAssesment.setWorkplace(workplace);
 
         this.riskAssesmentRepository.save(riskAssesment);
@@ -84,7 +86,7 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
                 .map(riskAssesment -> new RiskAssesmentsResponse(riskAssesment.getId(), riskAssesment.getTehlikeAdi(), riskAssesment.getYerEkipman(),
                         riskAssesment.getMevcutTehlikeler(), riskAssesment.getOlusacakRiskler(), riskAssesment.getMevcutOnlemler(), riskAssesment.getMaruzKalanlar(),
                         riskAssesment.getSiddet(), riskAssesment.getOlasilik(), riskAssesment.getRisk(), riskAssesment.getAlinacakTedbirler(),
-                        riskAssesment.getSonSiddet(), riskAssesment.getSonOlasilik(), riskAssesment.getSonRisk(),
+                        riskAssesment.getSonSiddet(), riskAssesment.getSonOlasilik(), riskAssesment.getSonRisk(), riskAssesment.getDegerlendirmeTarihi(),
                         riskAssesment.getWorkplace().getId()))
                 .collect(Collectors.toList());
     }

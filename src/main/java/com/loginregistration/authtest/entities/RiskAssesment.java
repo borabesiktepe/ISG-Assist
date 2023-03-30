@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Table(name = "risk_assesments")
 @Getter
@@ -56,6 +57,9 @@ public class RiskAssesment {
 
     @Column
     private int sonRisk;
+
+    @Column
+    private String degerlendirmeTarihi;
 
     @ManyToOne
     private Workplace workplace;

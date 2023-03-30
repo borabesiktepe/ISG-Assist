@@ -190,6 +190,11 @@ nav {
     font-size: 16px;
 }
 
+.middle-menu {
+    display: flex;
+    gap: 48px;
+}
+
 .contact-section {
     width: 625px;
     margin-top: 30px;
@@ -198,7 +203,8 @@ nav {
 .input-box {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 12px;
+    margin-bottom: 15px;
 }
 
 .input-box label {
@@ -207,11 +213,11 @@ nav {
 }
 
 .input-box input[type=text] {
-    border-radius: 20px;
     border: 2px solid #FFC20D;
-    padding: 15px 20px;
+    border-radius: 14px;
+    padding: 10px;
+    font-size: 16px;
     font-family: 'Montserrat', monospace;
-    font-size: 14px;
 }
 
 .contact-section button {
@@ -226,7 +232,7 @@ nav {
     border: none;
     border-radius: 20px;
     padding: 20px 35px;
-    margin-top: 20px;
+    margin-bottom: 12px;
 }
 
 .contact-section button:hover {
@@ -237,12 +243,8 @@ nav {
     margin-top: 30px;
 }
 
-#form-update,
-#form-delete {
-    display: flex;
-    flex-direction: column;
+#form-update {
     width: 425px;
-    margin-top: 28px;
 }
 
 p {
@@ -253,15 +255,6 @@ p {
 
 label {
     font-size: 16px;
-}
-
-input[type=text] {
-    border: 2px solid #FFC20D;
-    border-radius: 14px;
-    padding: 10px;
-    font-size: 16px;
-    font-family: 'Montserrat', monospace;
-    margin-bottom: 15px;
 }
 
 #form-update button {

@@ -56,43 +56,52 @@
             </div>
         </div>
 
-        <div class="contact-section">
-            <form id="form-contact" method="post">
-                <h2>İletişim Bilgileri</h2>
-                <input type="hidden" id="workplaceId" th:value="${workplace.id}">
-                <div class="input-box">
-                    <label for="address">Adres</label>
-                    <input type="text" name="address" id="address">
-                </div>
+        <div class="middle-menu">
+            <div class="contact-section">
+                <form id="form-contact" method="post">
+                    <h2>İletişim Bilgileri</h2>
+                    <input type="hidden" id="workplaceId" th:value="${workplace.id}">
+                    <div class="input-box">
+                        <label for="address">Adres</label>
+                        <input type="text" name="address" id="address">
+                    </div>
 
-                <div class="input-box">
-                    <label for="mail">Mail</label>
-                    <input type="text" name="mail" id="mail">
-                </div>
+                    <div class="input-box">
+                        <label for="mail">Mail</label>
+                        <input type="text" name="mail" id="mail">
+                    </div>
 
-                <div class="input-box">
-                    <label for="phone">Telefon</label>
-                    <input type="text" name="phone" id="phone">
-                </div>
+                    <div class="input-box">
+                        <label for="phone">Telefon</label>
+                        <input type="text" name="phone" id="phone">
+                    </div>
 
-                <div class="input-box">
-                    <label for="contactperson">İlgili kişi</label>
-                    <input type="text" name="contactperson" id="contactperson">
-                </div>
+                    <div class="input-box">
+                        <label for="contactperson">İlgili kişi</label>
+                        <input type="text" name="contactperson" id="contactperson">
+                    </div>
 
-                <button type="submit">Kaydet</button>
-            </form>
-            <button id="update">Güncelle</button>
-        </div>
+                    <button type="submit">Kaydet</button>
+                </form>
+                <button id="update">Güncelle</button>
+            </div>
 
-        <div class="workplace-settings-section">
-            <h3>Çalışma alanı bilgileri</h3>
-            <form id="form-update">
-                <input id="name" type="text" name="workplaceName" th:value="${workplace.workplaceName}" placeholder="Yeni adını giriniz" required>
-                <input id="description" type="text" name="workplaceDescription" th:value="${workplace.workplaceDescription}" placeholder="Yeni açıklamasını giriniz"
-                       required>
-                <button type="submit">Güncelle</button>
-            </form>
+            <div class="workplace-settings-section">
+                <form id="form-update">
+                    <h2>Çalışma alanı bilgileri</h2>
+                    <div class="input-box">
+                        <label for="name">Çalışma alanı adı</label>
+                        <input id="name" type="text" name="workplaceName" th:value="${workplace.workplaceName}" placeholder="Yeni adını giriniz" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="name">Çalışma alanı açıklaması</label>
+                        <input id="description" type="text" name="workplaceDescription" th:value="${workplace.workplaceDescription}" placeholder="Yeni açıklamasını giriniz"
+                           required>
+                    </div>
+                    <button type="submit">Güncelle</button>
+                </form>
+            </div>
         </div>
 
     </div>

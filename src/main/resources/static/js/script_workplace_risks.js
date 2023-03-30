@@ -14,6 +14,9 @@ const workplaceId = document.getElementById("workplaceId").value;
 
 let selectedRiskId;
 
+document.getElementById("update").style.display = "none";
+document.getElementById("add").style.display = "";
+
 //Workplace'e ait Risk Değerlendirme Verilerini Tabloya Doldur (Risk Assesment Tablosundan)
 fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplaceId)
     .then((data) => {
@@ -130,6 +133,9 @@ updateRisks.addEventListener("click", () => {
 
 //Görüntülenen tabloda tıklanan satırın verilerini input'lara dizme
 function printToInputs(e) {
+    document.getElementById("update").style.display = "";
+    document.getElementById("add").style.display = "none";
+
     var tds = e.getElementsByTagName('td');
     selectedRiskId = tds[1].innerHTML.trim();
     tehlikeAdi.value = tds[2].innerHTML.trim();
@@ -143,6 +149,8 @@ function printToInputs(e) {
     alinacakTedbirler.value = tds[11].innerHTML.trim();
     sSiddet.value = tds[12].innerHTML.trim();
     sOlasilik.value = tds[13].innerHTML.trim();
+
+    document.getElementById("message").innerHTML = "Seçilen sıra no: " + tds[0].innerHTML.trim();
 
     console.log("Seçili Risk ID: " + selectedRiskId);
 }

@@ -31,7 +31,12 @@ fetch(`http://localhost:8080/api/companies/getall?workplaceId=${workplaceId}`)
     .then(response => response.json())
     .then(data => {
         console.log(data);
+        console.log(data.length);
 
+        if (data.length == 0) {
+            document.getElementById("update").style.display = "none";
+            document.getElementById("add").style.display = "";
+        } else {
         address.value = data[0].address;
         selectDefaultValue.value = data[0].city;
         selectDefaultValue.innerHTML = data[0].city;
@@ -39,6 +44,10 @@ fetch(`http://localhost:8080/api/companies/getall?workplaceId=${workplaceId}`)
         phone.value = data[0].phone;
         contactPerson.value = data[0].contactPerson;
         contactPersonPhone.value = data[0].contactPersonPhone;
+
+        document.getElementById("update").style.display = "";
+        document.getElementById("add").style.display = "none";
+        }
     })
     .catch((error) => {
         console.log(error)
@@ -69,6 +78,8 @@ formContact.addEventListener('submit', function (e) {
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
+
+        location.reload();
 });
 
 const updateCompanyBtn = document.getElementById("update");
@@ -96,6 +107,8 @@ updateCompanyBtn.addEventListener("click", (e) => {
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
+
+        location.reload();
 })
 
 //Workplace Bilgilerini Güncelle (WorkplaceName ve WorkplaceDescription)
@@ -121,6 +134,8 @@ formUpdate.addEventListener('submit', function (e) {
         .then(data => console.log(data))
         .then(window.location.reload())
         .catch(error => console.error('Error:', error));
+
+        location.reload();
 });
 
 //Workplace'e Ait Son Risk Değerlendirme Tarihini Getir

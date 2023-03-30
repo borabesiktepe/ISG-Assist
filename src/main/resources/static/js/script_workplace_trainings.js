@@ -1,5 +1,3 @@
-console.log("Selam");
-
 const trainingList = document.querySelector("ul");
 const trainingButton = document.querySelector(".training-bottom button");
 const selectedItem = document.querySelector(".selected-file");

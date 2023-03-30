@@ -1,5 +1,3 @@
-console.log("Burası Workplace Paneli.");
-
 const formContact = document.getElementById("form-contact");
 const address = document.getElementById("address");
 const city = document.getElementById("cities");
@@ -10,9 +8,7 @@ const contactPersonPhone = document.getElementById("contactpersonPhone");
 
 const workplaceId = document.getElementById("workplaceId").value;
 
-const selectDefaultValue = document.getElementById("defaultValue");
-
-//ŞEHİRLERİ LİSTELE
+//Şehirleri Drop Down'a Listele
 fetch(`https://turkiyeapi.cyclic.app/api/v1/provinces`)
     .then(res => {
         return res.json();
@@ -27,8 +23,10 @@ fetch(`https://turkiyeapi.cyclic.app/api/v1/provinces`)
     })
     .catch(error => console.log(error));
 
-//İLETİŞİM BİLGİLERİ ALANI
-//GET İŞLEMLERİ
+//İletişim Bilgileri (Companies Tablosundan)
+//Get
+const selectDefaultValue = document.getElementById("defaultValue");
+
 fetch(`http://localhost:8080/api/companies/getall?workplaceId=${workplaceId}`)
     .then(response => response.json())
     .then(data => {
@@ -44,9 +42,10 @@ fetch(`http://localhost:8080/api/companies/getall?workplaceId=${workplaceId}`)
     })
     .catch((error) => {
         console.log(error)
-});
+    });
 
-//POST/PUT İŞLEMLERİ
+//Companies Tablosuna Veri Ekle/Düzelt
+//Post-Put
 formContact.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -99,9 +98,8 @@ updateCompanyBtn.addEventListener("click", (e) => {
         .catch(error => console.error('Error:', error));
 })
 
-
-//WORKPLACE BİLGİLERİ ALANI
-//API PUT İŞLEMLERİ
+//Workplace Bilgilerini Güncelle (WorkplaceName ve WorkplaceDescription)
+//Put
 const formUpdate = document.getElementById("form-update");
 const workplaceName = document.getElementById("name");
 const workplaceDesc = document.getElementById("description");
@@ -125,7 +123,7 @@ formUpdate.addEventListener('submit', function (e) {
         .catch(error => console.error('Error:', error));
 });
 
-//RİSK DEĞERLENDİRME TARİHİ
+//Workplace'e Ait Son Risk Değerlendirme Tarihini Getir
 const lastRiskDate = document.getElementById("last-risk-date");
 fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId}`)
     .then(response => response.json())
@@ -136,4 +134,4 @@ fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId
     })
     .catch((error) => {
         console.log(error)
-});
+    });

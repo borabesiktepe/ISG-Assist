@@ -1,6 +1,4 @@
-console.log("Selam. Burası Workplace Oluşturma Form Sayfası");
-
-const form = document.getElementById("form");
+const form = document.getElementById("form-create-workplace");
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -9,8 +7,6 @@ form.addEventListener('submit', function (e) {
     let inputDesc = document.getElementById('description').value;
     let inputUserId = document.getElementById('userId').value;
     let message = document.getElementById("message");
-
-    console.log(inputName + " " + inputDesc);
 
     fetch('http://localhost:8080/api/workplaces/add', {
         method: 'POST',
@@ -27,5 +23,5 @@ form.addEventListener('submit', function (e) {
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
 
-    message.innerHTML = "Çalışma alanı oluşturuldu. Panelinizden ulaşabilirsiniz.";
+    message.innerHTML = "Çalışma alanı oluşturuldu! Panelinizden ulaşabilirsiniz.";
 });

@@ -12,8 +12,7 @@ const sOlasilik = document.getElementById("sOlasilik");
 
 const workplaceId = document.getElementById("workplaceId").value;
 
-//API İŞLEMLERİ
-//RİSK DEĞERLENDİRME GET İŞLEMİ
+//Workplace'e ait Risk Değerlendirme Verilerini Tabloya Doldur (Risk Assesment Tablosundan)
 fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplaceId)
     .then((data) => {
         return data.json();
@@ -46,7 +45,7 @@ fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplace
         document.getElementById("table_body").innerHTML = tableData
     })
 
-//RİSK DEĞERLENDİRME POST İŞLEMİ
+//Risk Assesment Tablosuna Veri Ekle
 const formRisk = document.getElementById("risk-assesment");
 formRisk.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -54,7 +53,7 @@ formRisk.addEventListener('submit', function (e) {
     let risk = siddet.value * olasilik.value;
     let sRisk = sSiddet.value * sOlasilik.value;
     let today = new Date();
-    let date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+    let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 
     console.log("Risk:", risk, "Son Risk:", sRisk);
     console.log(tehlikeAdi.value, yerEkipman.value, mevcutTehlikeler.value, olusacakRiskler.value, mevcutOnlemler.value, maruzKalanlar.value, siddet.value, olasilik.value, risk, alinacakTedbirler.value, sSiddet.value, sOlasilik.value, sRisk, date, workplaceId);
@@ -89,7 +88,7 @@ formRisk.addEventListener('submit', function (e) {
 });
 
 
-//TIKLANAN SATIRI INPUTLARA DİZME
+//Görüntülenen tabloda tıklanan satırın verilerini input'lara dizme
 function printToInputs(e) {
     var tds = e.getElementsByTagName('td');
     tehlikeAdi.value = tds[1].innerHTML.trim();
@@ -105,7 +104,7 @@ function printToInputs(e) {
     sOlasilik.value = tds[12].innerHTML.trim();
 }
 
-//TABLO ŞİDDET/OLASILIK/RİSK KOLON RENKLENDİRME
+//Görüntülenen Tabloda Risk ve Son Risk kolonlarına ait verilerin içinde ki değere göre renklendirilmesi
 setInterval(function colorizeCells() {
     let tableColumn = document.querySelectorAll(".colored");
 
@@ -120,7 +119,7 @@ setInterval(function colorizeCells() {
     });
 }, 100);
 
-//TABLOYU EXCEL KAYDETME
+//Görüntülenen tabloyu EXCEL formatında indirme
 function exportToExcel(type, fn, dl) {
     let table = document.getElementById('risk-table');
     let wb = XLSX.utils.table_to_book(table, { sheet: "sheet1" });

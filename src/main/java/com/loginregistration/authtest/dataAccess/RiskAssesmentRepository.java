@@ -10,5 +10,5 @@ import java.util.Optional;
 @Repository
 public interface RiskAssesmentRepository extends JpaRepository<RiskAssesment, Integer> {
     List<RiskAssesment> findAllByWorkplaceId(int workplaceId);
-    Optional<RiskAssesment> findByWorkplaceId(int workplaceId);
+    Optional<RiskAssesment> findById(int id);
 }

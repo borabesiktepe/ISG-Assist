@@ -40,8 +40,8 @@ public class WorkplacesController {
 		this.workplaceService.add(createWorkplaceRequest);
 	}
 
-	@PutMapping("/update/{workplaceId}")
-	public void update(@PathVariable int workplaceId, @RequestBody CreateWorkplaceRequest createWorkplaceRequest) {
-		this.workplaceService.update(workplaceId, createWorkplaceRequest);
+	@PutMapping("/update/{id}")
+	public void update(@PathVariable int id, @RequestBody CreateWorkplaceRequest createWorkplaceRequest) {
+		this.workplaceService.update(id, createWorkplaceRequest);
 	}
 }

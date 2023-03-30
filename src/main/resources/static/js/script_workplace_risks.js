@@ -12,6 +12,8 @@ const sOlasilik = document.getElementById("sOlasilik");
 
 const workplaceId = document.getElementById("workplaceId").value;
 
+let selectedRiskId;
+
 //Workplace'e ait Risk Değerlendirme Verilerini Tabloya Doldur (Risk Assesment Tablosundan)
 fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplaceId)
     .then((data) => {
@@ -25,6 +27,7 @@ fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplace
             tableData += `
                 <tr onclick="printToInputs(this)">
                     <td>${siraNo}</td>
+                    <td style="display:none;">${values.id}</td>
                     <td>${values.tehlikeAdi}</td>
                     <td>${values.yerEkipman}</td>
                     <td>${values.mevcutTehlikeler}</td>
@@ -87,21 +90,61 @@ formRisk.addEventListener('submit', function (e) {
         .catch(error => console.error('Error:', error));
 });
 
+const updateRisks = document.getElementById("update");
+
+updateRisks.addEventListener("click", () => {
+    let risk = siddet.value * olasilik.value;
+    let sRisk = sSiddet.value * sOlasilik.value;
+    let today = new Date();
+    let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+
+    fetch('http://localhost:8080/api/riskassesments/update/' + selectedRiskId, {
+        method: 'PUT',
+        body: JSON.stringify({
+            tehlikeAdi: tehlikeAdi.value,
+            yerEkipman: yerEkipman.value,
+            mevcutTehlikeler: mevcutTehlikeler.value,
+            olusacakRiskler: olusacakRiskler.value,
+            mevcutOnlemler: mevcutOnlemler.value,
+            maruzKalanlar: maruzKalanlar.value,
+            siddet: siddet.value,
+            olasilik: olasilik.value,
+            risk: risk,
+            alinacakTedbirler: alinacakTedbirler.value,
+            sonSiddet: sSiddet.value,
+            sonOlasilik: sOlasilik.value,
+            sonRisk: sRisk,
+            degerlendirmeTarihi: date,
+            workplaceId: workplaceId
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .then(window.location.reload())
+        .catch(error => console.error('Error:', error));
+});
+
 
 //Görüntülenen tabloda tıklanan satırın verilerini input'lara dizme
 function printToInputs(e) {
     var tds = e.getElementsByTagName('td');
-    tehlikeAdi.value = tds[1].innerHTML.trim();
-    yerEkipman.value = tds[2].innerHTML.trim();
-    mevcutTehlikeler.value = tds[3].innerHTML.trim();
-    olusacakRiskler.value = tds[4].innerHTML.trim();
-    mevcutOnlemler.value = tds[5].innerHTML.trim();
-    maruzKalanlar.value = tds[6].innerHTML.trim();
-    siddet.value = tds[7].innerHTML.trim();
-    olasilik.value = tds[8].innerHTML.trim();
-    alinacakTedbirler.value = tds[10].innerHTML.trim();
-    sSiddet.value = tds[11].innerHTML.trim();
-    sOlasilik.value = tds[12].innerHTML.trim();
+    selectedRiskId = tds[1].innerHTML.trim();
+    tehlikeAdi.value = tds[2].innerHTML.trim();
+    yerEkipman.value = tds[3].innerHTML.trim();
+    mevcutTehlikeler.value = tds[4].innerHTML.trim();
+    olusacakRiskler.value = tds[5].innerHTML.trim();
+    mevcutOnlemler.value = tds[6].innerHTML.trim();
+    maruzKalanlar.value = tds[7].innerHTML.trim();
+    siddet.value = tds[8].innerHTML.trim();
+    olasilik.value = tds[9].innerHTML.trim();
+    alinacakTedbirler.value = tds[11].innerHTML.trim();
+    sSiddet.value = tds[12].innerHTML.trim();
+    sOlasilik.value = tds[13].innerHTML.trim();
+
+    console.log("Seçili Risk ID: " + selectedRiskId);
 }
 
 //Görüntülenen Tabloda Risk ve Son Risk kolonlarına ait verilerin içinde ki değere göre renklendirilmesi

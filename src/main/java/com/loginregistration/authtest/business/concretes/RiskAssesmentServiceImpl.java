@@ -93,9 +93,9 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
     }
 
     @Override
-    public void update(Integer workplaceId, CreateRiskAssesmentRequest createRiskAssesmentRequest) {
-        RiskAssesment updateRiskAssesment = riskAssesmentRepository.findByWorkplaceId(workplaceId)
-                .orElseThrow(() -> new RuntimeException("Risk Değerlendirme bulunmadı: " + workplaceId));
+    public void update(Integer id, CreateRiskAssesmentRequest createRiskAssesmentRequest) {
+        RiskAssesment updateRiskAssesment = riskAssesmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Risk Değerlendirme bulunmadı: " + id));
 
         updateRiskAssesment.setTehlikeAdi(createRiskAssesmentRequest.getTehlikeAdi());
         updateRiskAssesment.setYerEkipman(createRiskAssesmentRequest.getYerEkipman());

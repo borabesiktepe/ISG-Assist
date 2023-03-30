@@ -212,7 +212,7 @@ nav {
     margin-bottom: 4px;
 }
 
-.input-box input[type=text] {
+.input-box input[type=text], #cities {
     border: 2px solid #FFC20D;
     border-radius: 14px;
     padding: 10px;

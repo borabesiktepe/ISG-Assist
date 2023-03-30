@@ -2,13 +2,30 @@ console.log("Burası Workplace Paneli.");
 
 const formContact = document.getElementById("form-contact");
 const address = document.getElementById("address");
-const city = document.getElementById("city");
+const city = document.getElementById("cities");
 const mail = document.getElementById("mail");
 const phone = document.getElementById("phone");
 const contactPerson = document.getElementById("contactperson");
 const contactPersonPhone = document.getElementById("contactpersonPhone");
 
 const workplaceId = document.getElementById("workplaceId").value;
+
+const selectDefaultValue = document.getElementById("defaultValue");
+
+//ŞEHİRLERİ LİSTELE
+fetch(`https://turkiyeapi.cyclic.app/api/v1/provinces`)
+    .then(res => {
+        return res.json();
+    })
+    .then(json => {
+        json.data.forEach(cities => {
+            const markupOption = `<option value=${cities.name}>${cities.name}</option>`;
+            city.insertAdjacentHTML('beforeend', markupOption);
+        });
+
+        console.log("Şehirler select'e listelendi.");
+    })
+    .catch(error => console.log(error));
 
 //İLETİŞİM BİLGİLERİ ALANI
 //GET İŞLEMLERİ
@@ -18,7 +35,8 @@ fetch(`http://localhost:8080/api/companies/getall?workplaceId=${workplaceId}`)
         console.log(data);
 
         address.value = data[0].address;
-        city.value = data[0].city;
+        selectDefaultValue.value = data[0].city;
+        selectDefaultValue.innerHTML = data[0].city;
         mail.value = data[0].mail;
         phone.value = data[0].phone;
         contactPerson.value = data[0].contactPerson;

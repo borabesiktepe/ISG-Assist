@@ -37,16 +37,16 @@ fetch(`http://localhost:8080/api/companies/getall?workplaceId=${workplaceId}`)
             document.getElementById("update").style.display = "none";
             document.getElementById("add").style.display = "";
         } else {
-        address.value = data[0].address;
-        selectDefaultValue.value = data[0].city;
-        selectDefaultValue.innerHTML = data[0].city;
-        mail.value = data[0].mail;
-        phone.value = data[0].phone;
-        contactPerson.value = data[0].contactPerson;
-        contactPersonPhone.value = data[0].contactPersonPhone;
+            address.value = data[0].address;
+            selectDefaultValue.value = data[0].city;
+            selectDefaultValue.innerHTML = data[0].city;
+            mail.value = data[0].mail;
+            phone.value = data[0].phone;
+            contactPerson.value = data[0].contactPerson;
+            contactPersonPhone.value = data[0].contactPersonPhone;
 
-        document.getElementById("update").style.display = "";
-        document.getElementById("add").style.display = "none";
+            document.getElementById("update").style.display = "";
+            document.getElementById("add").style.display = "none";
         }
     })
     .catch((error) => {

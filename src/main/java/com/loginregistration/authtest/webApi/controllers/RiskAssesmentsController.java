@@ -1,6 +1,7 @@
 package com.loginregistration.authtest.webApi.controllers;
 
 import com.loginregistration.authtest.business.abstracts.RiskAssesmentService;
+import com.loginregistration.authtest.business.requests.CreateCompanyRequest;
 import com.loginregistration.authtest.business.requests.CreateRiskAssesmentRequest;
 import com.loginregistration.authtest.business.responses.RiskAssesmentsResponse;
 import com.loginregistration.authtest.dataAccess.RiskAssesmentRepository;
@@ -30,5 +31,10 @@ public class RiskAssesmentsController {
     @PostMapping("/add")
     public void add(@RequestBody CreateRiskAssesmentRequest createRiskAssesmentRequest) {
         this.riskAssesmentService.add(createRiskAssesmentRequest);
+    }
+
+    @PutMapping("/update/{workplaceId}")
+    public void update(@PathVariable int workplaceId, @RequestBody CreateRiskAssesmentRequest createRiskAssesmentRequest) {
+        this.riskAssesmentService.update(workplaceId, createRiskAssesmentRequest);
     }
 }

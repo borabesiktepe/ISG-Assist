@@ -5,6 +5,7 @@ import com.loginregistration.authtest.business.requests.CreateRiskAssesmentReque
 import com.loginregistration.authtest.business.responses.RiskAssesmentsResponse;
 import com.loginregistration.authtest.dataAccess.RiskAssesmentRepository;
 import com.loginregistration.authtest.dataAccess.WorkplaceRepository;
+import com.loginregistration.authtest.entities.Company;
 import com.loginregistration.authtest.entities.RiskAssesment;
 import com.loginregistration.authtest.entities.Workplace;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,5 +90,28 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
                         riskAssesment.getSonSiddet(), riskAssesment.getSonOlasilik(), riskAssesment.getSonRisk(), riskAssesment.getDegerlendirmeTarihi(),
                         riskAssesment.getWorkplace().getId()))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void update(Integer workplaceId, CreateRiskAssesmentRequest createRiskAssesmentRequest) {
+        RiskAssesment updateRiskAssesment = riskAssesmentRepository.findByWorkplaceId(workplaceId)
+                .orElseThrow(() -> new RuntimeException("Risk Değerlendirme bulunmadı: " + workplaceId));
+
+        updateRiskAssesment.setTehlikeAdi(createRiskAssesmentRequest.getTehlikeAdi());
+        updateRiskAssesment.setYerEkipman(createRiskAssesmentRequest.getYerEkipman());
+        updateRiskAssesment.setMevcutTehlikeler(createRiskAssesmentRequest.getMevcutTehlikeler());
+        updateRiskAssesment.setOlusacakRiskler(createRiskAssesmentRequest.getOlusacakRiskler());
+        updateRiskAssesment.setMevcutOnlemler(createRiskAssesmentRequest.getMevcutOnlemler());
+        updateRiskAssesment.setMaruzKalanlar(createRiskAssesmentRequest.getMaruzKalanlar());
+        updateRiskAssesment.setSiddet(createRiskAssesmentRequest.getSiddet());
+        updateRiskAssesment.setOlasilik(createRiskAssesmentRequest.getOlasilik());
+        updateRiskAssesment.setRisk(createRiskAssesmentRequest.getRisk());
+        updateRiskAssesment.setAlinacakTedbirler(createRiskAssesmentRequest.getAlinacakTedbirler());
+        updateRiskAssesment.setSonSiddet(createRiskAssesmentRequest.getSonSiddet());
+        updateRiskAssesment.setSonOlasilik(createRiskAssesmentRequest.getSonOlasilik());
+        updateRiskAssesment.setSonRisk(createRiskAssesmentRequest.getSonRisk());
+        updateRiskAssesment.setDegerlendirmeTarihi(createRiskAssesmentRequest.getDegerlendirmeTarihi());
+
+        riskAssesmentRepository.save(updateRiskAssesment);
     }
 }

@@ -34,9 +34,11 @@ public class CompanyServiceImpl implements CompanyService {
 
 			responseItem.setId(company.getId());
 			responseItem.setAddress(company.getAddress());
+			responseItem.setCity(company.getCity());
 			responseItem.setMail(company.getMail());
 			responseItem.setPhone(company.getPhone());
 			responseItem.setContactPerson(company.getContactPerson());
+			responseItem.setContactPersonPhone(company.getContactPersonPhone());
 			responseItem.setWorkplaceId(company.getWorkplace().getId());
 
 			companiesResponses.add(responseItem);
@@ -52,9 +54,11 @@ public class CompanyServiceImpl implements CompanyService {
 		Company company = new Company();
 
 		company.setAddress(createCompanyRequest.getAddress());
+		company.setCity(createCompanyRequest.getCity());
 		company.setMail(createCompanyRequest.getMail());
 		company.setPhone(createCompanyRequest.getPhone());
 		company.setContactPerson(createCompanyRequest.getContactPerson());
+		company.setContactPersonPhone(createCompanyRequest.getContactPersonPhone());
 		company.setWorkplace(workplace);
 
 		this.companyRepository.save(company);
@@ -63,7 +67,8 @@ public class CompanyServiceImpl implements CompanyService {
 	@Override
 	public List<CompaniesResponse> getAllByWorkplaceId(int workplaceId) {
 		return this.companyRepository.findAllByWorkplaceId(workplaceId).stream()
-				.map(company -> new CompaniesResponse(company.getId(), company.getAddress(), company.getMail(), company.getPhone(), company.getContactPerson(), company.getWorkplace().getId()))
+				.map(company -> new CompaniesResponse(company.getId(), company.getAddress(), company.getCity(), company.getMail(),
+						company.getPhone(), company.getContactPerson(), company.getContactPersonPhone(), company.getWorkplace().getId()))
 				.collect(Collectors.toList());
 	}
 
@@ -73,9 +78,11 @@ public class CompanyServiceImpl implements CompanyService {
 				.orElseThrow(() -> new RuntimeException("Company bulunmadı: " + workplaceId));
 
 		updateCompany.setAddress(createCompanyRequest.getAddress());
+		updateCompany.setCity(createCompanyRequest.getCity());
 		updateCompany.setMail(createCompanyRequest.getMail());
 		updateCompany.setPhone(createCompanyRequest.getPhone());
 		updateCompany.setContactPerson(createCompanyRequest.getContactPerson());
+		updateCompany.setContactPersonPhone(createCompanyRequest.getContactPersonPhone());
 
 		companyRepository.save(updateCompany);
 	}

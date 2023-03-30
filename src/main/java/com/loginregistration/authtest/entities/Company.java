@@ -22,6 +22,9 @@ public class Company {
     private String address;
 
     @Column
+    private String city;
+
+    @Column
     private String mail;
 
     @Column
@@ -29,6 +32,9 @@ public class Company {
 
     @Column
     private String contactPerson;
+
+    @Column
+    private String contactPersonPhone;
 
     @ManyToOne
     private Workplace workplace;

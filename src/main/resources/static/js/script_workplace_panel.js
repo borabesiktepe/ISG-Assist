@@ -1,10 +1,12 @@
-console.log("Selam. Burası Workplace Paneli.");
+console.log("Burası Workplace Paneli.");
 
 const formContact = document.getElementById("form-contact");
 const address = document.getElementById("address");
+const city = document.getElementById("city");
 const mail = document.getElementById("mail");
 const phone = document.getElementById("phone");
 const contactPerson = document.getElementById("contactperson");
+const contactPersonPhone = document.getElementById("contactpersonPhone");
 
 const workplaceId = document.getElementById("workplaceId").value;
 
@@ -16,9 +18,11 @@ fetch(`http://localhost:8080/api/companies/getall?workplaceId=${workplaceId}`)
         console.log(data);
 
         address.value = data[0].address;
+        city.value = data[0].city;
         mail.value = data[0].mail;
         phone.value = data[0].phone;
         contactPerson.value = data[0].contactPerson;
+        contactPersonPhone.value = data[0].contactPersonPhone;
     })
     .catch((error) => {
         console.log(error)
@@ -34,9 +38,11 @@ formContact.addEventListener('submit', function (e) {
         method: 'POST',
         body: JSON.stringify({
             address: address.value,
+            city: city.value,
             mail: mail.value,
             phone: phone.value,
             contactPerson: contactPerson.value,
+            contactPersonPhone: contactPersonPhone.value,
             workplaceId: workplaceId
         }),
         headers: {
@@ -59,9 +65,11 @@ updateCompanyBtn.addEventListener("click", (e) => {
         method: 'PUT',
         body: JSON.stringify({
             address: address.value,
+            city: city.value,
             mail: mail.value,
             phone: phone.value,
             contactPerson: contactPerson.value,
+            contactPersonPhone: contactPersonPhone.value,
             workplaceId: workplaceId
         }),
         headers: {
@@ -98,7 +106,6 @@ formUpdate.addEventListener('submit', function (e) {
         .then(window.location.reload())
         .catch(error => console.error('Error:', error));
 });
-
 
 //RİSK DEĞERLENDİRME TARİHİ
 const lastRiskDate = document.getElementById("last-risk-date");

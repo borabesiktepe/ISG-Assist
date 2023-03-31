@@ -10,4 +10,5 @@ public interface RiskAssesmentService {
     void add(CreateRiskAssesmentRequest createRiskAssesmentRequest);
     List<RiskAssesmentsResponse> getAllByWorkplaceId(int workplaceId);
     void update(Integer id, CreateRiskAssesmentRequest createRiskAssesmentRequest);
+    void delete(int id);
 }

@@ -14,7 +14,7 @@ const workplaceId = document.getElementById("workplaceId").value;
 
 let selectedRiskId;
 
-document.getElementById("update").style.display = "none";
+document.getElementById("table-buttons").style.display = "none";
 document.getElementById("add").style.display = "";
 
 //Workplace'e ait Risk Değerlendirme Verilerini Tabloya Doldur (Risk Assesment Tablosundan)
@@ -93,6 +93,7 @@ formRisk.addEventListener('submit', function (e) {
         .catch(error => console.error('Error:', error));
 });
 
+//Tabloda seçilen satırın verilerini Risk Assesment tablosunda güncelle
 const updateRisks = document.getElementById("update");
 
 updateRisks.addEventListener("click", () => {
@@ -130,10 +131,23 @@ updateRisks.addEventListener("click", () => {
         .catch(error => console.error('Error:', error));
 });
 
+//Tabloda seçilen satırı veritabanından silme
+const deleteRisks = document.getElementById("delete");
+
+deleteRisks.addEventListener("click", () => {
+        fetch('http://localhost:8080/api/riskassesments/delete/' + selectedRiskId, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(data => console.log(data))
+
+        location.reload();
+})
+
 
 //Görüntülenen tabloda tıklanan satırın verilerini input'lara dizme
 function printToInputs(e) {
-    document.getElementById("update").style.display = "";
+    document.getElementById("table-buttons").style.display = "";
     document.getElementById("add").style.display = "none";
 
     var tds = e.getElementsByTagName('td');

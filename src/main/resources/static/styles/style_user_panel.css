@@ -17,6 +17,7 @@ nav {
     width: 320px;
     background: #FFC20D;
     border-radius: 0px 20px 20px 0px;
+    box-shadow: 5px 0px 5px rgba(0,0,0,.12);
 }
 
 .nav-buttons {

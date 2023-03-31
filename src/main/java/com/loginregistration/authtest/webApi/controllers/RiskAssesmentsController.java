@@ -33,8 +33,13 @@ public class RiskAssesmentsController {
         this.riskAssesmentService.add(createRiskAssesmentRequest);
     }
 
-    @PutMapping("/update/{workplaceId}")
-    public void update(@PathVariable int workplaceId, @RequestBody CreateRiskAssesmentRequest createRiskAssesmentRequest) {
-        this.riskAssesmentService.update(workplaceId, createRiskAssesmentRequest);
+    @PutMapping("/update/{id}")
+    public void update(@PathVariable int id, @RequestBody CreateRiskAssesmentRequest createRiskAssesmentRequest) {
+        this.riskAssesmentService.update(id, createRiskAssesmentRequest);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable int id) {
+        this.riskAssesmentService.delete(id);
     }
 }

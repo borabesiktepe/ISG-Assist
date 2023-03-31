@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -113,5 +114,13 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
         updateRiskAssesment.setDegerlendirmeTarihi(createRiskAssesmentRequest.getDegerlendirmeTarihi());
 
         riskAssesmentRepository.save(updateRiskAssesment);
+    }
+
+    @Override
+    public void delete(int id) {
+        RiskAssesment riskAssesment = riskAssesmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Risk Değerlendirme bulunmadı: " + id));
+
+        riskAssesmentRepository.delete(riskAssesment);
     }
 }

@@ -8,7 +8,7 @@ pdfFrame.style.display = "none";
 var json = [
     {
         "id": 1,
-        "name": "Ornek.pdf",
+        "name": "Eğitim1.pdf",
         "workplaceId": 1
     },
     {

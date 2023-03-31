@@ -30,7 +30,6 @@ fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplace
             tableData += `
                 <tr onclick="printToInputs(this)">
                     <td>${siraNo}</td>
-                    <td style="display:none;">${values.id}</td>
                     <td>${values.tehlikeAdi}</td>
                     <td>${values.yerEkipman}</td>
                     <td>${values.mevcutTehlikeler}</td>
@@ -44,6 +43,7 @@ fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplace
                     <td>${values.sonSiddet}</td>
                     <td>${values.sonOlasilik}</td>
                     <td class="colored">${values.sonRisk}</td>
+                    <td style="display:none;">${values.id}</td>
                 </tr>
             `;
             siraNo++;
@@ -137,18 +137,18 @@ function printToInputs(e) {
     document.getElementById("add").style.display = "none";
 
     var tds = e.getElementsByTagName('td');
-    selectedRiskId = tds[1].innerHTML.trim();
-    tehlikeAdi.value = tds[2].innerHTML.trim();
-    yerEkipman.value = tds[3].innerHTML.trim();
-    mevcutTehlikeler.value = tds[4].innerHTML.trim();
-    olusacakRiskler.value = tds[5].innerHTML.trim();
-    mevcutOnlemler.value = tds[6].innerHTML.trim();
-    maruzKalanlar.value = tds[7].innerHTML.trim();
-    siddet.value = tds[8].innerHTML.trim();
-    olasilik.value = tds[9].innerHTML.trim();
-    alinacakTedbirler.value = tds[11].innerHTML.trim();
-    sSiddet.value = tds[12].innerHTML.trim();
-    sOlasilik.value = tds[13].innerHTML.trim();
+    tehlikeAdi.value = tds[1].innerHTML.trim();
+    yerEkipman.value = tds[2].innerHTML.trim();
+    mevcutTehlikeler.value = tds[3].innerHTML.trim();
+    olusacakRiskler.value = tds[4].innerHTML.trim();
+    mevcutOnlemler.value = tds[5].innerHTML.trim();
+    maruzKalanlar.value = tds[6].innerHTML.trim();
+    siddet.value = tds[7].innerHTML.trim();
+    olasilik.value = tds[8].innerHTML.trim();
+    alinacakTedbirler.value = tds[10].innerHTML.trim();
+    sSiddet.value = tds[11].innerHTML.trim();
+    sOlasilik.value = tds[12].innerHTML.trim();
+    selectedRiskId = tds[14].innerHTML.trim();
 
     document.getElementById("message").innerHTML = "Seçilen sıra no: " + tds[0].innerHTML.trim();
 
@@ -176,5 +176,5 @@ function exportToExcel(type, fn, dl) {
     let wb = XLSX.utils.table_to_book(table, { sheet: "sheet1" });
     return dl ?
         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
-        XLSX.writeFile(wb, fn || ('RiskDegerlendirmeTablosu.' + (type || 'xlsx')));
+        XLSX.writeFile(wb, fn || ('RiskDegerlendirmeTablosu_ ' + workplaceId + '.' + (type || 'xlsx')));
 }

@@ -131,6 +131,13 @@ nav {
     padding-left: 400px;
 }
 
+.top-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 120px;
+}
+
 .risk-matris {
     margin-top: 24px;
 }

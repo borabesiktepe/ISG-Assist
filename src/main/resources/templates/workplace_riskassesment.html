@@ -40,14 +40,16 @@
 <main>
   <div class="container">
     <h1 th:text="|${workplace.workplaceName} Risk Değerlendirme|"></h1>
-    <div class="risk-matris">
-      <a href="https://i.hizliresim.com/e6rmcry.png" target="_blank">
-        <i class="fa-solid fa-circle-info"></i>
-        Risk Matrisi
-      </a>
-    </div>
 
-    <button onclick="exportToExcel('xlsx')">Excel olarak kaydet</button>
+    <div class="top-buttons">
+      <div class="risk-matris">
+        <a href="https://i.hizliresim.com/e6rmcry.png" target="_blank">
+          <i class="fa-solid fa-circle-info"></i>
+          Risk Matrisi
+        </a>
+      </div>
+      <button onclick="exportToExcel('xlsx')">Excel olarak kaydet</button>
+    </div>
 
     <form id="risk-assesment">
       <table id="risk-table">

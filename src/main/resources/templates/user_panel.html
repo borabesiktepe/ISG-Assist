@@ -18,7 +18,6 @@
             <a th:href="@{/user_panel}" alt="Ana Sayfa">
                 <i class="fa-solid fa-helmet-safety"></i>
                 [[${#request.userPrincipal.principal.fullName}]]
-                <p class="userId" th:text="${userId}"></p>
             </a>
         </div>
 
@@ -34,9 +33,9 @@
 
     <main>
         <div class="container">
-            <h1>Panelim</h1>
+            <h1><i class="fa-solid fa-circle-user"></i> Panelim</h1>
             <div class="workplace-management">
-                <h2>Çalışma Alanlarım</h2>
+                <h2><i class="fa-solid fa-briefcase"></i> Çalışma Alanlarım</h2>
                 <ul>
 
                 </ul>
@@ -44,7 +43,7 @@
 
             <div class="bottom-menu">
                 <div class="todolist-management">
-                    <h2>Yapılacaklar Listem</h2>
+                    <h2><i class="fa-solid fa-clipboard-list"></i> Yapılacaklar Listem</h2>
                     <ul>
                     </ul>
                     <div class="todolist-controls">
@@ -61,7 +60,7 @@
                 </div>
 
                 <div class="notes">
-                    <h2>Notlarım</h2>
+                    <h2><i class="fa-solid fa-note-sticky"></i></i> Notlarım</h2>
                     <form id="notes-form" method="post">
                         <textarea name="note" placeholder="Kendinize not alın.." maxlength="250"></textarea>
                         <button type="submit">Kaydet</button>

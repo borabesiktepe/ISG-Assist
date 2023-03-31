@@ -40,9 +40,16 @@ json.forEach(workplace => {
     trainingList.appendChild(trainingItem);
 });
 
-//IFRAME'DE PDF GÖRÜNTÜLEME
+//Iframe'de listeden seçili dosyayı görüntüle
 trainingButton.addEventListener("click", () => {
     pdfFrame.style.display = "";
+
+    //Iframe'e Scroll
+    document.querySelector("iframe").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+    });
 
     var element = document.getElementsByName('file');
 

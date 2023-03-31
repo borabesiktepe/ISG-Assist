@@ -39,7 +39,7 @@
 
 <main>
   <div class="container">
-    <h1 th:text="|${workplace.workplaceName} Risk Değerlendirme|"></h1>
+    <h1><i class="fa-solid fa-building-circle-exclamation"></i> [[${workplace.workplaceName}]] Risk Değerlendirme</h1>
 
     <div class="top-buttons">
       <div class="risk-matris">
@@ -48,7 +48,7 @@
           Risk Matrisi
         </a>
       </div>
-      <button onclick="exportToExcel('xlsx')">Excel olarak kaydet</button>
+      <button onclick="exportToExcel('xlsx')">Tabloyu Excel olarak kaydet</button>
     </div>
 
     <form id="risk-assesment">

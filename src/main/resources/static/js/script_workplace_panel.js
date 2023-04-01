@@ -138,15 +138,37 @@ formUpdate.addEventListener('submit', function (e) {
         location.reload();
 });
 
+//Risk Değerlendirme Özeti
 //Workplace'e Ait Son Risk Değerlendirme Tarihini Getir
-const lastRiskDate = document.getElementById("last-risk-date");
+const riskOzet = document.getElementById("risk-ozet");
 fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId}`)
     .then(response => response.json())
     .then(data => {
         console.log(data);
 
-        lastRiskDate.innerHTML = "Son Risk Değerlendirilme Tarihi: " + data[data.length - 1].degerlendirmeTarihi;
+        riskOzet.innerHTML = "Son Risk Değerlendirilme Tarihi: " + data[data.length - 1].degerlendirmeTarihi;
     })
     .catch((error) => {
         console.log(error)
     });
+
+//Workplace'e Ait Risk Değerlendirme tablosunda ki risk adedini sınıflarına göre say.
+fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId}`)
+  .then(response => response.json())
+  .then(data => {
+    let countAzTehlikeli = 0;
+    let countTehlikeli = 0;
+    let countCokTehlikeli = 0;
+    data.forEach(function (item) {
+      if (item.risk >= 1 && item.risk <= 6) {
+        countAzTehlikeli++;
+      } else if (item.risk >= 8 && item.risk <= 12) {
+        countTehlikeli++;
+      } else if (item.risk >= 15 && item.risk <= 25) {
+        countCokTehlikeli++;
+      }
+    });
+    console.log(countAzTehlikeli, countTehlikeli, countCokTehlikeli);
+    riskOzet.innerHTML += "<br/>Az tehlikeli risk: " + countAzTehlikeli + "<br/>Tehlikeli risk: " + countTehlikeli + "<br/>Çok Tehlikeli Risk: " + countCokTehlikeli;
+  })
+  .catch(error => console.error(error));

@@ -193,3 +193,25 @@ function exportToExcel(type, fn, dl) {
         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
         XLSX.writeFile(wb, fn || ('RiskDegerlendirmeTablosu_' + workplaceId + '.' + (type || 'xlsx')));
 }
+
+
+//Kullanıcı sayfayı aşağı kaydırınca çıkan "Veri Girişine Git" butonu
+const scrollButton = document.getElementById("scrollToInputs");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    scrollButton.style.display = "block";
+  } else {
+    scrollButton.style.display = "none";
+  }
+}
+
+scrollButton.addEventListener("click", () => {
+        document.querySelector(".table-inputs").scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest"
+        });
+})

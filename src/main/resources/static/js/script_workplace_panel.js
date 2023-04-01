@@ -146,7 +146,8 @@ fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId
     .then(data => {
         console.log(data);
 
-        riskOzet.innerHTML = "Son Risk Değerlendirilme Tarihi: " + data[data.length - 1].degerlendirmeTarihi;
+        //riskOzet.innerHTML = "Son Risk Değerlendirilme Tarihi: " + data[data.length - 1].degerlendirmeTarihi;
+        riskOzet.innerHTML = `<span style="font-weight:bold;">Son Risk Değerlendirilme Tarihi:</span> ${data[data.length - 1].degerlendirmeTarihi}`;
     })
     .catch((error) => {
         console.log(error)
@@ -173,9 +174,13 @@ fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId
         }
       });
       console.log(countAzTehlikeli, countTehlikeli, countCokTehlikeli);
-      riskOzet.innerHTML += "<br/>Az tehlikeli risk: " + countAzTehlikeli + "<br/>Tehlikeli risk: " + countTehlikeli + "<br/>Çok Tehlikeli Risk: " + countCokTehlikeli;
+      riskOzet.innerHTML += `
+          </br> <span style="color:#92d050; font-weight:bold;">Az Tehlikeli Risk: </span> ${countAzTehlikeli}
+          </br> <span style="color:#d9ce00; font-weight:bold;">Tehlikeli Risk: </span> ${countTehlikeli}
+          </br> <span style="color:#ff0000; font-weight:bold;">Çok Tehlikeli Risk: </span> ${countCokTehlikeli}
+      `;
     } else {
-      riskOzet.innerHTML = "Risk değerlendirme yapılmamış.";
+      riskOzet.innerHTML = "Risk değerlendirmesi yapılmamış.";
     }
   })
   .catch(error => console.error(error));

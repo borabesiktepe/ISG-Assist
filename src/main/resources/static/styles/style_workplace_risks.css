@@ -131,13 +131,18 @@ nav {
     padding-left: 400px;
 }
 
-#scrollToInputs {
+#scroll-buttons {
       display: none;
+      flex-direction: column;
       position: fixed;
       z-index: 99;
       bottom: 20px;
       right: 30px;
       cursor: pointer;
+}
+
+#scroll-buttons button {
+    padding: 20px 26px;
 }
 
 .top-buttons {
@@ -167,6 +172,7 @@ nav {
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     font-size: 14px;
+    font-family: 'Montserrat', monospace;
     padding: 15px;
     width: 242px;
 }

@@ -195,20 +195,27 @@ function exportToExcel(type, fn, dl) {
 }
 
 
-//Kullanıcı sayfayı aşağı kaydırınca çıkan "Veri Girişine Git" butonu
-const scrollButton = document.getElementById("scrollToInputs");
+//Kullanıcı sayfayı aşağı kaydırınca çıkan Scroll aksiyonlu butonlar
+const scrollButtons = document.getElementById("scroll-buttons");
+const scrollToTop = document.getElementById("scrollToTop");
+const scrollToInpust = document.getElementById("scrollToInputs");
 
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    scrollButton.style.display = "block";
+    scrollButtons.style.display = "flex";
   } else {
-    scrollButton.style.display = "none";
+    scrollButtons.style.display = "none";
   }
 }
 
-scrollButton.addEventListener("click", () => {
+scrollToTop.addEventListener("click", () => {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+})
+
+scrollToInpust.addEventListener("click", () => {
         document.querySelector(".table-inputs").scrollIntoView({
                 behavior: "smooth",
                 block: "start",
@@ -216,7 +223,7 @@ scrollButton.addEventListener("click", () => {
         });
 })
 
-//Risk Değerlendirme tablosunda Risk kolonuna göre filtreleme yapma
+//Risk Değerlendirme tablosunda "Risk" kolonuna göre filtreleme yapma
 const selectElement = document.getElementById('risk-select');
 const tableBody = document.getElementById('table_body');
 

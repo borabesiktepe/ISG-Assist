@@ -224,7 +224,7 @@ scrollToInpust.addEventListener("click", () => {
 })
 
 //Risk Değerlendirme tablosunda "Risk" kolonuna göre filtreleme yapma
-const selectElement = document.getElementById('risk-select');
+const riskSelect = document.getElementById('risk-select');
 const tableBody = document.getElementById('table_body');
 
 function filterRisk(min, max) {
@@ -239,7 +239,7 @@ function filterRisk(min, max) {
     }
 }
 
-selectElement.addEventListener('change', function () {
+riskSelect.addEventListener('change', function () {
     const selectedValue = this.value;
     switch (selectedValue) {
         case '0-6':
@@ -250,6 +250,40 @@ selectElement.addEventListener('change', function () {
             break;
         case '15-25':
             filterRisk(15, 25);
+            break;
+        default:
+            for (let i = 0; i < tableBody.children.length; i++) {
+                tableBody.children[i].style.display = '';
+            }
+    }
+});
+
+//Risk Değerlendirme tablosunda "Risk" kolonuna göre filtreleme yapma
+const sonRiskSelect = document.getElementById('son-risk-select');
+
+function filterSonRisk(min, max) {
+    for (let i = 0; i < tableBody.children.length; i++) {
+        const riskElement = tableBody.children[i].children[13];
+        const riskValue = parseInt(riskElement.innerText);
+        if (riskValue >= min && riskValue <= max) {
+            tableBody.children[i].style.display = '';
+        } else {
+            tableBody.children[i].style.display = 'none';
+        }
+    }
+}
+
+sonRiskSelect.addEventListener('change', function () {
+    const selectedValue = this.value;
+    switch (selectedValue) {
+        case '0-6':
+            filterSonRisk(0, 6);
+            break;
+        case '8-12':
+            filterSonRisk(8, 12);
+            break;
+        case '15-25':
+            filterSonRisk(15, 25);
             break;
         default:
             for (let i = 0; i < tableBody.children.length; i++) {

@@ -57,13 +57,23 @@
       <button onclick="exportToExcel('xlsx')">Tabloyu Excel olarak kaydet</button>
     </div>
 
-    <select id="risk-select">
-      <option value="" disabled selected>Risk Seviyesi</option>
-      <option value="all">Tümü</option>
-      <option value="0-6">Az Tehlikeli</option>
-      <option value="8-12">Tehlikeli</option>
-      <option value="15-25">Çok Tehlikeli</option>
-    </select>
+    <div class="table-filters">
+      <select id="risk-select">
+        <option value="" disabled selected>Risk Seviyesi</option>
+        <option value="all">Tümü</option>
+        <option value="0-6">Az Tehlikeli</option>
+        <option value="8-12">Tehlikeli</option>
+        <option value="15-25">Çok Tehlikeli</option>
+      </select>
+
+      <select id="son-risk-select">
+        <option value="" disabled selected>Son Risk Seviyesi</option>
+        <option value="all">Tümü</option>
+        <option value="0-6">Az Tehlikeli</option>
+        <option value="8-12">Tehlikeli</option>
+        <option value="15-25">Çok Tehlikeli</option>
+      </select>
+    </div>
 
     <form id="risk-assesment">
       <table id="risk-table">

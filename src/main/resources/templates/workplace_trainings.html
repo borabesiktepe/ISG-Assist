@@ -19,8 +19,15 @@
       <a th:href="@{/user_panel}">
         <i class="fa-solid fa-helmet-safety"></i>
         [[${#request.userPrincipal.principal.fullName}]]
+        <i class="fa-solid fa-angle-right"></i>
       </a>
     </div>
+
+      <div class="workplace-button">
+        <a th:href="@{/workplace_panel/} + ${workplace.id}">[[${workplace.workplaceName}]]
+          <i class="fa-solid fa-angle-right"></i>
+        </a>
+      </div>
 
       <div class="training-button">
         <a th:href="@{/trainings/} + ${workplace.id}">Eğitimler</a>

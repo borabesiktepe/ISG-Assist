@@ -194,7 +194,6 @@ function exportToExcel(type, fn, dl) {
         XLSX.writeFile(wb, fn || ('RiskDegerlendirmeTablosu_' + workplaceId + '.' + (type || 'xlsx')));
 }
 
-
 //Kullanıcı sayfayı aşağı kaydırınca çıkan Scroll aksiyonlu butonlar
 const scrollButtons = document.getElementById("scroll-buttons");
 const scrollToTop = document.getElementById("scrollToTop");
@@ -258,7 +257,7 @@ riskSelect.addEventListener('change', function () {
     }
 });
 
-//Risk Değerlendirme tablosunda "Risk" kolonuna göre filtreleme yapma
+//Risk Değerlendirme tablosunda "Risk ve Son Risk" kolonlarına göre filtreleme yapma
 const sonRiskSelect = document.getElementById('son-risk-select');
 
 function filterSonRisk(min, max) {

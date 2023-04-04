@@ -107,7 +107,47 @@
         <input type="hidden" id="riskId" value="">
         <div class="left">
           <label for="tehlikeAdi">Genel Tehlike Adı</label>
-          <input type="text" name="tehlikeAdi" id="tehlikeAdi" required>
+          <input type="text" name="tehlikeAdi" id="tehlikeAdi" list="tehlikeAdi-list" required>
+          <datalist id="tehlikeAdi-list">
+            <option value="Genel">
+            <option value="Acil Durumlara Hazırlık">
+            <option value="Amaçlı merdivenler">
+            <option value="Biyolojik Risk Etmenleri">
+            <option value="Çalışanların Yönetimi">
+            <option value="Çalışma İzinleri">
+            <option value="Çalışma Yöntem Bildirimleri">
+            <option value="Çevresel Konular">
+            <option value="Dar Mekanlarda Çalışma">
+            <option value="Dinlenme Olanakları">
+            <option value="Eğitim ve İletişim">
+            <option value="Ekranlı Araçlar ile Çalışma">
+            <option value="El Merdivenler">
+            <option value="Elektrik Güvenliği">
+            <option value="Elle Taşıma Güvenliği">
+            <option value="Ergonomi">
+            <option value="Fiziksel Risk Etmenleri">
+            <option value="Gece Çalışmaları">
+            <option value="Güvenlik ve Sağlık İşaretleri">
+            <option value="İşyeri, Bina ve Eklentileri">
+            <option value="Kapalı Alanlar">
+            <option value="Kaynak İşleri">
+            <option value="Kazan Dairesi">
+            <option value="Kilitleme ve Etiketleme">
+            <option value="Kimyasal Risk Etmenleri">
+            <option value="Kimyasallar">
+            <option value="Makine ve Ekipmanlar">
+            <option value="Olayların Bildirimi, Araştırılması ve Analizi">
+            <option value="Performans İzleme">
+            <option value="Psikososyal Risk Etmenleri">
+            <option value="Risk Analizi ve Değerlendirilmesi">
+            <option value="Risk Etmenleri">
+            <option value="Sağlık Gözetimi">
+            <option value="Sürekli İyileştirme">
+            <option value="Temizlik ve Düzen">
+            <option value="Tuvaletler">
+            <option value="Üçüncü Şahıs ve Yönetimi">
+            <option value="Yemekhane">
+          </datalist>
 
           <label for="yerEkipman">Yer/Ekipman</label>
           <input type="text" name="yerEkipman" id="yerEkipman" list="yerErkipman-list">
@@ -194,19 +234,47 @@
         </div>
         <div class="right">
           <label for="siddet">Şiddet</label>
-          <input type="number" name="siddet" id="siddet" placeholder="(1-5)" min="1" max="5">
+          <input type="number" name="siddet" id="siddet" list="siddet-list" placeholder="(1-5)" min="1" max="5">
+          <datalist id="siddet-list">
+            <option value="1">
+            <option value="2">
+            <option value="3">
+            <option value="4">
+            <option value="5">
+          </datalist>
 
           <label for="olasilik">Olasılık</label>
-          <input type="number" name="olasilik" id="olasilik" placeholder="(1-5)" min="1" max="5">
+          <input type="number" name="olasilik" id="olasilik" list="olasilik-list" placeholder="(1-5)" min="1" max="5">
+          <datalist id="olasilik-list">
+            <option value="1">
+            <option value="2">
+            <option value="3">
+            <option value="4">
+            <option value="5">
+          </datalist>
 
           <label for="alinacakTedbirler">Alınacak Tedbirler</label>
           <input type="text" name="alinacakTedbirler" id="alinacakTedbirler">
 
           <label for="sSiddet">Son Şiddet</label>
-          <input type="number" name="sSiddet" id="sSiddet" placeholder="(1-5)" min="1" max="5">
+          <input type="number" name="sSiddet" id="sSiddet" list="sonSiddet-list" placeholder="(1-5)" min="1" max="5">
+          <datalist id="sonSiddet-list">
+            <option value="1">
+            <option value="2">
+            <option value="3">
+            <option value="4">
+            <option value="5">
+          </datalist>
 
           <label for="sOlasilik">Son Olasılık</label>
-          <input type="number" name="sOlasilik" id="sOlasilik" placeholder="(1-5)" min="1" max="5">
+          <input type="number" name="sOlasilik" id="sOlasilik" list="sonOlasilik-list" placeholder="(1-5)" min="1" max="5">
+          <datalist id="sonOlasilik-list">
+            <option value="1">
+            <option value="2">
+            <option value="3">
+            <option value="4">
+            <option value="5">
+          </datalist>
         </div>
       </div>
 

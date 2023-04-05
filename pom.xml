@@ -8,11 +8,11 @@
 		<version>2.7.10-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.loginregistration</groupId>
-	<artifactId>authtest</artifactId>
+	<groupId>com.borabesiktepe</groupId>
+	<artifactId>isgassist</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>authtest</name>
-	<description>Login/Registration demo project for Spring Boot</description>
+	<name>ISGAssist</name>
+	<description>Web Bitirme projesi</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

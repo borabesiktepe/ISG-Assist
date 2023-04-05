@@ -23,5 +23,5 @@ form.addEventListener('submit', function (e) {
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
 
-    message.innerHTML = "Çalışma alanı oluşturuldu! Panelinizden ulaşabilirsiniz.";
+    message.innerHTML = 'Çalışma alanı oluşturuldu! <a href="/user_panel" style="color:#ffbf00;">Panelinizden</a> ulaşabilirsiniz.';
 });

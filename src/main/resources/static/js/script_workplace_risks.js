@@ -184,7 +184,7 @@ setInterval(function colorizeCells() {
     });
 }, 100);
 
-//Görüntülenen tabloyu EXCEL formatında indirme
+//SheetJS ile görüntülenen tabloyu EXCEL formatında indirme
 function exportToExcel(type, fn, dl) {
     let table = document.getElementById('risk-table');
 
@@ -221,6 +221,63 @@ scrollToInpust.addEventListener("click", () => {
                 inline: "nearest"
         });
 })
+
+//Tehlike adı filtresi için tabloda ki verilere göre Select'e dizme
+const tehlikeSelect = document.getElementById("tehlike-select");
+fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplaceId)
+    .then((data) => {
+        return data.json();
+    })
+    .then((objectData) => {
+        const uniqueData = [...new Set(objectData.map((values) => values.tehlikeAdi))];
+        let tehlikeSelectOptions = "";
+
+        uniqueData.forEach((tehlikeAdi) => {
+            tehlikeSelectOptions += `
+                <option value=${tehlikeAdi}>${tehlikeAdi}</option>
+            `;
+        });
+
+        tehlikeSelect.innerHTML += tehlikeSelectOptions;
+    })
+
+function filterTable() {
+  const selectElement = document.getElementById("tehlike-select");
+  const selectedValue = selectElement.options[selectElement.selectedIndex].value;
+  const tableRows = tableBody.getElementsByTagName("tr");
+
+  if (selectedValue === "all") {
+    for (let i = 0; i < tableRows.length; i++) {
+      tableRows[i].style.display = "";
+    }
+    return;
+  }
+
+  for (let i = 0; i < tableRows.length; i++) {
+    const tableData = tableRows[i].getElementsByTagName("td");
+    let shouldShow = false;
+    for (let j = 0; j < tableData.length; j++) {
+      if (tableData[j].textContent === selectedValue) {
+        shouldShow = true;
+        break;
+      }
+    }
+    if (shouldShow) {
+      tableRows[i].style.display = "";
+    } else {
+      tableRows[i].style.display = "none";
+    }
+  }
+}
+
+document.getElementById("tehlike-select").addEventListener("change", filterTable);
+
+
+
+
+
+
+
 
 //Risk Değerlendirme tablosunda "Risk" kolonuna göre filtreleme yapma
 const riskSelect = document.getElementById('risk-select');

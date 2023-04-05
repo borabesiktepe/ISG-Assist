@@ -49,18 +49,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http
+            .authorizeRequests()
                 .antMatchers("/user_panel").authenticated()
-                .anyRequest().permitAll()
+                .anyRequest()
+                .permitAll()
                 .and()
-                .formLogin()
-                .loginPage("/login").permitAll()
+            .formLogin()
+                .loginPage("/login")
+                .permitAll()
                 .usernameParameter("email")
                 .defaultSuccessUrl("/user_panel")
                 .and()
-                .logout().logoutSuccessUrl("/").permitAll()
+            .logout()
+                .logoutSuccessUrl("/")
+                .permitAll()
                 .and()
-                .cors().and().csrf().disable()
-                .headers().frameOptions().disable();
+            .cors().and().csrf()
+                .disable()
+            .headers().frameOptions()
+                .disable();
     }
 }

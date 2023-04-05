@@ -188,7 +188,8 @@ nav {
 }
 
 #risk-select,
-#son-risk-select {
+#son-risk-select,
+#tehlike-select {
     background: #FFFFFF;
     border: none;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);

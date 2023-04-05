@@ -58,6 +58,7 @@ formRisk.addEventListener('submit', function (e) {
 
     let risk = siddet.value * olasilik.value;
     let sRisk = sSiddet.value * sOlasilik.value;
+
     let today = new Date();
     let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 
@@ -234,16 +235,15 @@ fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplace
 
         uniqueData.forEach((tehlikeAdi) => {
             tehlikeSelectOptions += `
-                <option value=${tehlikeAdi}>${tehlikeAdi}</option>
+                <option value='${tehlikeAdi}'>${tehlikeAdi}</option>
             `;
         });
 
         tehlikeSelect.innerHTML += tehlikeSelectOptions;
     })
 
-function filterTable() {
-  const selectElement = document.getElementById("tehlike-select");
-  const selectedValue = selectElement.options[selectElement.selectedIndex].value;
+tehlikeSelect.addEventListener("change", () => {
+  const selectedValue = tehlikeSelect.options[tehlikeSelect.selectedIndex].value;
   const tableRows = tableBody.getElementsByTagName("tr");
 
   if (selectedValue === "all") {
@@ -268,16 +268,7 @@ function filterTable() {
       tableRows[i].style.display = "none";
     }
   }
-}
-
-document.getElementById("tehlike-select").addEventListener("change", filterTable);
-
-
-
-
-
-
-
+});
 
 //Risk Değerlendirme tablosunda "Risk" kolonuna göre filtreleme yapma
 const riskSelect = document.getElementById('risk-select');

@@ -210,7 +210,6 @@ nav {
     background-color: white;
     padding: 20px 30px;
     width: min-content;
-    margin-top: 12px;
 }
 
 .todolist-controls #clear:hover {

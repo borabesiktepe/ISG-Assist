@@ -147,5 +147,3 @@ formNotes.addEventListener('submit', function (e) {
 
     location.reload();
 })
-
-

@@ -30,12 +30,12 @@ const selectDefaultValue = document.getElementById("defaultValue");
 fetch(`http://localhost:8080/api/companies/getall?workplaceId=${workplaceId}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-        console.log(data.length);
 
         if (data.length == 0) {
             document.getElementById("update").style.display = "none";
             document.getElementById("add").style.display = "";
+
+            console.log("İletişim bilgileri bulunamadı.");
         } else {
             address.value = data[0].address;
             selectDefaultValue.value = data[0].city;
@@ -47,6 +47,8 @@ fetch(`http://localhost:8080/api/companies/getall?workplaceId=${workplaceId}`)
 
             document.getElementById("update").style.display = "";
             document.getElementById("add").style.display = "none";
+
+            console.log("İletişim bilgileri input'lara eklendi.");
         }
     })
     .catch((error) => {
@@ -146,7 +148,6 @@ fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId
     .then(data => {
         console.log(data);
 
-        //riskOzet.innerHTML = "Son Risk Değerlendirilme Tarihi: " + data[data.length - 1].degerlendirmeTarihi;
         riskOzet.innerHTML = `<span style="font-weight:bold;">Son Risk Değerlendirilme Tarihi:</span> ${data[data.length - 1].degerlendirmeTarihi}`;
     })
     .catch((error) => {

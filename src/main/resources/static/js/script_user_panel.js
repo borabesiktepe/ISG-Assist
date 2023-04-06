@@ -11,12 +11,18 @@ function listWorkplaces() {
             return response.json();
         })
         .then(data => {
-            data.forEach(workplace => {
-                const markupLi = `<li><a href="/workplace_panel/${workplace.id}">${workplace.name}</a></li>`;
-                workplaceList.insertAdjacentHTML('beforeend', markupLi);
-            });
+            if (data.length > 0) {
+                data.forEach(workplace => {
+                    const markupLi = `<li><a href="/workplace_panel/${workplace.id}">${workplace.name}</a></li>`;
+                    workplaceList.insertAdjacentHTML('beforeend', markupLi);
+                });
 
-            console.log("Çalışma alanları listelendi.");
+                console.log("Çalışma alanları listelendi.");
+            }
+            else {
+                workplaceList.innerHTML = `<li>Çalışma alanı yok.</li>`;
+                console.log("Çalışma alanı bulunamadı.");
+            }
         })
         .catch(error => console.log(error));
 }
@@ -28,12 +34,17 @@ function listToDos() {
             return response.json();
         })
         .then(data => {
-            data.forEach(todo => {
-                const markupLi = `<li>${todo.todoItem}</li>`;
-                todoList.insertAdjacentHTML('beforeend', markupLi);
-            });
+            if (data.length > 0) {
+                data.forEach(todo => {
+                    const markupLi = `<li>${todo.todoItem}</li>`;
+                    todoList.insertAdjacentHTML('beforeend', markupLi);
+                });
 
-            console.log("Yapılacaklar listesi yüklendi.");
+                console.log("Yapılacaklar listesi yüklendi.");
+            }
+            else {
+                console.log("Yapılacaklar listesi bulunamadı.");
+            }
         })
         .catch(error => console.log(error));
 }
@@ -45,10 +56,15 @@ function listNotes() {
             return response.json();
         })
         .then(data => {
-            data.forEach(workplace => {
-                noteArea.innerHTML = workplace.note;
-            });
-            console.log("Notlar yüklendi.");
+            if (data.length > 0) {
+                data.forEach(workplace => {
+                    noteArea.innerHTML = workplace.note;
+                });
+                console.log("Notlar eklendi.");
+            }
+            else {
+                console.log("Not bulunamadı.");
+            }
         })
         .catch(error => console.log(error));
 }

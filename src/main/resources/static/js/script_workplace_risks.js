@@ -317,6 +317,53 @@ yerEkipmanSelect.addEventListener("change", () => {
   }
 });
 
+//Maruz Kalanlar filtresi için tabloda ki verilere göre Select'e dizme
+const maruzKalanlarSelect = document.getElementById("maruz-kalanlar-select");
+fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplaceId)
+    .then((data) => {
+        return data.json();
+    })
+    .then((objectData) => {
+        const uniqueData = [...new Set(objectData.map((values) => values.maruzKalanlar))];
+        let maruzKalanlarSelectOptions = "";
+
+        uniqueData.forEach((maruzKalanlar) => {
+            maruzKalanlarSelectOptions += `
+                <option value='${maruzKalanlar}'>${maruzKalanlar}</option>
+            `;
+        });
+
+        maruzKalanlarSelect.innerHTML += maruzKalanlarSelectOptions;
+    })
+
+maruzKalanlarSelect.addEventListener("change", () => {
+  const selectedValue = maruzKalanlarSelect.options[maruzKalanlarSelect.selectedIndex].value;
+  const tableRows = tableBody.getElementsByTagName("tr");
+
+  if (selectedValue === "all") {
+    for (let i = 0; i < tableRows.length; i++) {
+      tableRows[i].style.display = "";
+    }
+    return;
+  }
+
+  for (let i = 0; i < tableRows.length; i++) {
+    const tableData = tableRows[i].getElementsByTagName("td");
+    let shouldShow = false;
+    for (let j = 0; j < tableData.length; j++) {
+      if (tableData[j].textContent === selectedValue) {
+        shouldShow = true;
+        break;
+      }
+    }
+    if (shouldShow) {
+      tableRows[i].style.display = "";
+    } else {
+      tableRows[i].style.display = "none";
+    }
+  }
+});
+
 //Risk Değerlendirme tablosunda "Risk" kolonuna göre filtreleme yapma
 const riskSelect = document.getElementById('risk-select');
 const tableBody = document.getElementById('table_body');

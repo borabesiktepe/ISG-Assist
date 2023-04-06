@@ -64,6 +64,7 @@
       <button onclick="exportToExcel('xlsx')">Tabloyu Excel olarak kaydet</button>
     </div>
 
+    <p id="filter-info">Tablo Filtreleri</p>
     <div class="table-filters">
       <select id="tehlike-select">
         <option value="" disabled selected>Tehlikeler</option>
@@ -72,6 +73,11 @@
 
       <select id="yer-ekipman-select">
         <option value="" disabled selected>Yer/Ekipman</option>
+        <option value="all">Tümü</option>
+      </select>
+
+      <select id="maruz-kalanlar-select">
+        <option value="" disabled selected>Maruz Kalanlar</option>
         <option value="all">Tümü</option>
       </select>
 

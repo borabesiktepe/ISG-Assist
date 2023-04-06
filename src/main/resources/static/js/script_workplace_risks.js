@@ -59,8 +59,14 @@ formRisk.addEventListener('submit', function (e) {
     let risk = siddet.value * olasilik.value;
     let sRisk = sSiddet.value * sOlasilik.value;
 
-    let today = new Date();
-    let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+    const dateOptions = {
+      timeZone: 'Europe/Istanbul',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    };
+
+    const date = new Date().toLocaleDateString('tr-TR', dateOptions);
 
     console.log("Risk:", risk, "Son Risk:", sRisk);
     console.log(tehlikeAdi.value, yerEkipman.value, mevcutTehlikeler.value, olusacakRiskler.value, mevcutOnlemler.value, maruzKalanlar.value, siddet.value, olasilik.value, risk, alinacakTedbirler.value, sSiddet.value, sOlasilik.value, sRisk, date, workplaceId);

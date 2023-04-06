@@ -270,6 +270,53 @@ tehlikeSelect.addEventListener("change", () => {
   }
 });
 
+//Yer/Ekipman filtresi için tabloda ki verilere göre Select'e dizme
+const yerEkipmanSelect = document.getElementById("yer-ekipman-select");
+fetch("http://localhost:8080/api/riskassesments/getall?workplaceId=" + workplaceId)
+    .then((data) => {
+        return data.json();
+    })
+    .then((objectData) => {
+        const uniqueData = [...new Set(objectData.map((values) => values.yerEkipman))];
+        let yerEkipmanSelectOptions = "";
+
+        uniqueData.forEach((yerEkipman) => {
+            yerEkipmanSelectOptions += `
+                <option value='${yerEkipman}'>${yerEkipman}</option>
+            `;
+        });
+
+        yerEkipmanSelect.innerHTML += yerEkipmanSelectOptions;
+    })
+
+yerEkipmanSelect.addEventListener("change", () => {
+  const selectedValue = yerEkipmanSelect.options[yerEkipmanSelect.selectedIndex].value;
+  const tableRows = tableBody.getElementsByTagName("tr");
+
+  if (selectedValue === "all") {
+    for (let i = 0; i < tableRows.length; i++) {
+      tableRows[i].style.display = "";
+    }
+    return;
+  }
+
+  for (let i = 0; i < tableRows.length; i++) {
+    const tableData = tableRows[i].getElementsByTagName("td");
+    let shouldShow = false;
+    for (let j = 0; j < tableData.length; j++) {
+      if (tableData[j].textContent === selectedValue) {
+        shouldShow = true;
+        break;
+      }
+    }
+    if (shouldShow) {
+      tableRows[i].style.display = "";
+    } else {
+      tableRows[i].style.display = "none";
+    }
+  }
+});
+
 //Risk Değerlendirme tablosunda "Risk" kolonuna göre filtreleme yapma
 const riskSelect = document.getElementById('risk-select');
 const tableBody = document.getElementById('table_body');

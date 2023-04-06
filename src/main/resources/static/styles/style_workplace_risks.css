@@ -188,6 +188,7 @@ nav {
 }
 
 #risk-select,
+#yer-ekipman-select,
 #son-risk-select,
 #tehlike-select {
     background: #FFFFFF;
@@ -197,7 +198,7 @@ nav {
     font-size: 14px;
     font-family: 'Montserrat', monospace;
     padding: 15px;
-    width: 242px;
+    width: 180px;
 }
 
 table {

@@ -151,4 +151,5 @@ nav {
     display: flex;
     flex-wrap: wrap;
     gap: 100px;
+    margin-top: 32px;
 }

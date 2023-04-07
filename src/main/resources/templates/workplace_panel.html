@@ -49,13 +49,15 @@
         <h1 class="sectiontitle"><i class="fa-solid fa-building"></i> [[${workplace.workplaceName}]]</h1>
         <p class="workplace-description" th:text ="${workplace.workplaceDescription}"></p>
 
-        <p id="risk-ozet"></p>
+        <div id="risk-ozet">
+            <h2>Risk Değerlendirme Özeti</h2>
+        </div>
 
         <div class="trainings-management">
             <h2>Eğitim Dökümanları</h2>
             <p id="document-info">Eğitimler kısmında sunumlarınızı yapabilmek için PDF formatında yükleme yapınız.</p>
             <ul>
-
+                <li>Eğitim dökümanı yok.</li>
             </ul>
             <div class="training-controls">
                 <form>

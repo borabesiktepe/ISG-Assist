@@ -134,10 +134,9 @@ formUpdate.addEventListener('submit', function (e) {
     })
         .then(response => response.json())
         .then(data => console.log(data))
-        .then(window.location.reload())
         .catch(error => console.error('Error:', error));
 
-        location.reload();
+        window.location.reload();
 });
 
 //Risk Değerlendirme Özeti
@@ -148,7 +147,7 @@ fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId
     .then(data => {
         console.log(data);
 
-        riskOzet.innerHTML = `<span style="font-weight:bold;">Son Risk Değerlendirilme Tarihi:</span> ${data[data.length - 1].degerlendirmeTarihi}`;
+        riskOzet.innerHTML += `<span style="font-weight:bold;">Son Risk Değerlendirilme Tarihi:</span> ${data[data.length - 1].degerlendirmeTarihi}`;
     })
     .catch((error) => {
         console.log(error)
@@ -181,7 +180,7 @@ fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId
           </br> <span style="color:#ff0000; font-weight:bold;">Çok Tehlikeli Risk: </span> ${countCokTehlikeli}
       `;
     } else {
-      riskOzet.innerHTML = "Risk değerlendirmesi yapılmamış.";
+      riskOzet.innerHTML += "Risk değerlendirmesi yapılmamış.";
     }
   })
   .catch(error => console.error(error));

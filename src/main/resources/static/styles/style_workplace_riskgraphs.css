@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    transition: all .2s ease;
+}
+
+body {
+    font-family: 'Montserrat', monospace;
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+nav {
+    position: fixed;
+    height: 100vh;
+    width: 320px;
+    background: #FFC20D;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    margin-top: 32px;
+}
+
+.user-button i {
+    margin-right: 10px;
+}
+
+.user-button a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: black;
+    font-weight: bolder;
+}
+
+.user-button a:hover {
+    text-shadow: 0px 4px 14px rgba(0, 0, 0, 0.37);
+}
+
+.workplace-button {
+    margin-top: 52px;
+}
+
+.workplace-button a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: black;
+    font-weight: bolder;
+}
+
+.workplace-button:hover {
+    text-shadow: 0px 4px 14px rgba(0, 0, 0, 0.37);
+}
+
+.training-button {
+    margin-top: 44px;
+}
+
+.training-button a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 28px 82px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.training-button a:hover {
+    color: #FFC20D;
+}
+
+.risk-button {
+    margin-top: 84px;
+}
+
+.risk-button a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 28px 40px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.risk-button a:hover {
+    color: #FFC20D;
+}
+
+.settings-button {
+    margin-top: 84px;
+}
+
+.settings-button a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 28px 92px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.settings-button a:hover {
+    color: #FFC20D;
+}
+
+.logoff-button {
+    position: absolute;
+    cursor: pointer;
+    background-color: #FFF;
+    color: #FF0000;
+    font-size: 16px;
+    font-family: 'Montserrat', monospace;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 28px 82px;
+    left: 28px;
+    bottom: 50px;
+}
+
+.logoff-button a {
+    text-decoration: none;
+    color: #FF0000;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.container {
+    padding-top: 36px;
+    padding-left: 400px;
+}
+
+.graphs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+}

@@ -63,7 +63,7 @@ nav {
 }
 
 .training-button {
-    margin-top: 44px;
+    margin-top: 84px;
 }
 
 .training-button a {
@@ -82,7 +82,7 @@ nav {
 }
 
 .risk-button {
-    margin-top: 84px;
+    margin-top: 44px;
 }
 
 .risk-button a {
@@ -100,22 +100,22 @@ nav {
     color: #FFC20D;
 }
 
-.settings-button {
+.graph-button {
     margin-top: 84px;
 }
 
-.settings-button a {
+.graph-button a {
     text-decoration: none;
     color: black;
     font-size: 16px;
     font-weight: bold;
-    padding: 28px 92px;
+    padding: 28px 85px;
     border-radius: 20px;
     background-color: white;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
 }
 
-.settings-button a:hover {
+.graph-button a:hover {
     color: #FFC20D;
 }
 

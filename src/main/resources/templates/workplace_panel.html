@@ -30,12 +30,16 @@
             </a>
         </div>
 
-        <div class="training-button">
-            <a th:href="@{/trainings/} + ${workplace.id}">Eğitimler</a>
-        </div>
-
         <div class="risk-button">
             <a th:href="@{/riskassesment/} + ${workplace.id}">Risk Değerlendirme</a>
+        </div>
+
+        <div class="graph-button">
+            <a th:href="@{/riskgraphs/} + ${workplace.id}">Grafikler</a>
+        </div>
+
+        <div class="training-button">
+            <a th:href="@{/trainings/} + ${workplace.id}">Eğitimler</a>
         </div>
 
         <form th:action="@{/logout}" method="post">

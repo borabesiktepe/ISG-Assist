@@ -52,7 +52,7 @@ nav {
 }
 
 .user-button a:hover {
-    text-shadow: 0px 4px 14px rgba(0, 0, 0, 0.37);
+    text-shadow: var(--shadow);
 }
 
 .workplace-button {
@@ -68,7 +68,7 @@ nav {
 }
 
 .workplace-button:hover {
-    text-shadow: 0px 4px 14px rgba(0, 0, 0, 0.37);
+    text-shadow: var(--shadow);
 }
 
 .training-button {

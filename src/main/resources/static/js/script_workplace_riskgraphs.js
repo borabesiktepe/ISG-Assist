@@ -6,11 +6,12 @@ fetch('https://64302442c26d69edc88bce05.mockapi.io/api/graph/enTekrarEdenTehlike
         xValues = [];
         yValues = [];
         let barColors = [
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-            "#e8c3b9",
-            "#1e7145"
+            "#FFC40C",
+            "#96BD33",
+            "#34A761",
+            "#008A7B",
+            "#006978",
+            "#2F4858"
         ];
 
         for (i = 0; i < data.length; i++) {
@@ -45,11 +46,12 @@ fetch('https://64302442c26d69edc88bce05.mockapi.io/api/graph/enTehlikeliYerEkipm
         xValues = [];
         yValues = [];
         let barColors = [
-            "#b91d47",
-            "#00aba9",
-            "#2b5797",
-            "#e8c3b9",
-            "#1e7145"
+            "#FFC40C",
+            "#96BD33",
+            "#34A761",
+            "#008A7B",
+            "#006978",
+            "#2F4858"
         ];
 
         for (i = 0; i < data.length; i++) {
@@ -74,3 +76,48 @@ fetch('https://64302442c26d69edc88bce05.mockapi.io/api/graph/enTehlikeliYerEkipm
             }
         });
     })
+
+var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+var yValues = [55, 49, 44, 24, 15];
+let barColors = [
+    "#FFC40C",
+    "#96BD33",
+    "#34A761",
+    "#008A7B",
+    "#006978",
+    "#2F4858"
+];
+
+new Chart("chart1", {
+    type: "pie",
+    data: {
+        labels: xValues,
+        datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: "World Wide Wine Production 2018"
+        }
+    }
+});
+
+new Chart("chart2", {
+    type: "pie",
+    data: {
+        labels: xValues,
+        datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: "World Wide Wine Production 2018"
+        }
+    }
+});

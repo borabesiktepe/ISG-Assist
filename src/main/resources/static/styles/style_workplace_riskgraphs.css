@@ -147,9 +147,24 @@ nav {
     padding-left: 400px;
 }
 
+h1 {
+    margin-bottom: 20px;
+}
+
 .graphs {
     display: flex;
     flex-wrap: wrap;
     gap: 100px;
-    margin-top: 32px;
+}
+
+canvas {
+    background-color: #49ac590f;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+canvas:hover {
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
 }

@@ -6,6 +6,14 @@
     transition: all .2s ease;
 }
 
+:root {
+    --primaryColor: #FFC40C;
+    --primaryColorHover: #F2B700;
+    --whiteHover: #EEE;
+    --red: #FC0707;
+    --redHover: #D80000;
+}
+
 body {
     font-family: 'Montserrat', monospace;
     font-size: 20px;
@@ -15,8 +23,9 @@ nav {
     position: fixed;
     height: 100vh;
     width: 320px;
-    background: #FFC20D;
+    background-color: var(--primaryColor);
     border-radius: 0px 20px 20px 0px;
+    box-shadow: 5px 0px 5px rgba(0,0,0,.12);
 }
 
 .nav-buttons {
@@ -42,6 +51,10 @@ nav {
     text-shadow: 0px 4px 14px rgba(0, 0, 0, 0.37);
 }
 
+.userId {
+    display: none;
+}
+
 .create-workplace-button {
     margin-top: 84px;
 }
@@ -51,33 +64,34 @@ nav {
     color: black;
     font-size: 16px;
     font-weight: bold;
-    padding: 28px 40px;
+    padding: 28px 32px;
     border-radius: 20px;
-    background-color: white;
+    background-color: #FFF;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.create-workplace-button a:hover {
+    color: var(--primaryColorHover);
 }
 
 .logoff-button {
     position: absolute;
     cursor: pointer;
     background-color: #FFF;
-    color: #FF0000;
+    color: var(--red);
     font-size: 16px;
     font-family: 'Montserrat', monospace;
     font-weight: bold;
     border: none;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-    padding: 28px 90px;
+    padding: 28px 82px;
     left: 28px;
     bottom: 50px;
 }
 
-.logoff-button a {
-    text-decoration: none;
-    color: #FF0000;
-    font-size: 16px;
-    font-weight: bolder;
+.logoff-button:hover {
+    color: var(--redHover);
 }
 
 .container {
@@ -100,7 +114,7 @@ form {
 }
 
 input[type=text] {
-    border: 2px solid #FFC20D;
+    border: 2px solid var(--primaryColor);
     border-radius: 14px;
     padding: 10px;
     font-size: 16px;
@@ -110,7 +124,7 @@ input[type=text] {
 
 form button {
     cursor: pointer;
-    background-color: #FFC20D;
+    background-color: var(--primaryColor);
     border: none;
     border-radius: 20px;
     font-size: 16px;
@@ -122,7 +136,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #f0b400;
+    background-color: var(--primaryColorHover);
 }
 
 #message {

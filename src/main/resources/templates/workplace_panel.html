@@ -61,12 +61,13 @@
             <h2>Eğitim Dökümanları</h2>
             <p id="document-info">Eğitimler kısmında sunumlarınızı yapabilmek için PDF formatında yükleme yapınız.</p>
             <ul>
-                <li>Eğitim dökümanı yok.</li>
+                <li>Eğitim bulunamadı.</li>
             </ul>
+
             <div class="training-controls">
-                <form>
-                    <input type="file" id="myfile" name="myfile" required>
-                    <input type="submit">
+                <form id="uploadForm" method="post" th:action="@{/files/upload}" enctype="multipart/form-data">
+                    <input type="file" multiple name="files"/>
+                    <button type="submit">Upload</button>
                 </form>
             </div>
         </div>

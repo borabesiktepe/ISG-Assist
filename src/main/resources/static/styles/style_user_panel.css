@@ -50,6 +50,7 @@ nav {
 
 .user-button a:hover {
     text-shadow: var(--shadow);
+    margin-left: 10px;
 }
 
 .userId {

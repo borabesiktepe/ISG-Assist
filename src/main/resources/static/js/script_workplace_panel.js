@@ -141,7 +141,7 @@ formUpdate.addEventListener('submit', function (e) {
 
 //Risk Değerlendirme Özeti
 //Workplace'e Ait Son Risk Değerlendirme Tarihini Getir
-const riskOzet = document.getElementById("risk-ozet");
+const riskOzet = document.getElementById("risk-infos");
 fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId}`)
     .then(response => response.json())
     .then(data => {

@@ -6,6 +6,15 @@
     transition: all .2s ease;
 }
 
+:root {
+    --primaryColor: #FFC40C;
+    --primaryColorHover: #F2B700;
+    --whiteHover: #EEE;
+    --red: #FC0707;
+    --redHover: #D80000;
+    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+}
+
 body {
     font-family: 'Montserrat', monospace;
     font-size: 20px;
@@ -19,7 +28,7 @@ nav {
     position: fixed;
     height: 100vh;
     width: 320px;
-    background: #FFC20D;
+    background-color: var(--primaryColor);
     border-radius: 0px 20px 20px 0px;
 }
 
@@ -74,11 +83,11 @@ nav {
     padding: 28px 82px;
     border-radius: 20px;
     background-color: white;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 
 .training-button a:hover {
-    color: #FFC20D;
+    color: var(--primaryColor);
 }
 
 .risk-button {
@@ -93,11 +102,11 @@ nav {
     padding: 28px 40px;
     border-radius: 20px;
     background-color: white;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 
 .risk-button a:hover {
-    color: #FFC20D;
+    color: var(--primaryColor);
 }
 
 .graph-button {
@@ -112,34 +121,31 @@ nav {
     padding: 28px 85px;
     border-radius: 20px;
     background-color: white;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 
 .graph-button a:hover {
-    color: #FFC20D;
+    color: var(--primaryColor);
 }
 
 .logoff-button {
     position: absolute;
     cursor: pointer;
     background-color: #FFF;
-    color: #FF0000;
+    color: var(--red);
     font-size: 16px;
     font-family: 'Montserrat', monospace;
     font-weight: bold;
     border: none;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     border-radius: 20px;
     padding: 28px 82px;
     left: 28px;
     bottom: 50px;
 }
 
-.logoff-button a {
-    text-decoration: none;
-    color: #FF0000;
-    font-size: 16px;
-    font-weight: bolder;
+.logoff-button:hover {
+    color: var(--redHover);
 }
 
 .container {
@@ -156,8 +162,8 @@ nav {
     flex-direction: column;
     margin-top: 28px;
     list-style: none;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    background-color: #FFF;
+    box-shadow: var(--shadow);
     border-radius: 8px;
     width: auto;
     min-height: 150px;
@@ -185,18 +191,18 @@ input[type=radio] {
 
 .training-bottom button {
     cursor: pointer;
-    background: #FFC20D;
+    background-color: var(--primaryColor);
     font-family: 'Montserrat', monospace;
     font-size: 16px;
     font-weight: bold;
     padding: 20px 60px;
     border: none;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     border-radius: 20px;
 }
 
 .training-bottom button:hover {
-    background: #e6ac00;
+    background-color: var(--primaryColorHover);
 }
 
 iframe {

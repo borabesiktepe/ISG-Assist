@@ -6,6 +6,15 @@
     transition: all .2s ease;
 }
 
+:root {
+    --primaryColor: #FFC40C;
+    --primaryColorHover: #F2B700;
+    --whiteHover: #EEE;
+    --red: #FC0707;
+    --redHover: #D80000;
+    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+}
+
 body {
     font-family: 'Montserrat', monospace;
     font-size: 20px;
@@ -19,7 +28,7 @@ nav {
     position: fixed;
     height: 100vh;
     width: 320px;
-    background: #FFC20D;
+    background-color: var(--primaryColor);
     border-radius: 0px 20px 20px 0px;
 }
 
@@ -73,12 +82,12 @@ nav {
     font-weight: bold;
     padding: 28px 82px;
     border-radius: 20px;
-    background-color: white;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    background-color: #FFF;
+    box-shadow: var(--shadow);
 }
 
 .training-button a:hover {
-    color: #FFC20D;
+    color: var(--primaryColor);
 }
 
 .risk-button {
@@ -92,12 +101,12 @@ nav {
     font-weight: bold;
     padding: 28px 40px;
     border-radius: 20px;
-    background-color: white;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    background-color: #FFF;
+    box-shadow: var(--shadow);
 }
 
 .risk-button a:hover {
-    color: #FFC20D;
+    color: var(--primaryColor);
 }
 
 .graph-button {
@@ -111,35 +120,32 @@ nav {
     font-weight: bold;
     padding: 28px 85px;
     border-radius: 20px;
-    background-color: white;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    background-color: #FFF;
+    box-shadow: var(--shadow);
 }
 
 .graph-button a:hover {
-    color: #FFC20D;
+    color: var(--primaryColor);
 }
 
 .logoff-button {
     position: absolute;
     cursor: pointer;
     background-color: #FFF;
-    color: #FF0000;
+    color: var(--red);
     font-size: 16px;
     font-family: 'Montserrat', monospace;
     font-weight: bold;
     border: none;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     border-radius: 20px;
     padding: 28px 82px;
     left: 28px;
     bottom: 50px;
 }
 
-.logoff-button a {
-    text-decoration: none;
-    color: #FF0000;
-    font-size: 16px;
-    font-weight: bolder;
+.logoff-button:hover {
+    color: var(--redHover);
 }
 
 .container {
@@ -176,8 +182,8 @@ nav {
 .trainings-management ul {
     margin-top: 28px;
     list-style: none;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    background: #FFF;
+    box-shadow: var(--shadow);
     border-radius: 8px;
     width: 900px;
     max-height: 200px;
@@ -193,22 +199,22 @@ nav {
     margin-top: 20px;
 }
 
-.training-controls input[type=submit] {
+.training-controls button[type=submit] {
     cursor: pointer;
     text-decoration: none;
     color: black;
-    background-color: #FFC20D;
+    background-color: var(--primaryColor);
     font-size: 16px;
     font-family: 'Montserrat', monospace;
     font-weight: bold;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     border: none;
     border-radius: 20px;
     padding: 20px 35px;
 }
 
-.training-controls input[type=submit]:hover {
-    background-color: #e9af00;
+.training-controls button[type=submit]:hover {
+    background-color: var(--primaryColorHover);
 }
 
 .training-controls input[type=file] {
@@ -251,11 +257,11 @@ nav {
     cursor: pointer;
     text-decoration: none;
     color: black;
-    background-color: #FFC20D;
+    background-color: var(--primaryColor);
     font-size: 16px;
     font-family: 'Montserrat', monospace;
     font-weight: bold;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     border: none;
     border-radius: 20px;
     padding: 20px 35px;
@@ -263,7 +269,7 @@ nav {
 }
 
 .contact-section button:hover {
-    background-color: #e9af00;
+    background-color: var(--primaryColorHover);
 }
 
 #form-update {
@@ -282,7 +288,7 @@ label {
 
 #form-update button {
     cursor: pointer;
-    background-color: #FFC20D;
+    background-color: var(--primaryColor);
     border: none;
     border-radius: 20px;
     font-size: 16px;
@@ -290,9 +296,9 @@ label {
     font-weight: bold;
     padding: 20px 30px;
     width: fit-content;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 
 #form-update button:hover {
-    background-color: #e4ab00;
+    background-color: var(--primaryColorHover);
 }

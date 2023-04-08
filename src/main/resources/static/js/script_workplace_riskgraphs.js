@@ -31,7 +31,7 @@ fetch('https://64302442c26d69edc88bce05.mockapi.io/api/graph/enTekrarEdenTehlike
             options: {
                 title: {
                     display: true,
-                    text: "En çok tekrar eden tehlikeler"
+                    text: "Tehlike Sayıları"
                 }
             }
         });
@@ -71,7 +71,7 @@ fetch('https://64302442c26d69edc88bce05.mockapi.io/api/graph/enTehlikeliYerEkipm
             options: {
                 title: {
                     display: true,
-                    text: "En Tehlikeli Yer/Ekipmanlar"
+                    text: "Yer/Ekipmanlara Göre Tehlike Sayıları"
                 }
             }
         });

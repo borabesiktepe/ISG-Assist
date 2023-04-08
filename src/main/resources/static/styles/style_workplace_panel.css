@@ -258,11 +258,13 @@ nav {
 }
 
 .input-box input[type=text], #cities {
-    border: 2px solid #FFC20D;
-    border-radius: 14px;
-    padding: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-bottom: 2px solid var(--primaryColor);
     font-size: 16px;
     font-family: 'Montserrat', monospace;
+    padding: 15px 0;
+    width: 100%;
 }
 
 .contact-section button {

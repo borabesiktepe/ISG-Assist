@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    transition: all .2s ease;
+    transition: all .2s ease
 }
 
 :root {
@@ -12,16 +12,16 @@
     --whiteHover: #EEE;
     --red: #FC0707;
     --redHover: #D80000;
-    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1)
 }
 
 body {
     font-family: 'Montserrat', monospace;
-    font-size: 20px;
+    font-size: 20px
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 20px
 }
 
 nav {
@@ -30,18 +30,18 @@ nav {
     width: 320px;
     background-color: var(--primaryColor);
     border-radius: 0px 20px 20px 0px;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .nav-buttons {
     display: flex;
     flex-direction: column;
     margin-left: 25px;
-    margin-top: 32px;
+    margin-top: 32px
 }
 
 .user-button i {
-    margin-right: 10px;
+    margin-right: 10px
 }
 
 .user-button a {
@@ -49,17 +49,17 @@ nav {
     text-transform: uppercase;
     font-size: 20px;
     color: black;
-    font-weight: bolder;
+    font-weight: bolder
 }
 
 .user-button a:hover {
     text-shadow: var(--shadow);
-    margin-left: 10px;
+    margin-left: 10px
 }
 
 .workplace-button {
     margin-top: 52px;
-    width: fit-content;
+    width: fit-content
 }
 
 .workplace-button a {
@@ -67,16 +67,16 @@ nav {
     text-transform: uppercase;
     font-size: 20px;
     color: black;
-    font-weight: bolder;
+    font-weight: bolder
 }
 
 .workplace-button:hover {
     text-shadow: var(--shadow);
-    margin-left: 10px;
+    margin-left: 10px
 }
 
 .training-button {
-    margin-top: 84px;
+    margin-top: 84px
 }
 
 .training-button a {
@@ -87,15 +87,15 @@ nav {
     padding: 28px 82px;
     border-radius: 20px;
     background-color: #FFF;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .training-button a:hover {
-    color: var(--primaryColor);
+    color: var(--primaryColor)
 }
 
 .risk-button {
-    margin-top: 44px;
+    margin-top: 44px
 }
 
 .risk-button a {
@@ -106,15 +106,15 @@ nav {
     padding: 28px 40px;
     border-radius: 20px;
     background-color: #FFF;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .risk-button a:hover {
-    color: var(--primaryColor);
+    color: var(--primaryColor)
 }
 
 .graph-button {
-    margin-top: 84px;
+    margin-top: 84px
 }
 
 .graph-button a {
@@ -125,11 +125,11 @@ nav {
     padding: 28px 85px;
     border-radius: 20px;
     background-color: #FFF;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .graph-button a:hover {
-    color: var(--primaryColor);
+    color: var(--primaryColor)
 }
 
 .logoff-button {
@@ -145,51 +145,51 @@ nav {
     border-radius: 20px;
     padding: 28px 82px;
     left: 28px;
-    bottom: 50px;
+    bottom: 50px
 }
 
 .logoff-button:hover {
-    color: var(--redHover);
+    color: var(--redHover)
 }
 
 .container {
     padding-top: 36px;
     padding-left: 400px;
-    padding-bottom: 36px;
+    padding-bottom: 36px
 }
 
 .workplace-description {
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 16px
 }
 
 #risk-ozet {
     margin-top: 48px;
     font-size: 16px;
     font-weight: normal;
-    line-height: 28px;
+    line-height: 28px
 }
 
 #risk-ozet h2 {
-    margin-bottom: 12px;
+    margin-bottom: 12px
 }
 
 #risk-infos {
     box-shadow: var(--shadow);
     border-radius: 8px;
     width: 500px;
-    padding: 20px;
+    padding: 20px
 }
 
 #document-info {
     margin-top: 12px;
     font-size: 16px;
     font-weight: normal;
-    line-height: 28px;
+    line-height: 28px
 }
 
 .trainings-management {
-    margin-top: 48px;
+    margin-top: 48px
 }
 
 .trainings-management ul {
@@ -200,16 +200,16 @@ nav {
     border-radius: 8px;
     width: 900px;
     max-height: 200px;
-    overflow-y: scroll;
+    overflow-y: scroll
 }
 
 .trainings-management li {
     padding: 16px 12px;
-    font-size: 16px;
+    font-size: 16px
 }
 
 .training-controls {
-    margin-top: 20px;
+    margin-top: 20px
 }
 
 .training-controls button[type=submit] {
@@ -223,49 +223,50 @@ nav {
     box-shadow: var(--shadow);
     border: none;
     border-radius: 20px;
-    padding: 20px 35px;
+    padding: 20px 35px
 }
 
 .training-controls button[type=submit]:hover {
-    background-color: var(--primaryColorHover);
+    background-color: var(--primaryColorHover)
 }
 
 .training-controls input[type=file] {
     text-decoration: none;
     color: black;
-    font-size: 16px;
+    font-size: 16px
 }
 
 .middle-menu {
     display: flex;
     gap: 48px;
-    margin-top: 48px;
+    margin-top: 48px
 }
 
 .contact-section {
-    width: 625px;
+    width: 625px
 }
 
 .input-box {
     display: flex;
     flex-direction: column;
     margin-top: 12px;
-    margin-bottom: 15px;
+    margin-bottom: 15px
 }
 
 .input-box label {
     font-size: 16px;
-    margin-bottom: 4px;
+    margin-bottom: 4px
 }
 
-.input-box input[type=text], #cities {
+.input-box input[type=text],
+#cities {
     margin-bottom: 10px;
     border: 0;
     border-bottom: 2px solid var(--primaryColor);
     font-size: 16px;
     font-family: 'Montserrat', monospace;
     padding: 15px 0;
-    width: 100%;
+    width: 100%
 }
 
 .contact-section button {
@@ -280,25 +281,25 @@ nav {
     border: none;
     border-radius: 20px;
     padding: 20px 35px;
-    margin-bottom: 12px;
+    margin-bottom: 12px
 }
 
 .contact-section button:hover {
-    background-color: var(--primaryColorHover);
+    background-color: var(--primaryColorHover)
 }
 
 #form-update {
-    width: 425px;
+    width: 425px
 }
 
 p {
     margin-bottom: 10px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: bold
 }
 
 label {
-    font-size: 16px;
+    font-size: 16px
 }
 
 #form-update button {
@@ -311,9 +312,9 @@ label {
     font-weight: bold;
     padding: 20px 30px;
     width: fit-content;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 #form-update button:hover {
-    background-color: var(--primaryColorHover);
+    background-color: var(--primaryColorHover)
 }

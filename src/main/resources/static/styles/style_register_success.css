@@ -1,37 +1,37 @@
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        scroll-behavior: smooth;
-    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth
+}
 
-    body {
-        font-family: 'Montserrat', monospace;
-        font-size: 18px;
-    }
+body {
+    font-family: 'Montserrat', monospace;
+    font-size: 18px
+}
 
-    h1 {
-        font-size: 40px;
-    }
+h1 {
+    font-size: 40px
+}
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 100px;
-    }
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px
+}
 
-    .info {
-        margin-top: 50px;
-        line-height: 40px;
-    }
+.info {
+    margin-top: 50px;
+    line-height: 40px
+}
 
-    footer {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        position: fixed;
-        bottom: 8px;
-        padding: 20px;
-        font-size: 10px;
-    }
+footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: fixed;
+    bottom: 8px;
+    padding: 20px;
+    font-size: 10px
+}

@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    transition: all .2s ease;
+    transition: all .2s ease
 }
 
 :root {
@@ -12,16 +12,16 @@
     --whiteHover: #EEE;
     --red: #FC0707;
     --redHover: #D80000;
-    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1)
 }
 
 body {
     font-family: 'Montserrat', monospace;
-    font-size: 20px;
+    font-size: 20px
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 20px
 }
 
 nav {
@@ -30,18 +30,18 @@ nav {
     width: 320px;
     background: #FFC20D;
     border-radius: 0px 20px 20px 0px;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .nav-buttons {
     display: flex;
     flex-direction: column;
     margin-left: 25px;
-    margin-top: 32px;
+    margin-top: 32px
 }
 
 .user-button i {
-    margin-right: 10px;
+    margin-right: 10px
 }
 
 .user-button a {
@@ -49,17 +49,17 @@ nav {
     text-transform: uppercase;
     font-size: 20px;
     color: black;
-    font-weight: bolder;
+    font-weight: bolder
 }
 
 .user-button a:hover {
     text-shadow: var(--shadow);
-    margin-left: 10px;
+    margin-left: 10px
 }
 
 .workplace-button {
     margin-top: 52px;
-    width: fit-content;
+    width: fit-content
 }
 
 .workplace-button a {
@@ -67,16 +67,16 @@ nav {
     text-transform: uppercase;
     font-size: 20px;
     color: black;
-    font-weight: bolder;
+    font-weight: bolder
 }
 
 .workplace-button:hover {
     text-shadow: var(--shadow);
-    margin-left: 10px;
+    margin-left: 10px
 }
 
 .training-button {
-    margin-top: 84px;
+    margin-top: 84px
 }
 
 .training-button a {
@@ -87,15 +87,15 @@ nav {
     padding: 28px 82px;
     border-radius: 20px;
     background-color: white;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .training-button a:hover {
-    color: var(--primaryColor);
+    color: var(--primaryColor)
 }
 
 .risk-button {
-    margin-top: 44px;
+    margin-top: 44px
 }
 
 .risk-button a {
@@ -106,15 +106,15 @@ nav {
     padding: 28px 40px;
     border-radius: 20px;
     background-color: white;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .risk-button a:hover {
-    color: var(--primaryColor);
+    color: var(--primaryColor)
 }
 
 .graph-button {
-    margin-top: 84px;
+    margin-top: 84px
 }
 
 .graph-button a {
@@ -125,11 +125,11 @@ nav {
     padding: 28px 85px;
     border-radius: 20px;
     background-color: white;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .graph-button a:hover {
-    color: var(--primaryColor);
+    color: var(--primaryColor)
 }
 
 .logoff-button {
@@ -145,57 +145,57 @@ nav {
     border-radius: 20px;
     padding: 28px 82px;
     left: 28px;
-    bottom: 50px;
+    bottom: 50px
 }
 
 .logoff-button:hover {
-    color: var(--redHover);
+    color: var(--redHover)
 }
 
 .container {
     padding-top: 36px;
     padding-left: 400px;
-    padding-bottom: 36px;
+    padding-bottom: 36px
 }
 
 #scroll-buttons {
-      display: none;
-      flex-direction: column;
-      position: fixed;
-      z-index: 99;
-      bottom: 20px;
-      right: 30px;
-      cursor: pointer;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    z-index: 99;
+    bottom: 20px;
+    right: 30px;
+    cursor: pointer
 }
 
 #scroll-buttons button {
-    padding: 20px 26px;
+    padding: 20px 26px
 }
 
 .top-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-right: 120px;
+    margin-right: 120px
 }
 
 .risk-matris {
-    margin-top: 24px;
+    margin-top: 24px
 }
 
 .risk-matris a {
     text-decoration: none;
     color: black;
-    font-weight: bold;
+    font-weight: bold
 }
 
 .risk-matris a:hover {
-    color: var(--primaryColor);
+    color: var(--primaryColor)
 }
 
 .table-filters {
     display: flex;
-    gap: 10px;
+    gap: 10px
 }
 
 #risk-select,
@@ -210,12 +210,12 @@ nav {
     font-size: 14px;
     font-family: 'Montserrat', monospace;
     padding: 15px;
-    width: 210px;
+    width: 210px
 }
 
 #filter-info {
     font-size: 16px;
-    margin: 20px 0 10px 0;
+    margin: 20px 0 10px 0
 }
 
 table {
@@ -223,49 +223,49 @@ table {
     margin-top: 12px;
     margin-right: 120px;
     margin-bottom: 30px;
-    font-size: 16px;
+    font-size: 16px
 }
 
 td,
 th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 8px
 }
 
 th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: var(--primaryColor);
+    background-color: var(--primaryColor)
 }
 
 .vertical {
-    writing-mode: vertical-lr;
+    writing-mode: vertical-lr
 }
 
 tr:hover {
-    background-color: #FFF1C7;
+    background-color: #FFF1C7
 }
 
 .table-inputs {
     display: flex;
-    gap: 20px;
+    gap: 20px
 }
 
 .left,
 .right {
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 500px
 }
 
 .input-desc {
     margin-bottom: 14px;
-    font-weight: bold;
+    font-weight: bold
 }
 
 label {
-    font-size: 16px;
+    font-size: 16px
 }
 
 input[type=text],
@@ -275,11 +275,12 @@ input[type=number] {
     border-bottom: 2px solid var(--primaryColor);
     font-size: 14px;
     font-family: 'Montserrat', monospace;
-    padding: 15px 0;
+    padding: 15px 0
 }
 
-#add, #table-buttons {
-    margin-bottom: 20px;
+#add,
+#table-buttons {
+    margin-bottom: 20px
 }
 
 button {
@@ -292,18 +293,18 @@ button {
     border: none;
     box-shadow: var(--shadow);
     border-radius: 20px;
-    margin-top: 12px;
+    margin-top: 12px
 }
 
 button:hover {
-    background-color: var(--primaryColorHover);
+    background-color: var(--primaryColorHover)
 }
 
 #delete {
     background-color: var(--red);
-    color: white;
+    color: white
 }
 
 #delete:hover {
-    background-color: var(--redHover);
+    background-color: var(--redHover)
 }

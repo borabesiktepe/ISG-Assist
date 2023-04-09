@@ -3,23 +3,23 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    transition: all .2s ease;
+    transition: all .2s ease
 }
 
 :root {
     --primaryColor: #FFC40C;
     --primaryColorHover: #F2B700;
     --whiteHover: #EEE;
-    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1)
 }
 
 body {
     font-family: 'Montserrat', monospace;
-    font-size: 20px;
+    font-size: 20px
 }
 
 main {
-    display: flex;
+    display: flex
 }
 
 .left {
@@ -27,29 +27,29 @@ main {
     background-color: var(--primaryColor);
     width: 50%;
     height: 100vh;
-    border-radius: 0px 60px 60px 0px;
+    border-radius: 0px 60px 60px 0px
 }
 
 .text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center
 }
 
 h1 {
     font-weight: bold;
-    margin-bottom: 70px;
+    margin-bottom: 70px
 }
 
 .description {
-    margin: 0 110px 0 110px;
+    margin: 0 110px 0 110px
 }
 
 .right {
     display: flex;
     width: 50%;
-    height: 100vh;
+    height: 100vh
 }
 
 .navigation {
@@ -57,11 +57,11 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 25%;
+    margin-left: 25%
 }
 
 .login {
-    margin-bottom: 34px;
+    margin-bottom: 34px
 }
 
 .login a {
@@ -72,15 +72,15 @@ h1 {
     padding: 28px 92px;
     border-radius: 20px;
     background-color: var(--primaryColor);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .login a:hover {
-    background-color: var(--primaryColorHover);
+    background-color: var(--primaryColorHover)
 }
 
 .signup {
-    margin-top: 38px;
+    margin-top: 38px
 }
 
 .signup a {
@@ -91,11 +91,11 @@ h1 {
     padding: 28px 68px;
     border-radius: 20px;
     background-color: #FFF;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .signup a:hover {
-    background-color: var(--whiteHover);
+    background-color: var(--whiteHover)
 }
 
 footer {
@@ -105,5 +105,5 @@ footer {
     position: fixed;
     bottom: 8px;
     padding: 20px;
-    font-size: 10px;
+    font-size: 10px
 }

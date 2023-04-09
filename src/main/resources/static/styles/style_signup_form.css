@@ -3,19 +3,19 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    transition: all .2s ease;
+    transition: all .2s ease
 }
 
 :root {
     --primaryColor: #FFC40C;
     --primaryColorHover: #F2B700;
     --whiteHover: #EEE;
-    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1)
 }
 
 body {
     font-family: 'Montserrat', monospace;
-    font-size: 18px;
+    font-size: 18px
 }
 
 .container {
@@ -23,26 +23,26 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 100px
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 40px
 }
 
 form {
     display: flex;
-    flex-direction: column;
+    flex-direction: column
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
-    margin-top: 28px;
+    margin-top: 28px
 }
 
 label {
-    margin-bottom: 12px;
+    margin-bottom: 12px
 }
 
 input {
@@ -52,7 +52,7 @@ input {
     font-size: 16px;
     font-family: 'Montserrat', monospace;
     padding: 15px 0;
-    width: 700px;
+    width: 700px
 }
 
 button {
@@ -67,11 +67,11 @@ button {
     border: 0;
     border-radius: 20px;
     box-shadow: var(--shadow);
-    margin-top: 40px;
+    margin-top: 40px
 }
 
 button:hover {
-    background-color: var(--primaryColorHover);
+    background-color: var(--primaryColorHover)
 }
 
 footer {
@@ -81,5 +81,5 @@ footer {
     position: fixed;
     bottom: 8px;
     padding: 20px;
-    font-size: 10px;
+    font-size: 10px
 }

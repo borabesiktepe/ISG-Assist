@@ -58,7 +58,7 @@ fetch('https://64302442c26d69edc88bce05.mockapi.io/api/graph/enTehlikeliYerEkipm
             yValues = [];
 
             for (i = 0; i < data.length; i++) {
-                xValues.push(data[i].tehlikeAdi);
+                xValues.push(data[i].yerEkipman);
                 yValues.push(data[i].olaySayisi);
             }
 

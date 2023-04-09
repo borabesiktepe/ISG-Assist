@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    transition: all .2s ease;
+    transition: all .2s ease
 }
 
 :root {
@@ -12,12 +12,12 @@
     --whiteHover: #EEE;
     --red: #FC0707;
     --redHover: #D80000;
-    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1)
 }
 
 body {
     font-family: 'Montserrat', monospace;
-    font-size: 20px;
+    font-size: 20px
 }
 
 nav {
@@ -26,18 +26,18 @@ nav {
     width: 320px;
     background-color: var(--primaryColor);
     border-radius: 0px 20px 20px 0px;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .nav-buttons {
     display: flex;
     flex-direction: column;
     margin-left: 25px;
-    margin-top: 32px;
+    margin-top: 32px
 }
 
 .user-button i {
-    margin-right: 10px;
+    margin-right: 10px
 }
 
 .user-button a {
@@ -45,20 +45,20 @@ nav {
     text-transform: uppercase;
     font-size: 20px;
     color: black;
-    font-weight: bolder;
+    font-weight: bolder
 }
 
 .user-button a:hover {
     text-shadow: var(--shadow);
-    margin-left: 10px;
+    margin-left: 10px
 }
 
 .userId {
-    display: none;
+    display: none
 }
 
 .create-workplace-button {
-    margin-top: 84px;
+    margin-top: 84px
 }
 
 .create-workplace-button a {
@@ -69,11 +69,11 @@ nav {
     padding: 28px 32px;
     border-radius: 20px;
     background-color: #FFF;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 .create-workplace-button a:hover {
-    color: var(--primaryColorHover);
+    color: var(--primaryColorHover)
 }
 
 .logoff-button {
@@ -89,30 +89,30 @@ nav {
     border-radius: 20px;
     padding: 28px 82px;
     left: 28px;
-    bottom: 50px;
+    bottom: 50px
 }
 
 .logoff-button:hover {
-    color: var(--redHover);
+    color: var(--redHover)
 }
 
 .container {
     padding-top: 36px;
-    padding-left: 400px;
+    padding-left: 400px
 }
 
 p {
     font-family: 'Montserrat';
     font-style: normal;
     font-size: 16px;
-    margin-top: 34px;
+    margin-top: 34px
 }
 
 form {
     display: flex;
     flex-direction: column;
     width: 425px;
-    margin-top: 22px;
+    margin-top: 22px
 }
 
 input[type=text] {
@@ -122,7 +122,7 @@ input[type=text] {
     font-size: 14px;
     font-family: 'Montserrat', monospace;
     padding: 15px 0;
-    width: 100%;
+    width: 100%
 }
 
 form button {
@@ -135,13 +135,13 @@ form button {
     font-weight: bold;
     padding: 20px 30px;
     width: fit-content;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow)
 }
 
 form button:hover {
-    background-color: var(--primaryColorHover);
+    background-color: var(--primaryColorHover)
 }
 
 #message {
-    font-weight: bold;
+    font-weight: bold
 }

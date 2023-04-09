@@ -51,6 +51,8 @@
 <main>
     <div class="container">
         <h1><i class="fa-solid fa-chart-pie"></i> [[${workplace.workplaceName}]] Grafikler</h1>
+        <input type="hidden" id="workplaceId" th:value="${workplace.id}">
+
         <div class="graphs">
             <canvas id="chart-encok-tehlike-tekrar"></canvas>
             <canvas id="chart-en-tehlikeli-yerekipman"></canvas>

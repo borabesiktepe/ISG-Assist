@@ -1,3 +1,5 @@
+const workplaceId = document.getElementById("workplaceId").value;
+
 let barColors = [
     "#FFC40C",
     "#96BD33",
@@ -7,7 +9,7 @@ let barColors = [
     "#2F4858"
 ];
 
-fetch('http://localhost:8080/api/riskassesments/getRiskTehlikeCount?workplaceId=' + 2)
+fetch('http://localhost:8080/api/riskassesments/getRiskTehlikeCount?workplaceId=' + workplaceId)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -48,7 +50,7 @@ fetch('http://localhost:8080/api/riskassesments/getRiskTehlikeCount?workplaceId=
     })
 
 //En çok tehlike olan Yer/Ekipmanlar
-fetch('http://localhost:8080/api/riskassesments/getRiskYerEkipmanCount?workplaceId=' + 2)
+fetch('http://localhost:8080/api/riskassesments/getRiskYerEkipmanCount?workplaceId=' + workplaceId)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -89,7 +91,7 @@ fetch('http://localhost:8080/api/riskassesments/getRiskYerEkipmanCount?workplace
     })
 
 // Yer/Ekipmanların Toplam Riskleri
-fetch('http://localhost:8080/api/riskassesments/getYerEkipmanRiskSum?workplaceId=' + 2)
+fetch('http://localhost:8080/api/riskassesments/getYerEkipmanRiskSum?workplaceId=' + workplaceId)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -130,7 +132,7 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanRiskSum?workplaceId
     })
 
 // Yer/Ekipmanların Toplam Son Riskleri
-fetch('http://localhost:8080/api/riskassesments/getYerEkipmanSonRiskSum?workplaceId=' + 2)
+fetch('http://localhost:8080/api/riskassesments/getYerEkipmanSonRiskSum?workplaceId=' + workplaceId)
     .then(response => response.json())
     .then(data => {
         console.log(data);

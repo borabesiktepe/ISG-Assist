@@ -7,11 +7,12 @@ const workplaceId = document.getElementById("workplaceId").value;
 
 pdfFrame.style.display = "none";
 
-    fetch(`http://localhost:8080/api/documents/getall?workplaceId=${workplaceId}`)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(data => {
+fetch(`http://localhost:8080/api/documents/getall?workplaceId=${workplaceId}`)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(data => {
+        if (data.length > 0) {
             data.forEach(documents => {
                 var radioButton = document.createElement('input');
                 radioButton.type = 'radio';
@@ -23,8 +24,12 @@ pdfFrame.style.display = "none";
                 trainingItem.appendChild(radioButton);
                 trainingList.appendChild(trainingItem);
             });
-        })
-        .catch(error => console.log(error));
+        }
+        else {
+            trainingList.innerHTML = "<li>Döküman bulunamadı.</li>"
+        }
+    })
+    .catch(error => console.log(error));
 
 //Iframe'de listeden seçili dosyayı görüntüle
 trainingButton.addEventListener("click", () => {

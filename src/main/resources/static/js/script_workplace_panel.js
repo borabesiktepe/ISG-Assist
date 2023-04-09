@@ -185,4 +185,22 @@ fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId
   })
   .catch(error => console.error(error));
 
-
+//Eğitimler Listesine Dökümanları Listele
+const trainingList = document.getElementById("document-list");
+fetch(`http://localhost:8080/api/documents/getall?workplaceId=${workplaceId}`)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(data => {
+        if (data.length > 0) {
+            data.forEach(documents => {
+                var trainingItem = document.createElement('li');
+                trainingItem.insertAdjacentHTML("beforeend", documents.documentName);
+                trainingList.appendChild(trainingItem);
+            });
+        }
+        else {
+            trainingList.innerHTML = "<li>Döküman bulunamadı.</li>"
+        }
+    })
+    .catch(error => console.log(error));

@@ -3,42 +3,28 @@ const trainingButton = document.querySelector(".training-bottom button");
 const selectedItem = document.querySelector(".selected-file");
 const pdfFrame = document.querySelector("iframe");
 
+const workplaceId = document.getElementById("workplaceId").value;
+
 pdfFrame.style.display = "none";
 
-var json = [
-    {
-        "id": 1,
-        "name": "Eğitim1.pdf",
-        "workplaceId": 1
-    },
-    {
-        "id": 2,
-        "name": "Eğitim2.pdf",
-        "workplaceId": 1
-    },
-    {
-        "id": 3,
-        "name": "Eğitim3.pdf",
-        "workplaceId": 2
-    },
-    {
-        "id": 4,
-        "name": "Slayt1.pptx",
-        "workplaceId": 2
-    }
-];
+    fetch(`http://localhost:8080/api/documents/getall?workplaceId=${workplaceId}`)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(data => {
+            data.forEach(documents => {
+                var radioButton = document.createElement('input');
+                radioButton.type = 'radio';
+                radioButton.name = 'file';
+                radioButton.value = documents.documentName;
 
-json.forEach(workplace => {
-    var radioButton = document.createElement('input');
-    radioButton.type = 'radio';
-    radioButton.name = 'file';
-    radioButton.value = workplace.name;
-
-    var trainingItem = document.createElement('li');
-    trainingItem.insertAdjacentHTML("beforeend", workplace.name);
-    trainingItem.appendChild(radioButton);
-    trainingList.appendChild(trainingItem);
-});
+                var trainingItem = document.createElement('li');
+                trainingItem.insertAdjacentHTML("beforeend", documents.documentName);
+                trainingItem.appendChild(radioButton);
+                trainingList.appendChild(trainingItem);
+            });
+        })
+        .catch(error => console.log(error));
 
 //Iframe'de listeden seçili dosyayı görüntüle
 trainingButton.addEventListener("click", () => {

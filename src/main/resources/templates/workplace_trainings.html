@@ -50,10 +50,12 @@
   <main>
     <div class="container">
       <h1 th:text="|${workplace.workplaceName} Eğitimler|"></h1>
+      <input type="hidden" id="workplaceId" th:value="${workplace.id}">
+
       <div class="training-controls">
         <p>Sunum yapılacak dökümanı seçiniz</p>
         <ul>
-          <li><input type="radio" name="file" value="Ornek.pdf">Eğitim.pdf</li>
+
         </ul>
         <div class="training-bottom">
           <p class="selected-file"></p>

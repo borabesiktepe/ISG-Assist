@@ -1,9 +1,7 @@
 package com.borabesiktepe.isgassist.business.concretes;
 
 import com.borabesiktepe.isgassist.business.requests.CreateRiskAssesmentRequest;
-import com.borabesiktepe.isgassist.business.responses.RiskAssesmentTehlikeCount;
-import com.borabesiktepe.isgassist.business.responses.RiskAssesmentYerEkipmanCount;
-import com.borabesiktepe.isgassist.business.responses.RiskAssesmentsResponse;
+import com.borabesiktepe.isgassist.business.responses.*;
 import com.borabesiktepe.isgassist.dataAccess.RiskAssesmentRepository;
 import com.borabesiktepe.isgassist.dataAccess.WorkplaceRepository;
 import com.borabesiktepe.isgassist.entities.RiskAssesment;
@@ -133,16 +131,7 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
 
         List<RiskAssesmentTehlikeCount> response = new ArrayList<>();
 
-        //SUM işlemleri için
-        //int toplam = 0;
         mapByTehlikeAdi.forEach((tehlikeAdi, riskAssesments) -> {
-            AtomicInteger toplam = new AtomicInteger();
-
-//            riskAssesments.forEach(riskAssesment -> {
-//                toplam.addAndGet(riskAssesment.getRisk());
-//            });
-
-            //ikinci parametre toplam.get() ekle
             RiskAssesmentTehlikeCount riskAssesmentTehlikeCount = new RiskAssesmentTehlikeCount(tehlikeAdi, riskAssesments.size());
             response.add(riskAssesmentTehlikeCount);
         });
@@ -169,6 +158,48 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
             //ikinci parametre toplam.get() ekle
             RiskAssesmentYerEkipmanCount riskAssesmentYerEkipmanCount = new RiskAssesmentYerEkipmanCount(yerEkipman, riskAssesments.size());
             response.add(riskAssesmentYerEkipmanCount);
+        });
+
+        return response;
+    }
+
+    @Override
+    public List<RiskAssesmentYerEkipmanRiskSum> yerEkipmanToplamRisk(int workplaceId) {
+        List<RiskAssesment> riskList = riskAssesmentRepository.findAllByWorkplaceId(workplaceId);
+        Map<String, List<RiskAssesment>> mapByYerEkipman = riskList.stream().collect(Collectors.groupingBy(riskAssesment -> riskAssesment.getYerEkipman()));
+
+        List<RiskAssesmentYerEkipmanRiskSum> response = new ArrayList<>();
+
+        mapByYerEkipman.forEach((yerEkipman, riskAssesments) -> {
+            AtomicInteger toplam = new AtomicInteger();
+
+            riskAssesments.forEach(riskAssesment -> {
+                toplam.addAndGet(riskAssesment.getRisk());
+            });
+
+            RiskAssesmentYerEkipmanRiskSum riskAssesmentYerEkipmanRiskSum = new RiskAssesmentYerEkipmanRiskSum(yerEkipman, toplam.get());
+            response.add(riskAssesmentYerEkipmanRiskSum);
+        });
+
+        return response;
+    }
+
+    @Override
+    public List<RiskAssesmentYerEkipmanSonRiskSum> yerEkipmanToplamSonRisk(int workplaceId) {
+        List<RiskAssesment> riskList = riskAssesmentRepository.findAllByWorkplaceId(workplaceId);
+        Map<String, List<RiskAssesment>> mapByYerEkipman = riskList.stream().collect(Collectors.groupingBy(riskAssesment -> riskAssesment.getYerEkipman()));
+
+        List<RiskAssesmentYerEkipmanSonRiskSum> response = new ArrayList<>();
+
+        mapByYerEkipman.forEach((yerEkipman, riskAssesments) -> {
+            AtomicInteger toplam = new AtomicInteger();
+
+            riskAssesments.forEach(riskAssesment -> {
+                toplam.addAndGet(riskAssesment.getSonRisk());
+            });
+
+            RiskAssesmentYerEkipmanSonRiskSum riskAssesmentYerEkipmanSonRiskSum = new RiskAssesmentYerEkipmanSonRiskSum(yerEkipman, toplam.get());
+            response.add(riskAssesmentYerEkipmanSonRiskSum);
         });
 
         return response;

@@ -2,9 +2,7 @@ package com.borabesiktepe.isgassist.webApi.controllers;
 
 import com.borabesiktepe.isgassist.business.abstracts.RiskAssesmentService;
 import com.borabesiktepe.isgassist.business.requests.CreateRiskAssesmentRequest;
-import com.borabesiktepe.isgassist.business.responses.RiskAssesmentTehlikeCount;
-import com.borabesiktepe.isgassist.business.responses.RiskAssesmentYerEkipmanCount;
-import com.borabesiktepe.isgassist.business.responses.RiskAssesmentsResponse;
+import com.borabesiktepe.isgassist.business.responses.*;
 import com.borabesiktepe.isgassist.dataAccess.RiskAssesmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -54,4 +52,13 @@ public class RiskAssesmentsController {
         return riskAssesmentService.enTehlikeliYerEkipmanlar(workplaceId);
     }
 
+    @GetMapping("/getYerEkipmanRiskSum")
+    public List<RiskAssesmentYerEkipmanRiskSum> getYerEkipmanRiskSumList(@RequestParam int workplaceId) {
+        return riskAssesmentService.yerEkipmanToplamRisk(workplaceId);
+    }
+
+    @GetMapping("/getYerEkipmanSonRiskSum")
+    public List<RiskAssesmentYerEkipmanSonRiskSum> getYerEkipmanSonRiskSumList(@RequestParam int workplaceId) {
+        return riskAssesmentService.yerEkipmanToplamSonRisk(workplaceId);
+    }
 }

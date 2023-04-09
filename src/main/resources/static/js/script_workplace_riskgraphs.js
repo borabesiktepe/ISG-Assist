@@ -88,50 +88,84 @@ fetch('http://localhost:8080/api/riskassesments/getRiskYerEkipmanCount?workplace
         }
     })
 
+// Yer/Ekipmanların Toplam Riskleri
+fetch('http://localhost:8080/api/riskassesments/getYerEkipmanRiskSum?workplaceId=' + 2)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
 
+        if (data.length > 0) {
+            xValues = [];
+            yValues = [];
 
+            for (i = 0; i < data.length; i++) {
+                xValues.push(data[i].yerEkipman);
+                yValues.push(data[i].toplamRisk);
+            }
 
+            for (i = 0; i < xValues.length; i++) {
+                const R = Math.floor(Math.random() * 255);
+                const G = Math.floor(Math.random() * 255);
+                const B = Math.floor(Math.random() * 255);
+                barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
+            }
 
-var xValues = ["Italy", "France", "Spain", "USA", "Argentina", "A", "B", "C", "D", "E", "F", "G", "H", "J", "K"];
-var yValues = [55, 49, 44, 24, 15, 55, 49, 44, 24, 15, 55, 49, 44, 24, 15, 55, 49, 44, 24, 15];
-
-for (i = 0; i < xValues.length; i++) {
-    const R = Math.floor(Math.random() * 255);
-    const G = Math.floor(Math.random() * 255);
-    const B = Math.floor(Math.random() * 255);
-    barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
-}
-
-new Chart("chart1", {
-    type: "doughnut",
-    data: {
-        labels: xValues,
-        datasets: [{
-            backgroundColor: barColors,
-            data: yValues
-        }]
-    },
-    options: {
-        title: {
-            display: true,
-            text: "World Wide Wine Production 2018"
+            new Chart("chart-yer-ekipman-toplamrisk", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Yer/Ekipmanların Sahip Olduğu Toplam Riskler"
+                    }
+                }
+            });
         }
-    }
-});
+    })
 
-new Chart("chart2", {
-    type: "pie",
-    data: {
-        labels: xValues,
-        datasets: [{
-            backgroundColor: barColors,
-            data: yValues
-        }]
-    },
-    options: {
-        title: {
-            display: true,
-            text: "World Wide Wine Production 2018"
+// Yer/Ekipmanların Toplam Son Riskleri
+fetch('http://localhost:8080/api/riskassesments/getYerEkipmanSonRiskSum?workplaceId=' + 2)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+
+        if (data.length > 0) {
+            xValues = [];
+            yValues = [];
+
+            for (i = 0; i < data.length; i++) {
+                xValues.push(data[i].yerEkipman);
+                yValues.push(data[i].toplamRisk);
+            }
+
+            for (i = 0; i < xValues.length; i++) {
+                const R = Math.floor(Math.random() * 255);
+                const G = Math.floor(Math.random() * 255);
+                const B = Math.floor(Math.random() * 255);
+                barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
+            }
+
+            new Chart("chart-yer-ekipman-toplamSonRisk", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Yer/Ekipmanların Sahip Olduğu Toplam Son Riskler"
+                    }
+                }
+            });
         }
-    }
-});
+    })

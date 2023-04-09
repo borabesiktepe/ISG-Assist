@@ -1,9 +1,7 @@
 package com.borabesiktepe.isgassist.business.abstracts;
 
 import com.borabesiktepe.isgassist.business.requests.CreateRiskAssesmentRequest;
-import com.borabesiktepe.isgassist.business.responses.RiskAssesmentTehlikeCount;
-import com.borabesiktepe.isgassist.business.responses.RiskAssesmentYerEkipmanCount;
-import com.borabesiktepe.isgassist.business.responses.RiskAssesmentsResponse;
+import com.borabesiktepe.isgassist.business.responses.*;
 
 import java.util.List;
 
@@ -15,4 +13,6 @@ public interface RiskAssesmentService {
     void delete(int id);
     List<RiskAssesmentTehlikeCount> enTekrarEdenTehlikeler(int workplaceId);
     List<RiskAssesmentYerEkipmanCount> enTehlikeliYerEkipmanlar(int workplaceId);
+    List<RiskAssesmentYerEkipmanRiskSum> yerEkipmanToplamRisk(int workplaceId);
+    List<RiskAssesmentYerEkipmanSonRiskSum> yerEkipmanToplamSonRisk(int workplaceId);
 }

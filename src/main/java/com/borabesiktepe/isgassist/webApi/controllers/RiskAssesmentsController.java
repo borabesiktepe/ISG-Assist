@@ -2,7 +2,8 @@ package com.borabesiktepe.isgassist.webApi.controllers;
 
 import com.borabesiktepe.isgassist.business.abstracts.RiskAssesmentService;
 import com.borabesiktepe.isgassist.business.requests.CreateRiskAssesmentRequest;
-import com.borabesiktepe.isgassist.business.responses.RiskAssesmentSummaryCount;
+import com.borabesiktepe.isgassist.business.responses.RiskAssesmentTehlikeCount;
+import com.borabesiktepe.isgassist.business.responses.RiskAssesmentYerEkipmanCount;
 import com.borabesiktepe.isgassist.business.responses.RiskAssesmentsResponse;
 import com.borabesiktepe.isgassist.dataAccess.RiskAssesmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +44,14 @@ public class RiskAssesmentsController {
         this.riskAssesmentService.delete(id);
     }
 
-    @GetMapping("/getRiskSummaryCount")
-    public List<RiskAssesmentSummaryCount> getRiskSummaryCountList(@RequestParam int workplaceId) {
+    @GetMapping("/getRiskTehlikeCount")
+    public List<RiskAssesmentTehlikeCount> getRiskTehlikeCountList(@RequestParam int workplaceId) {
         return riskAssesmentService.enTekrarEdenTehlikeler(workplaceId);
     }
+
+    @GetMapping("/getRiskYerEkipmanCount")
+    public List<RiskAssesmentYerEkipmanCount> getRiskYerEkipmanCountList(@RequestParam int workplaceId) {
+        return riskAssesmentService.enTehlikeliYerEkipmanlar(workplaceId);
+    }
+
 }

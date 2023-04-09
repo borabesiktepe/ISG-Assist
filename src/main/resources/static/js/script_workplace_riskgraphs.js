@@ -7,7 +7,7 @@ let barColors = [
     "#2F4858"
 ];
 
-fetch('http://localhost:8080/api/riskassesments/getRiskSummaryCount?workplaceId=' + 2)
+fetch('http://localhost:8080/api/riskassesments/getRiskTehlikeCount?workplaceId=' + 2)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -18,7 +18,7 @@ fetch('http://localhost:8080/api/riskassesments/getRiskSummaryCount?workplaceId=
 
             for (i = 0; i < data.length; i++) {
                 xValues.push(data[i].tehlikeAdi);
-                yValues.push(data[i].count);
+                yValues.push(data[i].olaySayisi);
             }
 
             for (i = 0; i < xValues.length; i++) {
@@ -48,7 +48,7 @@ fetch('http://localhost:8080/api/riskassesments/getRiskSummaryCount?workplaceId=
     })
 
 //En çok tehlike olan Yer/Ekipmanlar
-fetch('https://64302442c26d69edc88bce05.mockapi.io/api/graph/enTehlikeliYerEkipman')
+fetch('http://localhost:8080/api/riskassesments/getRiskYerEkipmanCount?workplaceId=' + 2)
     .then(response => response.json())
     .then(data => {
         console.log(data);

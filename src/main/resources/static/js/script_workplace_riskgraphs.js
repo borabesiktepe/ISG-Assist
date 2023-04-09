@@ -7,7 +7,7 @@ let barColors = [
     "#2F4858"
 ];
 
-fetch('https://64302442c26d69edc88bce05.mockapi.io/api/graph/enTekrarEdenTehlikeler')
+fetch('http://localhost:8080/api/riskassesments/getRiskSummaryCount?workplaceId=' + 2)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -18,7 +18,7 @@ fetch('https://64302442c26d69edc88bce05.mockapi.io/api/graph/enTekrarEdenTehlike
 
             for (i = 0; i < data.length; i++) {
                 xValues.push(data[i].tehlikeAdi);
-                yValues.push(data[i].olaySayisi);
+                yValues.push(data[i].count);
             }
 
             for (i = 0; i < xValues.length; i++) {

@@ -1,6 +1,7 @@
 package com.borabesiktepe.isgassist.business.concretes;
 
 import com.borabesiktepe.isgassist.business.requests.CreateRiskAssesmentRequest;
+import com.borabesiktepe.isgassist.business.responses.RiskAssesmentSummaryCount;
 import com.borabesiktepe.isgassist.business.responses.RiskAssesmentsResponse;
 import com.borabesiktepe.isgassist.dataAccess.RiskAssesmentRepository;
 import com.borabesiktepe.isgassist.dataAccess.WorkplaceRepository;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Service
@@ -120,5 +123,27 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
                 .orElseThrow(() -> new RuntimeException("Risk Değerlendirme bulunmadı: " + id));
 
         riskAssesmentRepository.delete(riskAssesment);
+    }
+
+    @Override
+    public List<RiskAssesmentSummaryCount> enTekrarEdenTehlikeler(int workplaceId) {
+        List<RiskAssesment> riskList = riskAssesmentRepository.findAllByWorkplaceId(workplaceId);
+        Map<String, List<RiskAssesment>> mapByTehlikeAdi = riskList.stream().collect(Collectors.groupingBy(riskAssesment -> riskAssesment.getTehlikeAdi()));
+
+        List<RiskAssesmentSummaryCount> response = new ArrayList<>();
+
+        mapByTehlikeAdi.forEach((tehlikeAdi, riskAssesments) -> {
+            AtomicInteger toplam = new AtomicInteger();
+
+//            riskAssesments.forEach(riskAssesment -> {
+//                toplam.addAndGet(riskAssesment.getRisk());
+//            });
+
+            //ikinci parametre toplam.get() ekle
+            RiskAssesmentSummaryCount riskAssesmentSummaryCount = new RiskAssesmentSummaryCount(tehlikeAdi, riskAssesments.size());
+            response.add(riskAssesmentSummaryCount);
+        });
+
+        return response;
     }
 }

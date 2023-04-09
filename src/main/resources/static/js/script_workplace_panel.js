@@ -184,3 +184,5 @@ fetch(`http://localhost:8080/api/riskassesments/getall?workplaceId=${workplaceId
     }
   })
   .catch(error => console.error(error));
+
+

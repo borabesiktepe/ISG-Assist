@@ -11,14 +11,21 @@
 <div class="container">
     <h1>Giriş Yapın</h1>
     <form th:action="@{/login}" method="post">
+
+        <div th:if="${param.error}">
+            <span>Kullanıcı bilgileri hatalı.</span>
+        </div>
+
         <div class="input-group">
             <label for="username">E-Mail adresiniz</label>
             <input type="text" id="username" name="email" class="form-control" required="" autofocus="">
         </div>
+
         <div class="input-group">
             <label for="password">Şifreniz</label>
             <input type="password" id="password" name="password" class="form-control" required="">
         </div>
+
         <button type="submit">Giriş Yap</button>
     </form>
 </div>

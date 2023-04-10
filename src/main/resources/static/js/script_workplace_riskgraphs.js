@@ -30,7 +30,7 @@ fetch('http://localhost:8080/api/riskassesments/getRiskTehlikeCount?workplaceId=
                 barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
             }
 
-            new Chart("chart-encok-tehlike-tekrar", {
+            new Chart("chart-tehlike-sayilari", {
                 type: "doughnut",
                 data: {
                     labels: xValues,
@@ -42,7 +42,7 @@ fetch('http://localhost:8080/api/riskassesments/getRiskTehlikeCount?workplaceId=
                 options: {
                     title: {
                         display: true,
-                        text: "En çok tekrar eden tehlikeler"
+                        text: "Tüm Tehlike Sayıları"
                     }
                 }
             });
@@ -71,7 +71,7 @@ fetch('http://localhost:8080/api/riskassesments/getRiskYerEkipmanCount?workplace
                 barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
             }
 
-            new Chart("chart-en-tehlikeli-yerekipman", {
+            new Chart("chart-tehlike-sayilari-yerekipman", {
                 type: "doughnut",
                 data: {
                     labels: xValues,
@@ -83,7 +83,7 @@ fetch('http://localhost:8080/api/riskassesments/getRiskYerEkipmanCount?workplace
                 options: {
                     title: {
                         display: true,
-                        text: "En Tehlikeli Yer/Ekipmanlar"
+                        text: "Yer/Ekipmanlara Ait Tehlike Sayıları"
                     }
                 }
             });

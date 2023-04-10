@@ -164,6 +164,48 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
     }
 
     @Override
+    public List<RiskAssesmentTehlikeRiskSum> tehlikeAdiToplamRisk(int workplaceId) {
+        List<RiskAssesment> riskList = riskAssesmentRepository.findAllByWorkplaceId(workplaceId);
+        Map<String, List<RiskAssesment>> mapByTelikeAdi = riskList.stream().collect(Collectors.groupingBy(riskAssesment -> riskAssesment.getTehlikeAdi()));
+
+        List<RiskAssesmentTehlikeRiskSum> response = new ArrayList<>();
+
+        mapByTelikeAdi.forEach((tehlikeAdi, riskAssesments) -> {
+            AtomicInteger toplam = new AtomicInteger();
+
+            riskAssesments.forEach(riskAssesment -> {
+                toplam.addAndGet(riskAssesment.getRisk());
+            });
+
+            RiskAssesmentTehlikeRiskSum riskAssesmentTehlikeRiskSum = new RiskAssesmentTehlikeRiskSum(tehlikeAdi, toplam.get());
+            response.add(riskAssesmentTehlikeRiskSum);
+        });
+
+        return response;
+    }
+
+    @Override
+    public List<RiskAssesmentTehlikeSonRiskSum> tehlikeAdiToplamSonRisk(int workplaceId) {
+        List<RiskAssesment> riskList = riskAssesmentRepository.findAllByWorkplaceId(workplaceId);
+        Map<String, List<RiskAssesment>> mapByTelikeAdi = riskList.stream().collect(Collectors.groupingBy(riskAssesment -> riskAssesment.getTehlikeAdi()));
+
+        List<RiskAssesmentTehlikeSonRiskSum> response = new ArrayList<>();
+
+        mapByTelikeAdi.forEach((tehlikeAdi, riskAssesments) -> {
+            AtomicInteger toplam = new AtomicInteger();
+
+            riskAssesments.forEach(riskAssesment -> {
+                toplam.addAndGet(riskAssesment.getSonRisk());
+            });
+
+            RiskAssesmentTehlikeSonRiskSum riskAssesmentTehlikeSonRiskSum = new RiskAssesmentTehlikeSonRiskSum(tehlikeAdi, toplam.get());
+            response.add(riskAssesmentTehlikeSonRiskSum);
+        });
+
+        return response;
+    }
+
+    @Override
     public List<RiskAssesmentYerEkipmanRiskSum> yerEkipmanToplamRisk(int workplaceId) {
         List<RiskAssesment> riskList = riskAssesmentRepository.findAllByWorkplaceId(workplaceId);
         Map<String, List<RiskAssesment>> mapByYerEkipman = riskList.stream().collect(Collectors.groupingBy(riskAssesment -> riskAssesment.getYerEkipman()));

@@ -13,6 +13,8 @@ public interface RiskAssesmentService {
     void delete(int id);
     List<RiskAssesmentTehlikeCount> enTekrarEdenTehlikeler(int workplaceId);
     List<RiskAssesmentYerEkipmanCount> enTehlikeliYerEkipmanlar(int workplaceId);
+    List<RiskAssesmentTehlikeRiskSum> tehlikeAdiToplamRisk(int workplaceId);
+    List<RiskAssesmentTehlikeSonRiskSum> tehlikeAdiToplamSonRisk(int workplaceId);
     List<RiskAssesmentYerEkipmanRiskSum> yerEkipmanToplamRisk(int workplaceId);
     List<RiskAssesmentYerEkipmanSonRiskSum> yerEkipmanToplamSonRisk(int workplaceId);
 }

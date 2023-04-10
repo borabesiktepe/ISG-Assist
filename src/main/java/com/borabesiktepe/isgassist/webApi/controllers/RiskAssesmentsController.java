@@ -52,6 +52,16 @@ public class RiskAssesmentsController {
         return riskAssesmentService.enTehlikeliYerEkipmanlar(workplaceId);
     }
 
+    @GetMapping("/getTehlikeAdiRiskSum")
+    public List<RiskAssesmentTehlikeRiskSum> getTehlikeAdiRiskSumList(@RequestParam int workplaceId) {
+        return riskAssesmentService.tehlikeAdiToplamRisk(workplaceId);
+    }
+
+    @GetMapping("/getTehlikeAdiSonRiskSum")
+    public List<RiskAssesmentTehlikeSonRiskSum> getTehlikeAdiSonRiskSumList(@RequestParam int workplaceId) {
+        return riskAssesmentService.tehlikeAdiToplamSonRisk(workplaceId);
+    }
+
     @GetMapping("/getYerEkipmanRiskSum")
     public List<RiskAssesmentYerEkipmanRiskSum> getYerEkipmanRiskSumList(@RequestParam int workplaceId) {
         return riskAssesmentService.yerEkipmanToplamRisk(workplaceId);

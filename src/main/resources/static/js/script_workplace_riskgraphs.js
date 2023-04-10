@@ -12,7 +12,7 @@ let barColors = [
 fetch('http://localhost:8080/api/riskassesments/getRiskTehlikeCount?workplaceId=' + workplaceId)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        console.log("Risk Tehlike Count:", data);
 
         if (data.length > 0) {
             xValues = [];
@@ -53,7 +53,7 @@ fetch('http://localhost:8080/api/riskassesments/getRiskTehlikeCount?workplaceId=
 fetch('http://localhost:8080/api/riskassesments/getRiskYerEkipmanCount?workplaceId=' + workplaceId)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        console.log("Risk Yer/Ekipman Count:", data);
 
         if (data.length > 0) {
             xValues = [];
@@ -90,11 +90,94 @@ fetch('http://localhost:8080/api/riskassesments/getRiskYerEkipmanCount?workplace
         }
     })
 
+//Telike Adlarına Göre Toplam Riskleri
+fetch('http://localhost:8080/api/riskassesments/getTehlikeAdiRiskSum?workplaceId=' + workplaceId)
+    .then(response => response.json())
+    .then(data => {
+        console.log("Tehlike Adı Risk Sum:", data);
+
+        if (data.length > 0) {
+            xValues = [];
+            yValues = [];
+
+            for (i = 0; i < data.length; i++) {
+                xValues.push(data[i].tehlikeAdi);
+                yValues.push(data[i].toplamRisk);
+            }
+
+            for (i = 0; i < xValues.length; i++) {
+                const R = Math.floor(Math.random() * 255);
+                const G = Math.floor(Math.random() * 255);
+                const B = Math.floor(Math.random() * 255);
+                barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
+            }
+
+            new Chart("chart-tehlike-adi-toplamRisk", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Tehlikelerin Sahip Olduğu Toplam Riskler"
+                    }
+                }
+            });
+        }
+    })
+
+//Telike Adlarına Göre Toplam Son Riskleri
+fetch('http://localhost:8080/api/riskassesments/getTehlikeAdiSonRiskSum?workplaceId=' + workplaceId)
+    .then(response => response.json())
+    .then(data => {
+        console.log("Tehlike Adı Son Risk Sum:", data);
+
+        if (data.length > 0) {
+            xValues = [];
+            yValues = [];
+
+            for (i = 0; i < data.length; i++) {
+                xValues.push(data[i].tehlikeAdi);
+                yValues.push(data[i].toplamSonRisk);
+            }
+
+            for (i = 0; i < xValues.length; i++) {
+                const R = Math.floor(Math.random() * 255);
+                const G = Math.floor(Math.random() * 255);
+                const B = Math.floor(Math.random() * 255);
+                barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
+            }
+
+            new Chart("chart-tehlike-adi-toplamSonRisk", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Tehlikelerin Sahip Olduğu Toplam Son Riskler"
+                    }
+                }
+            });
+        }
+    })
+
+
 // Yer/Ekipmanların Toplam Riskleri
 fetch('http://localhost:8080/api/riskassesments/getYerEkipmanRiskSum?workplaceId=' + workplaceId)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        console.log("Yer Ekipman Risk Sum:", data);
 
         if (data.length > 0) {
             xValues = [];
@@ -112,7 +195,7 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanRiskSum?workplaceId
                 barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
             }
 
-            new Chart("chart-yer-ekipman-toplamrisk", {
+            new Chart("chart-yer-ekipman-toplamRisk", {
                 type: "doughnut",
                 data: {
                     labels: xValues,
@@ -131,11 +214,11 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanRiskSum?workplaceId
         }
     })
 
-// Yer/Ekipmanların Toplam Son Riskleri
+//Yer/Ekipmanların Toplam Son Riskleri
 fetch('http://localhost:8080/api/riskassesments/getYerEkipmanSonRiskSum?workplaceId=' + workplaceId)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        console.log("Yer/Ekipman Son Risk Sum:", data);
 
         if (data.length > 0) {
             xValues = [];

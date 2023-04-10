@@ -49,7 +49,7 @@
 
   <main>
     <div class="container">
-      <h1 th:text="|${workplace.workplaceName} Eğitimler|"></h1>
+      <h1><i class="fa-solid fa-person-chalkboard"></i> [[${workplace.workplaceName}]] Eğitimler</h1>
       <input type="hidden" id="workplaceId" th:value="${workplace.id}">
 
       <div class="training-controls">

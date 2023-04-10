@@ -67,16 +67,9 @@
             </ul>
 
             <div class="training-controls">
-                <form
-                        id="uploadForm"
-                        method="post"
-                        th:action="@{/files/upload/} + ${workplace.id}"
-                        enctype="multipart/form-data">
+                <form id="uploadForm" method="post" th:action="@{/files/upload/} + ${workplace.id}" enctype="multipart/form-data">
                     <input id="input-file" type="file" name="file" />
-
-                    <button type="submit">
-                        Upload
-                    </button>
+                    <button type="submit">Yükle</button>
                 </form>
             </div>
 

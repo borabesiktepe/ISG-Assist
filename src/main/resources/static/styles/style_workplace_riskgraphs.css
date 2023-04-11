@@ -180,3 +180,11 @@ canvas {
 canvas:hover {
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2)
 }
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    padding-left: 28px;
+    padding-bottom: 10px;
+    font-size: 10px;
+}

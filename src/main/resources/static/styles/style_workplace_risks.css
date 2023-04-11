@@ -308,3 +308,11 @@ button:hover {
 #delete:hover {
     background-color: var(--redHover)
 }
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    padding-left: 28px;
+    padding-bottom: 10px;
+    font-size: 10px;
+}

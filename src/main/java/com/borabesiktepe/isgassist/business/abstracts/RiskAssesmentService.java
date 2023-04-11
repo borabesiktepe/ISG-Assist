@@ -10,8 +10,8 @@ public interface RiskAssesmentService {
     void add(CreateRiskAssesmentRequest createRiskAssesmentRequest);
     void update(Integer id, CreateRiskAssesmentRequest createRiskAssesmentRequest);
     void delete(int id);
-    List<RiskAssesmentTehlikeCount> enTekrarEdenTehlikeler(int workplaceId);
-    List<RiskAssesmentYerEkipmanCount> enTehlikeliYerEkipmanlar(int workplaceId);
+    List<RiskAssesmentTehlikeCount> genelTehlikeSayisi(int workplaceId);
+    List<RiskAssesmentYerEkipmanCount> yerEkipmanTehlikeSayisi(int workplaceId);
     List<RiskAssesmentTehlikeRiskSum> tehlikeAdiToplamRisk(int workplaceId);
     List<RiskAssesmentTehlikeSonRiskSum> tehlikeAdiToplamSonRisk(int workplaceId);
     List<RiskAssesmentYerEkipmanRiskSum> yerEkipmanToplamRisk(int workplaceId);

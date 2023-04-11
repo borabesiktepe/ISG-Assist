@@ -6,7 +6,7 @@ import com.borabesiktepe.isgassist.business.requests.CreateWorkplaceRequest;
 import java.util.List;
 
 public interface WorkplaceService {
-	List<WorkplacesResponse> getAllByUserId(int user);
+	List<WorkplacesResponse> getAllByUserId(int userId);
 	void add(CreateWorkplaceRequest createWorkplaceRequest);
 	void update(Integer id, CreateWorkplaceRequest createWorkplaceRequest);
 }

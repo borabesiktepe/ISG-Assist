@@ -40,12 +40,12 @@ public class RiskAssesmentsController {
 
     @GetMapping("/getRiskTehlikeCount")
     public List<RiskAssesmentTehlikeCount> getRiskTehlikeCountList(@RequestParam int workplaceId) {
-        return riskAssesmentService.enTekrarEdenTehlikeler(workplaceId);
+        return riskAssesmentService.genelTehlikeSayisi(workplaceId);
     }
 
     @GetMapping("/getRiskYerEkipmanCount")
     public List<RiskAssesmentYerEkipmanCount> getRiskYerEkipmanCountList(@RequestParam int workplaceId) {
-        return riskAssesmentService.enTehlikeliYerEkipmanlar(workplaceId);
+        return riskAssesmentService.yerEkipmanTehlikeSayisi(workplaceId);
     }
 
     @GetMapping("/getTehlikeAdiRiskSum")

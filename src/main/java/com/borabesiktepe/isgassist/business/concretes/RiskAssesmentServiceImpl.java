@@ -93,7 +93,7 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
     }
 
     @Override
-    public List<RiskAssesmentTehlikeCount> enTekrarEdenTehlikeler(int workplaceId) {
+    public List<RiskAssesmentTehlikeCount> genelTehlikeSayisi(int workplaceId) {
         List<RiskAssesment> riskList = riskAssesmentRepository.findAllByWorkplaceId(workplaceId);
         Map<String, List<RiskAssesment>> mapByTehlikeAdi = riskList.stream().collect(Collectors.groupingBy(riskAssesment -> riskAssesment.getTehlikeAdi()));
 
@@ -108,7 +108,7 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
     }
 
     @Override
-    public List<RiskAssesmentYerEkipmanCount> enTehlikeliYerEkipmanlar(int workplaceId) {
+    public List<RiskAssesmentYerEkipmanCount> yerEkipmanTehlikeSayisi(int workplaceId) {
         List<RiskAssesment> riskList = riskAssesmentRepository.findAllByWorkplaceId(workplaceId);
         Map<String, List<RiskAssesment>> mapByYerEkipman = riskList.stream().collect(Collectors.groupingBy(riskAssesment -> riskAssesment.getYerEkipman()));
 

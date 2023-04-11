@@ -6,6 +6,6 @@ import com.borabesiktepe.isgassist.business.responses.NotesResponse;
 import java.util.List;
 
 public interface NoteService {
-	List<NotesResponse> getAllByUserId(int user);
+	List<NotesResponse> getAllByUserId(int userId);
 	void update(CreateNoteRequest createNoteRequest);
 }

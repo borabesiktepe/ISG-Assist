@@ -16,29 +16,14 @@ import java.util.stream.Collectors;
 @Service
 public class ToDoServiceImpl implements ToDoService {
 
+	@Autowired
 	private ToDoRepository toDoRepository;
 
-	@Autowired
-	public ToDoServiceImpl(ToDoRepository toDoRepository) {
-		this.toDoRepository = toDoRepository;
-	}
-	
 	@Override
-	public List<ToDosResponse> getAll() {
-		List<ToDo> todos = toDoRepository.findAll();
-		List<ToDosResponse> toDosResponse = new ArrayList<ToDosResponse>();
-		
-		for (ToDo todo : todos) {
-			ToDosResponse responseItem = new ToDosResponse();
-
-			responseItem.setId(todo.getId());
-			responseItem.setTodoItem(todo.getTodoItem());
-			responseItem.setUserId(todo.getUser().getId());
-
-			toDosResponse.add(responseItem);
-		}
-		
-		return toDosResponse;
+	public List<ToDosResponse> getAllByUserId(int userId) {
+		return this.toDoRepository.findAllByUserId(userId).stream()
+				.map(toDo -> new ToDosResponse(toDo.getId(), toDo.getTodoItem(), toDo.getUser().getId()))
+				.collect(Collectors.toList());
 	}
 
 	@Override
@@ -51,13 +36,6 @@ public class ToDoServiceImpl implements ToDoService {
 		}
 
 		this.toDoRepository.save(todo);
-	}
-
-	@Override
-	public List<ToDosResponse> getAllByUserId(int userId) {
-		return this.toDoRepository.findAllByUserId(userId).stream()
-				.map(toDo -> new ToDosResponse(toDo.getId(), toDo.getTodoItem(), toDo.getUser().getId()))
-				.collect(Collectors.toList());
 	}
 
 	@Override

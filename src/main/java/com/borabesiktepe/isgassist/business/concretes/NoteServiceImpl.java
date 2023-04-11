@@ -16,29 +16,14 @@ import java.util.stream.Collectors;
 @Service
 public class NoteServiceImpl implements NoteService {
 
+	@Autowired
 	private NoteRepository noteRepository;
 
-	@Autowired
-	public NoteServiceImpl(NoteRepository noteRepository) {
-		this.noteRepository = noteRepository;
-	}
-	
 	@Override
-	public List<NotesResponse> getAll() {
-		List<Note> notes = noteRepository.findAll();
-		List<NotesResponse> notesResponses = new ArrayList<NotesResponse>();
-		
-		for (Note note : notes) {
-			NotesResponse responseItem = new NotesResponse();
-
-			responseItem.setId(note.getId());
-			responseItem.setNote(note.getNote());
-			responseItem.setUserId(note.getUser().getId());
-
-			notesResponses.add(responseItem);
-		}
-		
-		return notesResponses;
+	public List<NotesResponse> getAllByUserId(int userId) {
+		return this.noteRepository.findAllByUserId(userId).stream()
+				.map(note -> new NotesResponse(note.getId(), note.getNote(), note.getUser().getId()))
+				.collect(Collectors.toList());
 	}
 
 	@Override
@@ -51,12 +36,5 @@ public class NoteServiceImpl implements NoteService {
 		}
 		
 		this.noteRepository.save(note);
-	}
-
-	@Override
-	public List<NotesResponse> getAllByUserId(int userId) {
-		return this.noteRepository.findAllByUserId(userId).stream()
-				.map(note -> new NotesResponse(note.getId(), note.getNote(), note.getUser().getId()))
-				.collect(Collectors.toList());
 	}
 }

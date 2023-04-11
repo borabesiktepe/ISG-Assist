@@ -6,6 +6,6 @@ import com.borabesiktepe.isgassist.business.responses.DocumentResponse;
 import java.util.List;
 
 public interface DocumentService {
-	void add(CreateDocumentRequest createDocumentRequest);
 	List<DocumentResponse> getAllByWorkplaceId(int workplaceId);
+	void add(CreateDocumentRequest createDocumentRequest);
 }

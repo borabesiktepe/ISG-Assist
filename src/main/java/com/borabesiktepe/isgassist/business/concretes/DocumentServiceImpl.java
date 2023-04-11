@@ -24,6 +24,13 @@ public class DocumentServiceImpl implements DocumentService {
 	private WorkplaceRepository workplaceRepository;
 
 	@Override
+	public List<DocumentResponse> getAllByWorkplaceId(int workplaceId) {
+		return this.documentRepository.findAllByWorkplaceId(workplaceId).stream()
+				.map(document -> new DocumentResponse(document.getId(), document.getFileName(), document.getWorkplace().getId()))
+				.collect(Collectors.toList());
+	}
+
+	@Override
 	public void add(CreateDocumentRequest createDocumentRequest) {
 		Document document = new Document();
 
@@ -31,12 +38,5 @@ public class DocumentServiceImpl implements DocumentService {
 		document.setWorkplace(workplaceRepository.findById(createDocumentRequest.getWorkplaceId()).get());
 
 		this.documentRepository.save(document);
-	}
-
-	@Override
-	public List<DocumentResponse> getAllByWorkplaceId(int workplaceId) {
-		return this.documentRepository.findAllByWorkplaceId(workplaceId).stream()
-				.map(document -> new DocumentResponse(document.getId(), document.getFileName(), document.getWorkplace().getId()))
-				.collect(Collectors.toList());
 	}
 }

@@ -6,9 +6,8 @@ import com.borabesiktepe.isgassist.business.responses.*;
 import java.util.List;
 
 public interface RiskAssesmentService {
-    List<RiskAssesmentsResponse> getAll();
-    void add(CreateRiskAssesmentRequest createRiskAssesmentRequest);
     List<RiskAssesmentsResponse> getAllByWorkplaceId(int workplaceId);
+    void add(CreateRiskAssesmentRequest createRiskAssesmentRequest);
     void update(Integer id, CreateRiskAssesmentRequest createRiskAssesmentRequest);
     void delete(int id);
     List<RiskAssesmentTehlikeCount> enTekrarEdenTehlikeler(int workplaceId);

@@ -25,36 +25,15 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
     @Autowired
     private WorkplaceRepository workplaceRepository;
 
-
     @Override
-    public List<RiskAssesmentsResponse> getAll() {
-        List<RiskAssesment> riskAssesments = riskAssesmentRepository.findAll();
-        List<RiskAssesmentsResponse> riskAssesmentsResponses = new ArrayList<RiskAssesmentsResponse>();
-
-        for (RiskAssesment riskAssesment : riskAssesments) {
-            RiskAssesmentsResponse responseItem = new RiskAssesmentsResponse();
-
-            responseItem.setId(riskAssesment.getId());
-            responseItem.setTehlikeAdi(riskAssesment.getTehlikeAdi());
-            responseItem.setYerEkipman(riskAssesment.getYerEkipman());
-            responseItem.setMevcutTehlikeler(riskAssesment.getMevcutTehlikeler());
-            responseItem.setOlusacakRiskler(riskAssesment.getOlusacakRiskler());
-            responseItem.setMevcutOnlemler(riskAssesment.getMevcutOnlemler());
-            responseItem.setMaruzKalanlar(riskAssesment.getMaruzKalanlar());
-            responseItem.setSiddet(riskAssesment.getSiddet());
-            responseItem.setOlasilik(riskAssesment.getOlasilik());
-            responseItem.setRisk(riskAssesment.getRisk());
-            responseItem.setAlinacakTedbirler(riskAssesment.getAlinacakTedbirler());
-            responseItem.setSonSiddet(riskAssesment.getSonSiddet());
-            responseItem.setSonOlasilik(riskAssesment.getSonOlasilik());
-            responseItem.setSonRisk(riskAssesment.getSonRisk());
-            responseItem.setDegerlendirmeTarihi(riskAssesment.getDegerlendirmeTarihi());
-            responseItem.setWorkplaceId(riskAssesment.getWorkplace().getId());
-
-            riskAssesmentsResponses.add(responseItem);
-        }
-
-        return riskAssesmentsResponses;
+    public List<RiskAssesmentsResponse> getAllByWorkplaceId(int workplaceId) {
+        return this.riskAssesmentRepository.findAllByWorkplaceId(workplaceId).stream()
+                .map(riskAssesment -> new RiskAssesmentsResponse(riskAssesment.getId(), riskAssesment.getTehlikeAdi(), riskAssesment.getYerEkipman(),
+                        riskAssesment.getMevcutTehlikeler(), riskAssesment.getOlusacakRiskler(), riskAssesment.getMevcutOnlemler(), riskAssesment.getMaruzKalanlar(),
+                        riskAssesment.getSiddet(), riskAssesment.getOlasilik(), riskAssesment.getRisk(), riskAssesment.getAlinacakTedbirler(),
+                        riskAssesment.getSonSiddet(), riskAssesment.getSonOlasilik(), riskAssesment.getSonRisk(), riskAssesment.getDegerlendirmeTarihi(),
+                        riskAssesment.getWorkplace().getId()))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -80,17 +59,6 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
         riskAssesment.setWorkplace(workplace);
 
         this.riskAssesmentRepository.save(riskAssesment);
-    }
-
-    @Override
-    public List<RiskAssesmentsResponse> getAllByWorkplaceId(int workplaceId) {
-        return this.riskAssesmentRepository.findAllByWorkplaceId(workplaceId).stream()
-                .map(riskAssesment -> new RiskAssesmentsResponse(riskAssesment.getId(), riskAssesment.getTehlikeAdi(), riskAssesment.getYerEkipman(),
-                        riskAssesment.getMevcutTehlikeler(), riskAssesment.getOlusacakRiskler(), riskAssesment.getMevcutOnlemler(), riskAssesment.getMaruzKalanlar(),
-                        riskAssesment.getSiddet(), riskAssesment.getOlasilik(), riskAssesment.getRisk(), riskAssesment.getAlinacakTedbirler(),
-                        riskAssesment.getSonSiddet(), riskAssesment.getSonOlasilik(), riskAssesment.getSonRisk(), riskAssesment.getDegerlendirmeTarihi(),
-                        riskAssesment.getWorkplace().getId()))
-                .collect(Collectors.toList());
     }
 
     @Override
@@ -146,16 +114,7 @@ public class RiskAssesmentServiceImpl implements RiskAssesmentService {
 
         List<RiskAssesmentYerEkipmanCount> response = new ArrayList<>();
 
-        //SUM işlemleri için
-        //int toplam = 0;
         mapByYerEkipman.forEach((yerEkipman, riskAssesments) -> {
-            AtomicInteger toplam = new AtomicInteger();
-
-//            riskAssesments.forEach(riskAssesment -> {
-//                toplam.addAndGet(riskAssesment.getRisk());
-//            });
-
-            //ikinci parametre toplam.get() ekle
             RiskAssesmentYerEkipmanCount riskAssesmentYerEkipmanCount = new RiskAssesmentYerEkipmanCount(yerEkipman, riskAssesments.size());
             response.add(riskAssesmentYerEkipmanCount);
         });

@@ -22,28 +22,13 @@ public class CompanyServiceImpl implements CompanyService {
 
 	@Autowired
 	private WorkplaceRepository workplaceRepository;
-	
+
 	@Override
-	public List<CompaniesResponse> getAll() {
-		List<Company> companies = companyRepository.findAll();
-		List<CompaniesResponse> companiesResponses = new ArrayList<CompaniesResponse>();
-		
-		for (Company company : companies) {
-			CompaniesResponse responseItem = new CompaniesResponse();
-
-			responseItem.setId(company.getId());
-			responseItem.setAddress(company.getAddress());
-			responseItem.setCity(company.getCity());
-			responseItem.setMail(company.getMail());
-			responseItem.setPhone(company.getPhone());
-			responseItem.setContactPerson(company.getContactPerson());
-			responseItem.setContactPersonPhone(company.getContactPersonPhone());
-			responseItem.setWorkplaceId(company.getWorkplace().getId());
-
-			companiesResponses.add(responseItem);
-		}
-		
-		return companiesResponses;
+	public List<CompaniesResponse> getAllByWorkplaceId(int workplaceId) {
+		return this.companyRepository.findAllByWorkplaceId(workplaceId).stream()
+				.map(company -> new CompaniesResponse(company.getId(), company.getAddress(), company.getCity(), company.getMail(),
+						company.getPhone(), company.getContactPerson(), company.getContactPersonPhone(), company.getWorkplace().getId()))
+				.collect(Collectors.toList());
 	}
 
 	@Override
@@ -61,14 +46,6 @@ public class CompanyServiceImpl implements CompanyService {
 		company.setWorkplace(workplace);
 
 		this.companyRepository.save(company);
-	}
-
-	@Override
-	public List<CompaniesResponse> getAllByWorkplaceId(int workplaceId) {
-		return this.companyRepository.findAllByWorkplaceId(workplaceId).stream()
-				.map(company -> new CompaniesResponse(company.getId(), company.getAddress(), company.getCity(), company.getMail(),
-						company.getPhone(), company.getContactPerson(), company.getContactPersonPhone(), company.getWorkplace().getId()))
-				.collect(Collectors.toList());
 	}
 
 	@Override

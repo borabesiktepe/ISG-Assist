@@ -16,30 +16,14 @@ import java.util.stream.Collectors;
 @Service
 public class WorkplaceServiceImpl implements WorkplaceService {
 
-	private WorkplaceRepository workplaceRepository;
-	
 	@Autowired
-	public WorkplaceServiceImpl(WorkplaceRepository workplaceRepository) {
-		this.workplaceRepository = workplaceRepository;
-	}
-	
+	private WorkplaceRepository workplaceRepository;
+
 	@Override
-	public List<WorkplacesResponse> getAll() {
-		List<Workplace> workplaces = workplaceRepository.findAll();
-		List<WorkplacesResponse> workplacesResponses = new ArrayList<WorkplacesResponse>();
-		
-		for (Workplace workplace : workplaces) {
-			WorkplacesResponse responseItem = new WorkplacesResponse();
-
-			responseItem.setId(workplace.getId());
-			responseItem.setName(workplace.getWorkplaceName());
-			responseItem.setDescription(workplace.getWorkplaceDescription());
-			responseItem.setUserId(workplace.getUser().getId());
-
-			workplacesResponses.add(responseItem);
-		}
-		
-		return workplacesResponses;
+	public List<WorkplacesResponse> getAllByUserId(int userId) {
+		return this.workplaceRepository.findAllByUserId(userId).stream()
+				.map(workplace -> new WorkplacesResponse(workplace.getId(), workplace.getWorkplaceName(), workplace.getWorkplaceDescription(), workplace.getUser().getId()))
+				.collect(Collectors.toList());
 	}
 
 	@Override
@@ -53,13 +37,6 @@ public class WorkplaceServiceImpl implements WorkplaceService {
 		}
 		
 		this.workplaceRepository.save(workplace);
-	}
-
-	@Override
-	public List<WorkplacesResponse> getAllByUserId(int userId) {
-		return this.workplaceRepository.findAllByUserId(userId).stream()
-				.map(workplace -> new WorkplacesResponse(workplace.getId(), workplace.getWorkplaceName(), workplace.getWorkplaceDescription(), workplace.getUser().getId()))
-				.collect(Collectors.toList());
 	}
 
 	public void update(Integer workplaceId, CreateWorkplaceRequest createWorkplaceRequest) {

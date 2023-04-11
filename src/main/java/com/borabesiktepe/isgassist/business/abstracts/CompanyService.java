@@ -6,8 +6,7 @@ import com.borabesiktepe.isgassist.business.requests.CreateCompanyRequest;
 import java.util.List;
 
 public interface CompanyService {
-	List<CompaniesResponse> getAll();
-	void add(CreateCompanyRequest createWorkplaceRequest);
 	List<CompaniesResponse> getAllByWorkplaceId(int workplaceId);
+	void add(CreateCompanyRequest createWorkplaceRequest);
     void update(Integer id, CreateCompanyRequest createCompanyRequest);
 }

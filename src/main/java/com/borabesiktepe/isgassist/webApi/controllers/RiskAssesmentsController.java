@@ -38,13 +38,13 @@ public class RiskAssesmentsController {
         this.riskAssesmentService.delete(id);
     }
 
-    @GetMapping("/getRiskTehlikeCount")
-    public List<RiskAssesmentTehlikeCount> getRiskTehlikeCountList(@RequestParam int workplaceId) {
+    @GetMapping("/getGenelTehlikeCount")
+    public List<RiskAssesmentTehlikeCount> getGenelTehlikeCountList(@RequestParam int workplaceId) {
         return riskAssesmentService.genelTehlikeSayisi(workplaceId);
     }
 
-    @GetMapping("/getRiskYerEkipmanCount")
-    public List<RiskAssesmentYerEkipmanCount> getRiskYerEkipmanCountList(@RequestParam int workplaceId) {
+    @GetMapping("/getYerEkipmanTehlikeCount")
+    public List<RiskAssesmentYerEkipmanCount> getYerEkipmanTehlikeCountList(@RequestParam int workplaceId) {
         return riskAssesmentService.yerEkipmanTehlikeSayisi(workplaceId);
     }
 

@@ -9,7 +9,7 @@ let barColors = [
     "#2F4858"
 ];
 
-fetch('http://localhost:8080/api/riskassesments/getRiskTehlikeCount?workplaceId=' + workplaceId)
+fetch('http://localhost:8080/api/riskassesments/getGenelTehlikeCount?workplaceId=' + workplaceId)
     .then(response => response.json())
     .then(data => {
         console.log("Risk Tehlike Count:", data);
@@ -50,7 +50,7 @@ fetch('http://localhost:8080/api/riskassesments/getRiskTehlikeCount?workplaceId=
     })
 
 //En çok tehlike olan Yer/Ekipmanlar
-fetch('http://localhost:8080/api/riskassesments/getRiskYerEkipmanCount?workplaceId=' + workplaceId)
+fetch('http://localhost:8080/api/riskassesments/getYerEkipmanTehlikeCount?workplaceId=' + workplaceId)
     .then(response => response.json())
     .then(data => {
         console.log("Risk Yer/Ekipman Count:", data);

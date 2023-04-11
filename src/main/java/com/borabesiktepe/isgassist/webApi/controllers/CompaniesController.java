@@ -12,15 +12,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/companies")
 public class CompaniesController {
+	@Autowired
 	private CompanyService companyService;
 
 	@Autowired
 	private WorkplaceRepository workplaceRepository;
-
-	@Autowired
-	public CompaniesController(CompanyService companyService) {
-		this.companyService = companyService;
-	}
 	
 	@GetMapping("/getall")
 	public List<CompaniesResponse> getAllByWorkplaceId(@RequestParam int workplaceId) {

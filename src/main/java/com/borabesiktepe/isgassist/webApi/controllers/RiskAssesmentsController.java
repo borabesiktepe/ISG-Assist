@@ -12,15 +12,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/riskassesments")
 public class RiskAssesmentsController {
+    @Autowired
     private RiskAssesmentService riskAssesmentService;
 
     @Autowired
     private RiskAssesmentRepository riskAssesmentRepository;
-
-    @Autowired
-    public RiskAssesmentsController(RiskAssesmentService riskAssesmentService) {
-        this.riskAssesmentService = riskAssesmentService;
-    }
 
     @GetMapping("/getall")
     public List<RiskAssesmentsResponse> getAllByWorkplaceId(@RequestParam int workplaceId) {

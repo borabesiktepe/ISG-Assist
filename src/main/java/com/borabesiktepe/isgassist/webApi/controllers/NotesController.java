@@ -15,12 +15,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/notes")
 public class NotesController {
-	private NoteService noteService;
-
 	@Autowired
-	public NotesController(NoteService noteService) {
-		this.noteService = noteService;
-	}
+	private NoteService noteService;
 	
 	@GetMapping("/getall")
 	public List<NotesResponse> getAll() {

@@ -15,12 +15,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/todos")
 public class ToDosController {
-	private ToDoService toDoService;
-
 	@Autowired
-	public ToDosController(ToDoService toDoService) {
-		this.toDoService = toDoService;
-	}
+	private ToDoService toDoService;
 	
 	@GetMapping("/getall")
 	public List<ToDosResponse> getAll() {

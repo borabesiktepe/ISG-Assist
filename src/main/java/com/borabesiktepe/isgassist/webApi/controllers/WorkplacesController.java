@@ -15,12 +15,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/workplaces")
 public class WorkplacesController {
-	private WorkplaceService workplaceService;
-
 	@Autowired
-	public WorkplacesController(WorkplaceService workplaceService) {
-		this.workplaceService = workplaceService;
-	}
+	private WorkplaceService workplaceService;
 	
 	@GetMapping("/getall")
 	public List<WorkplacesResponse> getAll() {

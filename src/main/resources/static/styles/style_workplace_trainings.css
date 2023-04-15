@@ -203,7 +203,8 @@ input[type=radio] {
     padding: 20px 60px;
     border: none;
     box-shadow: var(--shadow);
-    border-radius: 20px
+    border-radius: 20px;
+    text-transform: uppercase;
 }
 
 .training-bottom button:hover {

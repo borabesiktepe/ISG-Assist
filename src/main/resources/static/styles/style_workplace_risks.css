@@ -158,6 +158,10 @@ nav {
     padding-bottom: 36px
 }
 
+button {
+    text-transform: uppercase;
+}
+
 #scroll-buttons {
     display: none;
     flex-direction: column;

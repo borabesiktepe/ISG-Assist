@@ -101,6 +101,11 @@ nav {
     padding-left: 400px
 }
 
+h2,
+button {
+    text-transform: uppercase;
+}
+
 .workplace-management {
     margin-top: 32px
 }

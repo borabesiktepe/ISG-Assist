@@ -24,6 +24,8 @@ main {
 
 .left {
     display: flex;
+    background: url(https://i.hizliresim.com/gferslr.jpg) no-repeat;
+    background-position: right;
     background-color: var(--primaryColor);
     width: 50%;
     height: 100vh;

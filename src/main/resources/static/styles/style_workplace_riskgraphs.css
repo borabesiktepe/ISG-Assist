@@ -9,6 +9,7 @@
 :root {
     --primaryColor: #FFC40C;
     --primaryColorHover: #F2B700;
+    --headerColor: #2E2E2C;
     --whiteHover: #EEE;
     --red: #FC0707;
     --redHover: #D80000;
@@ -20,8 +21,10 @@ body {
     font-size: 20px
 }
 
-h2 {
-    font-size: 20px
+h1,
+a,
+button {
+    color: var(--headerColor);
 }
 
 nav {
@@ -49,7 +52,6 @@ nav {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 20px;
-    color: black;
     font-weight: bolder
 }
 
@@ -67,7 +69,6 @@ nav {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 20px;
-    color: black;
     font-weight: bolder
 }
 
@@ -82,7 +83,6 @@ nav {
 
 .training-button a {
     text-decoration: none;
-    color: black;
     font-size: 16px;
     font-weight: bold;
     padding: 28px 82px;
@@ -101,7 +101,6 @@ nav {
 
 .risk-button a {
     text-decoration: none;
-    color: black;
     font-size: 16px;
     font-weight: bold;
     padding: 28px 40px;
@@ -120,7 +119,6 @@ nav {
 
 .graph-button a {
     text-decoration: none;
-    color: black;
     font-size: 16px;
     font-weight: bold;
     padding: 28px 85px;

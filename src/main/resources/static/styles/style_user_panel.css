@@ -9,6 +9,7 @@
 :root {
     --primaryColor: #FFC40C;
     --primaryColorHover: #F2B700;
+    --headerColor: #2E2E2C;
     --whiteHover: #EEE;
     --red: #FC0707;
     --redHover: #D80000;
@@ -18,6 +19,13 @@
 body {
     font-family: 'Montserrat', monospace;
     font-size: 20px
+}
+
+h1,
+h2,
+a,
+button {
+    color: var(--headerColor);
 }
 
 nav {
@@ -45,7 +53,6 @@ nav {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 20px;
-    color: black;
     font-weight: bolder
 }
 
@@ -64,7 +71,6 @@ nav {
 
 .create-workplace-button a {
     text-decoration: none;
-    color: black;
     font-size: 16px;
     font-weight: bold;
     padding: 28px 32px;
@@ -134,7 +140,6 @@ button {
 
 .workplace-management a {
     text-decoration: none;
-    color: black
 }
 
 .workplace-management a:hover {
@@ -199,7 +204,6 @@ button {
 .todolist-controls button {
     cursor: pointer;
     text-decoration: none;
-    color: black;
     background-color: var(--primaryColor);
     font-size: 16px;
     font-family: 'Montserrat', monospace;
@@ -257,7 +261,6 @@ button {
 .notes button {
     cursor: pointer;
     text-decoration: none;
-    color: black;
     background-color: var(--primaryColor);
     font-size: 16px;
     font-family: 'Montserrat', monospace;

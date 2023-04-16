@@ -9,17 +9,25 @@
 :root {
     --primaryColor: #FFC40C;
     --primaryColorHover: #F2B700;
+    --headerColor: #2E2E2C;
     --whiteHover: #EEE;
-    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1)
+    --shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
 }
 
 body {
     font-family: 'Montserrat', monospace;
-    font-size: 20px
+    font-size: 20px;
+}
+
+h1,
+h2,
+a,
+button {
+    color: var(--headerColor);
 }
 
 main {
-    display: flex
+    display: flex;
 }
 
 .left {
@@ -29,19 +37,20 @@ main {
     background-color: var(--primaryColor);
     width: 50%;
     height: 100vh;
-    border-radius: 0px 60px 60px 0px
+    border-radius: 0px 60px 60px 0px;
 }
 
 .text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center
+    justify-content: center;
 }
 
 h1 {
     font-weight: bold;
-    margin-bottom: 70px
+    margin-bottom: 70px;
+    color: var(--headerColor);
 }
 
 .description {
@@ -68,7 +77,6 @@ h1 {
 
 .login a {
     text-decoration: none;
-    color: black;
     font-size: 16px;
     font-weight: bold;
     padding: 28px 92px;
@@ -87,7 +95,6 @@ h1 {
 
 .signup a {
     text-decoration: none;
-    color: black;
     font-size: 16px;
     font-weight: bold;
     padding: 28px 68px;

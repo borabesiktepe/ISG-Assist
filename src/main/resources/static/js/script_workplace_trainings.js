@@ -2,10 +2,12 @@ const trainingList = document.querySelector("ul");
 const trainingButton = document.querySelector(".training-bottom button");
 const selectedItem = document.querySelector(".selected-file");
 const pdfFrame = document.querySelector("iframe");
+const message = document.getElementById("message");
 
 const workplaceId = document.getElementById("workplaceId").value;
 
 pdfFrame.style.display = "none";
+message.style.display = "none";
 
 fetch(`http://localhost:8080/api/documents/getall?workplaceId=${workplaceId}`)
     .then(function (response) {
@@ -34,6 +36,7 @@ fetch(`http://localhost:8080/api/documents/getall?workplaceId=${workplaceId}`)
 //Iframe'de listeden seçili dosyayı görüntüle
 trainingButton.addEventListener("click", () => {
     pdfFrame.style.display = "";
+    message.style.display = "";
 
     //Iframe'e Scroll
     document.querySelector("iframe").scrollIntoView({
@@ -46,8 +49,9 @@ trainingButton.addEventListener("click", () => {
 
     for (i = 0; i < element.length; i++) {
         if (element[i].checked) {
-            selectedItem.innerHTML = "Seçilen dosya: " + element[i].value;
+            selectedItem.innerHTML = "Seçilen döküman: " + element[i].value;
             pdfFrame.src = `/files/${element[i].value}`;
+            document.getElementById("document-link").href = `/files/${element[i].value}`;
         }
     }
 })

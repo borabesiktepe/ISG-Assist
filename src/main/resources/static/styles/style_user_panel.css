@@ -139,7 +139,7 @@ button {
 }
 
 .workplace-management a {
-    text-decoration: none;
+    font-weight: bold;
 }
 
 .workplace-management a:hover {

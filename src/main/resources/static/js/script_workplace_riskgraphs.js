@@ -23,8 +23,8 @@ fetch('http://localhost:8080/api/riskassesments/getGenelTehlikeCount?workplaceId
                 data: {
                     labels: xValues,
                     datasets: [{
-                        label: 'Olay Sayısı',
-                        data: yValues,
+                        label: 'Tehlike Sayısı',
+                        data: yValues
                     }]
                 },
                 options: {
@@ -32,6 +32,11 @@ fetch('http://localhost:8080/api/riskassesments/getGenelTehlikeCount?workplaceId
                         title: {
                             display: true,
                             text: 'Tüm Tehlike Sayıları'
+                        },
+                        datalabels: {
+                            font: {
+                                weight: 'bold'
+                            }
                         }
                     }
                 }
@@ -61,8 +66,8 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanTehlikeCount?workpl
                 data: {
                     labels: xValues,
                     datasets: [{
-                        label: 'Olay Sayısı',
-                        data: yValues,
+                        label: 'Tehlike Sayısı',
+                        data: yValues
                     }]
                 },
                 options: {
@@ -70,6 +75,11 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanTehlikeCount?workpl
                         title: {
                             display: true,
                             text: 'Yer/Ekipmanlara Ait Tehlike Sayıları'
+                        },
+                        datalabels: {
+                            font: {
+                                weight: 'bold'
+                            }
                         }
                     }
                 }
@@ -108,6 +118,11 @@ fetch('http://localhost:8080/api/riskassesments/getTehlikeAdiRiskSum?workplaceId
                         title: {
                             display: true,
                             text: 'Tehlikelerin Sahip Olduğu Toplam Riskler'
+                        },
+                        datalabels: {
+                            font: {
+                                weight: 'bold'
+                            }
                         }
                     }
                 }
@@ -138,8 +153,7 @@ fetch('http://localhost:8080/api/riskassesments/getTehlikeAdiSonRiskSum?workplac
                     labels: xValues,
                     datasets: [{
                         label: 'Toplam Son Risk',
-                        data: yValues,
-                        borderWidth: 1
+                        data: yValues
                     }]
                 },
                 options: {
@@ -147,6 +161,11 @@ fetch('http://localhost:8080/api/riskassesments/getTehlikeAdiSonRiskSum?workplac
                         title: {
                             display: true,
                             text: 'Tehlikelerin Sahip Olduğu Toplam Son Riskler'
+                        },
+                        datalabels: {
+                            font: {
+                                weight: 'bold'
+                            }
                         }
                     }
                 }
@@ -178,8 +197,7 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanRiskSum?workplaceId
                     labels: xValues,
                     datasets: [{
                         label: 'Toplam Risk',
-                        data: yValues,
-                        borderWidth: 1
+                        data: yValues
                     }]
                 },
                 options: {
@@ -187,6 +205,11 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanRiskSum?workplaceId
                         title: {
                             display: true,
                             text: 'Yer/Ekipmanların Sahip Olduğu Toplam Riskler'
+                        },
+                        datalabels: {
+                            font: {
+                                weight: 'bold'
+                            }
                         }
                     }
                 }
@@ -217,8 +240,7 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanSonRiskSum?workplac
                     labels: xValues,
                     datasets: [{
                         label: 'Toplam Son Risk',
-                        data: yValues,
-
+                        data: yValues
                     }]
                 },
                 options: {
@@ -226,6 +248,11 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanSonRiskSum?workplac
                         title: {
                             display: true,
                             text: 'Yer/Ekipmanların Sahip Olduğu Toplam Son Riskler'
+                        },
+                        datalabels: {
+                            font: {
+                                weight: 'bold'
+                            }
                         }
                     }
                 }

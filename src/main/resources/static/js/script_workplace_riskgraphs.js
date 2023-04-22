@@ -1,13 +1,6 @@
 const workplaceId = document.getElementById("workplaceId").value;
 
-let barColors = [
-    "#FFC40C",
-    "#96BD33",
-    "#34A761",
-    "#008A7B",
-    "#006978",
-    "#2F4858"
-];
+Chart.register(ChartDataLabels);
 
 fetch('http://localhost:8080/api/riskassesments/getGenelTehlikeCount?workplaceId=' + workplaceId)
     .then(response => response.json())
@@ -23,26 +16,23 @@ fetch('http://localhost:8080/api/riskassesments/getGenelTehlikeCount?workplaceId
                 yValues.push(data[i].olaySayisi);
             }
 
-            for (i = 0; i < xValues.length; i++) {
-                const R = Math.floor(Math.random() * 255);
-                const G = Math.floor(Math.random() * 255);
-                const B = Math.floor(Math.random() * 255);
-                barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
-            }
+            const ctx = document.getElementById('chart-tehlike-sayilari');
 
-            new Chart("chart-tehlike-sayilari", {
-                type: "doughnut",
+            new Chart(ctx, {
+                type: 'doughnut',
                 data: {
                     labels: xValues,
                     datasets: [{
-                        backgroundColor: barColors,
-                        data: yValues
+                        label: 'Olay Sayısı',
+                        data: yValues,
                     }]
                 },
                 options: {
-                    title: {
-                        display: true,
-                        text: "Tüm Tehlike Sayıları"
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Tüm Tehlike Sayıları'
+                        }
                     }
                 }
             });
@@ -64,26 +54,23 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanTehlikeCount?workpl
                 yValues.push(data[i].olaySayisi);
             }
 
-            for (i = 0; i < xValues.length; i++) {
-                const R = Math.floor(Math.random() * 255);
-                const G = Math.floor(Math.random() * 255);
-                const B = Math.floor(Math.random() * 255);
-                barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
-            }
+            const ctx = document.getElementById('chart-tehlike-sayilari-yerekipman');
 
-            new Chart("chart-tehlike-sayilari-yerekipman", {
-                type: "doughnut",
+            new Chart(ctx, {
+                type: 'doughnut',
                 data: {
                     labels: xValues,
                     datasets: [{
-                        backgroundColor: barColors,
-                        data: yValues
+                        label: 'Olay Sayısı',
+                        data: yValues,
                     }]
                 },
                 options: {
-                    title: {
-                        display: true,
-                        text: "Yer/Ekipmanlara Ait Tehlike Sayıları"
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Yer/Ekipmanlara Ait Tehlike Sayıları'
+                        }
                     }
                 }
             });
@@ -105,26 +92,23 @@ fetch('http://localhost:8080/api/riskassesments/getTehlikeAdiRiskSum?workplaceId
                 yValues.push(data[i].toplamRisk);
             }
 
-            for (i = 0; i < xValues.length; i++) {
-                const R = Math.floor(Math.random() * 255);
-                const G = Math.floor(Math.random() * 255);
-                const B = Math.floor(Math.random() * 255);
-                barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
-            }
+            const ctx = document.getElementById('chart-tehlike-adi-toplamRisk');
 
-            new Chart("chart-tehlike-adi-toplamRisk", {
-                type: "doughnut",
+            new Chart(ctx, {
+                type: 'doughnut',
                 data: {
                     labels: xValues,
                     datasets: [{
-                        backgroundColor: barColors,
+                        label: 'Toplam Risk',
                         data: yValues
                     }]
                 },
                 options: {
-                    title: {
-                        display: true,
-                        text: "Tehlikelerin Sahip Olduğu Toplam Riskler"
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Tehlikelerin Sahip Olduğu Toplam Riskler'
+                        }
                     }
                 }
             });
@@ -146,26 +130,24 @@ fetch('http://localhost:8080/api/riskassesments/getTehlikeAdiSonRiskSum?workplac
                 yValues.push(data[i].toplamSonRisk);
             }
 
-            for (i = 0; i < xValues.length; i++) {
-                const R = Math.floor(Math.random() * 255);
-                const G = Math.floor(Math.random() * 255);
-                const B = Math.floor(Math.random() * 255);
-                barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
-            }
+            const ctx = document.getElementById('chart-tehlike-adi-toplamSonRisk');
 
-            new Chart("chart-tehlike-adi-toplamSonRisk", {
-                type: "doughnut",
+            new Chart(ctx, {
+                type: 'doughnut',
                 data: {
                     labels: xValues,
                     datasets: [{
-                        backgroundColor: barColors,
-                        data: yValues
+                        label: 'Toplam Son Risk',
+                        data: yValues,
+                        borderWidth: 1
                     }]
                 },
                 options: {
-                    title: {
-                        display: true,
-                        text: "Tehlikelerin Sahip Olduğu Toplam Son Riskler"
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Tehlikelerin Sahip Olduğu Toplam Son Riskler'
+                        }
                     }
                 }
             });
@@ -188,26 +170,24 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanRiskSum?workplaceId
                 yValues.push(data[i].toplamRisk);
             }
 
-            for (i = 0; i < xValues.length; i++) {
-                const R = Math.floor(Math.random() * 255);
-                const G = Math.floor(Math.random() * 255);
-                const B = Math.floor(Math.random() * 255);
-                barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
-            }
+            const ctx = document.getElementById('chart-yer-ekipman-toplamRisk');
 
-            new Chart("chart-yer-ekipman-toplamRisk", {
-                type: "doughnut",
+            new Chart(ctx, {
+                type: 'doughnut',
                 data: {
                     labels: xValues,
                     datasets: [{
-                        backgroundColor: barColors,
-                        data: yValues
+                        label: 'Toplam Risk',
+                        data: yValues,
+                        borderWidth: 1
                     }]
                 },
                 options: {
-                    title: {
-                        display: true,
-                        text: "Yer/Ekipmanların Sahip Olduğu Toplam Riskler"
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Yer/Ekipmanların Sahip Olduğu Toplam Riskler'
+                        }
                     }
                 }
             });
@@ -229,26 +209,24 @@ fetch('http://localhost:8080/api/riskassesments/getYerEkipmanSonRiskSum?workplac
                 yValues.push(data[i].toplamRisk);
             }
 
-            for (i = 0; i < xValues.length; i++) {
-                const R = Math.floor(Math.random() * 255);
-                const G = Math.floor(Math.random() * 255);
-                const B = Math.floor(Math.random() * 255);
-                barColors.push(`rgba(${R}, ${G}, ${B}, 1)`);
-            }
+            const ctx = document.getElementById('chart-yer-ekipman-toplamSonRisk');
 
-            new Chart("chart-yer-ekipman-toplamSonRisk", {
-                type: "doughnut",
+            new Chart(ctx, {
+                type: 'doughnut',
                 data: {
                     labels: xValues,
                     datasets: [{
-                        backgroundColor: barColors,
-                        data: yValues
+                        label: 'Toplam Son Risk',
+                        data: yValues,
+
                     }]
                 },
                 options: {
-                    title: {
-                        display: true,
-                        text: "Yer/Ekipmanların Sahip Olduğu Toplam Son Riskler"
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Yer/Ekipmanların Sahip Olduğu Toplam Son Riskler'
+                        }
                     }
                 }
             });

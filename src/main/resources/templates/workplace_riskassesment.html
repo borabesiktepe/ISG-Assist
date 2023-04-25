@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-  <link th:href="@{/styles/style_workplace_risks.css}" rel="stylesheet" />
+  <link th:href="@{/styles/style_workplace_riskassesment.css}" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
@@ -132,7 +132,8 @@
         </tbody>
       </table>
 
-      <h2 class="input-desc">Tabloya veri ekleyin</h2>
+      <h2 class="input-desc">Tabloya veri ekleyin veya düzenleyin</h2>
+      <p id="input-info">Tablodan düzenlemek istediğiniz satıra tıklayabilirsiniz.</p>
       <div class="table-inputs">
         <input type="hidden" id="workplaceId" th:value="${workplace.id}">
         <input type="hidden" id="riskId" value="">

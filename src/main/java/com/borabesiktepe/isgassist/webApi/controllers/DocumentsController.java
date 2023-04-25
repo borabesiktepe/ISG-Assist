@@ -3,7 +3,10 @@ package com.borabesiktepe.isgassist.webApi.controllers;
 import com.borabesiktepe.isgassist.business.abstracts.DocumentService;
 import com.borabesiktepe.isgassist.business.requests.CreateDocumentRequest;
 import com.borabesiktepe.isgassist.business.responses.DocumentResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,9 +30,8 @@ public class DocumentsController {
     public String uploadFile(@PathVariable int id, Model model, @RequestParam("file") MultipartFile file) {
 
         try {
-            //TODO absolutePath'i classPath üzerinden resource'un altında ki files'tan alacak şekilde aldır.
-
-            String absolutePath = "C:\\PROJECT DEMOS\\ISG-Assist\\src\\main\\resources\\static\\files\\";
+            Resource resource = new ClassPathResource("static/files/");
+            String absolutePath = resource.getFile().getAbsolutePath();
 
             StringBuilder fileNames = new StringBuilder();
             Path fileNameAndPath = Paths.get(absolutePath, file.getOriginalFilename());

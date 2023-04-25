@@ -5,7 +5,7 @@ Chart.register(ChartDataLabels);
 fetch('http://localhost:8080/api/riskassesments/getGenelTehlikeCount?workplaceId=' + workplaceId)
     .then(response => response.json())
     .then(data => {
-        console.log("Risk Tehlike Count:", data);
+        console.log("Tehlike Count:", data);
 
         if (data.length > 0) {
             xValues = [];
@@ -41,6 +41,11 @@ fetch('http://localhost:8080/api/riskassesments/getGenelTehlikeCount?workplaceId
                     }
                 }
             });
+        }
+
+        else {
+            document.getElementById("info").innerHTML = "Risk değerlendirme tablonuz boş.";
+            document.querySelector(".graphs").style.display = "none";
         }
     })
 

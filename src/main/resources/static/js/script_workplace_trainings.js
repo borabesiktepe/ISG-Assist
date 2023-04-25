@@ -28,7 +28,9 @@ fetch(`http://localhost:8080/api/documents/getall?workplaceId=${workplaceId}`)
             });
         }
         else {
-            trainingList.innerHTML = "<li>Döküman bulunamadı.</li>"
+            trainingList.innerHTML = "<li>Döküman bulunamadı.</li>";
+            trainingButton.disabled = true;
+            trainingButton.style.backgroundColor = "white";
         }
     })
     .catch(error => console.log(error));

@@ -221,6 +221,23 @@ button {
     margin-top: 20px
 }
 
+.training-controls input[type=file] {
+    cursor: pointer;
+    text-decoration: none;
+    background-color: var(--primaryColor);
+    font-size: 16px;
+    font-family: 'Montserrat', monospace;
+    font-weight: bold;
+    box-shadow: var(--shadow);
+    border: none;
+    border-radius: 20px;
+    padding: 18px 35px;
+}
+
+.training-controls input[type=file]:hover {
+    background-color: var(--primaryColorHover)
+}
+
 .training-controls button[type=submit] {
     cursor: pointer;
     text-decoration: none;
@@ -255,12 +272,6 @@ button {
 
 .training-controls #clear:hover {
     background-color: var(--whiteHover)
-}
-
-.training-controls input[type=file] {
-    text-decoration: none;
-    color: black;
-    font-size: 16px
 }
 
 .middle-menu {

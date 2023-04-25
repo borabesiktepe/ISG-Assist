@@ -44,7 +44,7 @@ fetch('http://localhost:8080/api/riskassesments/getGenelTehlikeCount?workplaceId
         }
 
         else {
-            document.getElementById("info").innerHTML = "Risk değerlendirme tablonuz boş.";
+            document.getElementById("info").innerHTML = "Risk değerlendirme tablonuz boş. Grafikleri görüntülemek için tabloya veri ekleyin.";
             document.querySelector(".graphs").style.display = "none";
         }
     })

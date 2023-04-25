@@ -39,4 +39,9 @@ public class DocumentServiceImpl implements DocumentService {
 
 		this.documentRepository.save(document);
 	}
+
+	@Override
+	public void clear(int workplaceId) {
+		documentRepository.findAllByWorkplaceId(workplaceId).forEach(document -> documentRepository.delete(document));
+	}
 }

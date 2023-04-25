@@ -3,6 +3,7 @@ package com.borabesiktepe.isgassist.webApi.controllers;
 import com.borabesiktepe.isgassist.business.abstracts.DocumentService;
 import com.borabesiktepe.isgassist.business.requests.CreateDocumentRequest;
 import com.borabesiktepe.isgassist.business.responses.DocumentResponse;
+import com.borabesiktepe.isgassist.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,5 +25,10 @@ public class DocumentsRestController {
     @GetMapping("/getall")
     public List<DocumentResponse> getAllByWorkplaceId(@RequestParam int workplaceId) {
         return documentService.getAllByWorkplaceId(workplaceId);
+    }
+
+    @DeleteMapping("/delete")
+    public void clear(@RequestParam int workplaceId) {
+        documentService.clear(workplaceId);
     }
 }

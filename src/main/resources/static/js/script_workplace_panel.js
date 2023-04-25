@@ -204,3 +204,20 @@ fetch(`http://localhost:8080/api/documents/getall?workplaceId=${workplaceId}`)
         }
     })
     .catch(error => console.log(error));
+
+//Documents tablosundan çalışma alanına ait tüm verileri temizle
+const clearDocuments = document.getElementById("clear");
+
+clearDocuments.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if(confirm("Tüm dökümanları temizlemek istediğinizden emin misiniz?")) {
+        fetch(`http://localhost:8080/api/documents/delete/?workplaceId=${workplaceId}`, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(data => console.log(data))
+
+        location.reload();
+    }
+});

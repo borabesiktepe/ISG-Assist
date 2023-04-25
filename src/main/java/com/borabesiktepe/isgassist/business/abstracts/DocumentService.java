@@ -8,4 +8,5 @@ import java.util.List;
 public interface DocumentService {
 	List<DocumentResponse> getAllByWorkplaceId(int workplaceId);
 	void add(CreateDocumentRequest createDocumentRequest);
+	void clear (int workplaceId);
 }

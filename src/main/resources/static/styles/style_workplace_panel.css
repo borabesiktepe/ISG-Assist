@@ -238,6 +238,25 @@ button {
     background-color: var(--primaryColorHover)
 }
 
+.training-controls #clear {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--red);
+    background-color: #FFF;
+    font-size: 16px;
+    font-family: 'Montserrat', monospace;
+    font-weight: bold;
+    box-shadow: var(--shadow);
+    border: none;
+    border-radius: 20px;
+    padding: 20px 30px;
+    width: min-content
+}
+
+.training-controls #clear:hover {
+    background-color: var(--whiteHover)
+}
+
 .training-controls input[type=file] {
     text-decoration: none;
     color: black;

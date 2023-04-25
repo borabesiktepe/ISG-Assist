@@ -248,7 +248,8 @@ button {
     box-shadow: var(--shadow);
     border: none;
     border-radius: 20px;
-    padding: 20px 35px
+    padding: 20px 35px;
+    margin-right: 20px;
 }
 
 .training-controls button[type=submit]:hover {

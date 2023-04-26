@@ -151,6 +151,28 @@ deleteRisks.addEventListener("click", () => {
         location.reload();
 })
 
+//Tabloda seçilen satırı iptal etme
+const cancelSelection = document.getElementById("cancel");
+
+cancelSelection.addEventListener("click", () => {
+        tehlikeAdi.value = "";
+        yerEkipman.value = "";
+        mevcutTehlikeler.value = "";
+        olusacakRiskler.value = "";
+        mevcutOnlemler.value = "";
+        maruzKalanlar.value = "";
+        siddet.value = "";
+        olasilik.value = "";
+        alinacakTedbirler.value = "";
+        sSiddet.value = "";
+        sOlasilik.value = "";
+        selectedRiskId = "";
+
+    document.getElementById("table-buttons").style.display = "none";
+    document.getElementById("message").style.display = "none";
+    document.getElementById("add").style.display = "";
+})
+
 
 //Görüntülenen tabloda tıklanan satırın verilerini input'lara dizme
 function printToInputs(e) {
@@ -171,6 +193,7 @@ function printToInputs(e) {
     sOlasilik.value = tds[12].innerHTML.trim();
     selectedRiskId = tds[14].innerHTML.trim();
 
+    document.getElementById("message").style.display = "";
     document.getElementById("message").innerHTML = "Seçilen sıra numarası: " + tds[0].innerHTML.trim();
 
     console.log("Seçili Risk ID: " + selectedRiskId);

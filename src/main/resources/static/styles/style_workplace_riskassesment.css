@@ -324,6 +324,14 @@ button:hover {
     background-color: var(--redHover)
 }
 
+#cancel {
+    background-color: var(--white);
+}
+
+#cancel:hover {
+    background-color: var(--whiteHover);
+}
+
 footer {
     position: fixed;
     bottom: 0px;

@@ -15,7 +15,7 @@
     <nav>
     <div class="nav-buttons">
         <div class="user-button">
-            <a th:href="@{/user_panel}" alt="Ana Sayfa">
+            <a th:href="@{/user_panel}" alt="Kullanıcı Paneli" title="Kullanıcı Paneli">
                 <i class="fa-solid fa-helmet-safety"></i>
                 [[${#request.userPrincipal.principal.fullName}]]
                 <i class="fa-solid fa-angle-right"></i>
@@ -23,7 +23,7 @@
         </div>
 
         <div class="create-workplace-button">
-            <a th:href="@{/create_workplace}">Çalışma Alanı Oluştur</a>
+            <a th:href="@{/create_workplace}" title="Bir şirket için özel çalışma alanı oluşturun.">Çalışma Alanı Oluştur</a>
         </div>
 
         <form th:action="@{/logout}" method="post">

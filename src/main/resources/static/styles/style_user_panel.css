@@ -105,7 +105,8 @@ nav {
 
 .container {
     padding-top: 36px;
-    padding-left: 400px
+    padding-left: 400px;
+    padding-bottom: 36px;
 }
 
 h2,

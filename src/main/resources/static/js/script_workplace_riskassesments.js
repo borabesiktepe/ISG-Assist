@@ -171,7 +171,7 @@ function printToInputs(e) {
     sOlasilik.value = tds[12].innerHTML.trim();
     selectedRiskId = tds[14].innerHTML.trim();
 
-    document.getElementById("message").innerHTML = "Seçilen sıra no: " + tds[0].innerHTML.trim();
+    document.getElementById("message").innerHTML = "Seçilen sıra numarası: " + tds[0].innerHTML.trim();
 
     console.log("Seçili Risk ID: " + selectedRiskId);
 }

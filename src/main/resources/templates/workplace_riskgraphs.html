@@ -25,21 +25,21 @@
         </div>
 
         <div class="workplace-button">
-            <a th:href="@{/workplace_panel/} + ${workplace.id}">[[${workplace.workplaceName}]]
+            <a th:href="@{/workplace_panel/} + ${workplace.id}" title="Çalışma Alanı Paneli">[[${workplace.workplaceName}]]
                 <i class="fa-solid fa-angle-right"></i>
             </a>
         </div>
 
         <div class="risk-button">
-            <a th:href="@{/riskassesment/} + ${workplace.id}">Risk Değerlendirme</a>
+            <a th:href="@{/riskassesment/} + ${workplace.id}" title="Risk Değerlendirme Tablosunu Yönetin">Risk Değerlendirme</a>
         </div>
 
         <div class="graph-button">
-            <a th:href="@{/riskgraphs/} + ${workplace.id}">Grafikler</a>
+            <a th:href="@{/riskgraphs/} + ${workplace.id}" title="Risk Değerlendirme Tablosu Grafiklerini İnceleyin">Grafikler</a>
         </div>
 
         <div class="training-button">
-            <a th:href="@{/trainings/} + ${workplace.id}">Eğitimler</a>
+            <a th:href="@{/trainings/} + ${workplace.id}" title="Eğitim Dökümanlarınızı Sunun">Eğitimler</a>
         </div>
 
         <form th:action="@{/logout}" method="post">

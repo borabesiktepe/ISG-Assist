@@ -103,7 +103,7 @@ formRisk.addEventListener('submit', function (e) {
 //Tabloda seçilen satırın verilerini Risk Assesment tablosunda güncelle
 const updateRisks = document.getElementById("update");
 
-updateRisks.addEventListener("click", () => {
+updateRisks.addEventListener("click", (e) => {
     e.preventDefault();
 
     let risk = siddet.value * olasilik.value;

@@ -104,10 +104,19 @@ formRisk.addEventListener('submit', function (e) {
 const updateRisks = document.getElementById("update");
 
 updateRisks.addEventListener("click", () => {
+    e.preventDefault();
+
     let risk = siddet.value * olasilik.value;
     let sRisk = sSiddet.value * sOlasilik.value;
-    let today = new Date();
-    let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+
+    const dateOptions = {
+      timeZone: 'Europe/Istanbul',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    };
+
+    const date = new Date().toLocaleDateString('tr-TR', dateOptions);
 
     fetch('http://localhost:8080/api/riskassesments/update/' + selectedRiskId, {
         method: 'PUT',

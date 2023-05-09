@@ -117,7 +117,7 @@ clearToDoBtn.addEventListener('click', (e) => {
     location.reload();
 });
 
-//Notes tablosuna veri ekle
+//Notes tablosuna veri ekle/güncelle
 const formNotes = document.getElementById("notes-form");
 
 formNotes.addEventListener('submit', function (e) {

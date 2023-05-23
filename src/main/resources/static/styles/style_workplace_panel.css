@@ -357,6 +357,34 @@ label {
     background-color: var(--primaryColorHover)
 }
 
+#workplace-delete {
+    margin-top: 48px;
+}
+
+#workplace-delete p {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 28px
+}
+
+#workplace-delete button {
+    cursor: pointer;
+    background-color: var(--red);
+    color: #FFF;
+    font-size: 16px;
+    font-family: 'Montserrat', monospace;
+    font-weight: bold;
+    box-shadow: var(--shadow);
+    border: none;
+    border-radius: 20px;
+    padding: 20px 30px;
+}
+
+#workplace-delete button:hover {
+    background-color: var(--redHover);
+}
+
 footer {
     position: fixed;
     bottom: 0px;

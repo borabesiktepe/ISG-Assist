@@ -221,3 +221,16 @@ clearDocuments.addEventListener('click', (e) => {
         location.reload();
     }
 });
+
+//Çalışma Alanı Silme
+const deleteWorkplace = document.getElementById("deleteWorkplace");
+
+deleteWorkplace.addEventListener("click", () => {
+        fetch('http://localhost:8080/api/workplaces/delete/' + workplaceId, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(data => console.log(data))
+
+
+})

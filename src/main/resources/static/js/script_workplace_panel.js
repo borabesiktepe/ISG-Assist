@@ -225,12 +225,15 @@ clearDocuments.addEventListener('click', (e) => {
 //Çalışma Alanı Silme
 const deleteWorkplace = document.getElementById("deleteWorkplace");
 
-deleteWorkplace.addEventListener("click", () => {
+deleteWorkplace.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if(confirm("Çalışma alanını kalıcı olarak silmek istediğinizden emin misiniz?")) {
         fetch('http://localhost:8080/api/workplaces/delete/' + workplaceId, {
             method: 'DELETE'
         })
             .then(response => response.json())
             .then(data => console.log(data))
-
+    }
 
 })
